@@ -558,13 +558,13 @@ footer a{color:var(--tx2);text-decoration:none;}
     <div class="intro-hero">
       <div class="intro-hero-eyebrow" data-i18n="intro_eyebrow">Observatoire · transitions-ia.ch · Mars 2026</div>
       <div class="intro-hero-title" data-i18n="intro_hero_title">L'IA générative face aux métiers suisses : comprendre pour agir</div>
-      <div class="intro-hero-sub" data-i18n-html="intro_hero_sub">Ce tableau de bord mesure l'<b>exposition des tâches</b> à l'IA générative pour 67 professions suisses, en croisant données officielles OFS, réglementation helvétique et recherches académiques de niveau T1. Il ne prédit pas la disparition d'emplois · il cartographie les <b>zones de transformation</b> pour orienter formation, reconversion et stratégie RH.</div>
+      <div class="intro-hero-sub" data-i18n-html="intro_hero_sub">Ce tableau de bord mesure l'<b>exposition des tâches</b> à l'IA générative pour 84 professions suisses, en croisant données officielles OFS, réglementation helvétique et recherches académiques de niveau T1. Il ne prédit pas la disparition d'emplois · il cartographie les <b>zones de transformation</b> pour orienter formation, reconversion et stratégie RH.</div>
       <div class="intro-hero-badges">
-        <span class="intro-hero-badge">67 métiers NP 2010</span>
+        <span class="intro-hero-badge" data-i18n="badge_np2010">84 métiers NP 2010</span>
         <span class="intro-hero-badge">ESPA 2024 · OFS</span>
         <span class="intro-hero-badge">ESS 2022 · OFS</span>
-        <span class="intro-hero-badge">Scoring multi-sources T1–T4</span>
-        <span class="intro-hero-badge">Facteur réglementaire CH</span>
+        <span class="intro-hero-badge" data-i18n="badge_scoring">Scoring multi-sources T1–T4</span>
+        <span class="intro-hero-badge" data-i18n="badge_reg">Facteur réglementaire CH</span>
         <span class="intro-hero-badge">FR · DE · IT</span>
       </div>
     </div>
@@ -650,7 +650,7 @@ footer a{color:var(--tx2);text-decoration:none;}
 
     <!-- AVERTISSEMENT -->
     <div class="intro-warning">
-      <b>⚠ Limites importantes :</b> Ce snapshot date de mars 2026. Les capacités des modèles évoluent rapidement · les scores sont à réévaluer tous les 6 mois. Certaines études de référence sont américaines ou européennes ; l'extrapolation au marché suisse peut introduire un biais. Exposition ≠ suppression d'emploi.
+      <b>⚠ Limites importantes :</b> Ce snapshot date de mars 2026. Les capacités des modèles évoluent rapidement · les scores sont à réévaluer tous les 6 mois. Certaines études de référence sont américaines ou européennes ; l'extrapolation au marché suisse peut introduire un biais. <span data-i18n="meth_limlbl_1">Exposition ≠ suppression</span> d'emploi.
     </div>
 
     <!-- AUTEUR -->
@@ -814,44 +814,44 @@ footer a{color:var(--tx2);text-decoration:none;}
       <table class="meth-table">
         <thead><tr><th data-i18n="th_source">Source</th><th data-i18n="th_contenu">Contenu</th><th data-i18n="th_millesime">Millésime</th><th data-i18n="th_licence">Licence</th></tr></thead>
         <tbody>
-          <tr><td><a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/catalogues-banques-donnees.html" target="_blank" style="color:var(--acc2)">NP 2010 · OFS</a></td><td>Nomenclature suisse des professions (NP 2010) : 394 groupes de professions compatibles ISCO-08</td><td>2010 (en vigueur)</td><td>Open Government Data OFS</td></tr>
-          <tr><td><a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/travail-remuneration/enquetes/espa.html" target="_blank" style="color:var(--acc2)">ESPA 2024 · OFS</a></td><td>Enquête suisse sur la population active : effectifs réels par profession (NP 2010) et secteur économique</td><td>2024 (T4)</td><td>Open Government Data OFS</td></tr>
-          <tr><td><a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/travail-remuneration/enquetes/lse.html" target="_blank" style="color:var(--acc2)">ESS 2022 · OFS</a></td><td>Enquête suisse sur la structure des salaires : salaire médian mensuel (CHF) par profession et secteur</td><td>2022</td><td>Open Government Data OFS</td></tr>
-          <tr><td><a href="https://www.seco.admin.ch/seco/fr/home/Arbeit/Arbeitsmarkt/Observatoire_du_marche_du_travail.html" target="_blank" style="color:var(--acc2)">SECO · Observatoire marché du travail</a></td><td>Besoins en main-d'œuvre, taux de tension et pénuries par secteur économique suisse</td><td>2024</td><td>Open Government Data</td></tr>
-          <tr><td>ISCO-08 · BIT / OFS</td><td>Classification internationale type des professions (4 chiffres), base NP 2010</td><td>2008 (révisé 2012)</td><td>BIT Genève / OFS</td></tr>
+          <tr><td><a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/catalogues-banques-donnees.html" target="_blank" style="color:var(--acc2)">NP 2010 · OFS</a></td><td><span data-i18n="meth_src_np2010">Nomenclature suisse des professions (NP 2010) : 394 groupes de professions compatibles ISCO-08</span></td><td><span data-i18n="meth_yr_np2010">2010 (en vigueur)</span></td><td><span data-i18n="meth_lic_ofs"><span data-i18n="meth_lic_ogd">Open Government Data</span> OFS</span></td></tr>
+          <tr><td><a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/travail-remuneration/enquetes/espa.html" target="_blank" style="color:var(--acc2)">ESPA 2024 · OFS</a></td><td><span data-i18n="meth_src_espa">Enquête suisse sur la population active : effectifs réels par profession (NP 2010) et secteur économique</span></td><td>2024 (T4)</td><td>Open Government Data OFS</td></tr>
+          <tr><td><a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/travail-remuneration/enquetes/lse.html" target="_blank" style="color:var(--acc2)">ESS 2022 · OFS</a></td><td><span data-i18n="meth_src_ess">Enquête suisse sur la structure des salaires : salaire médian mensuel (CHF) par profession et secteur</span></td><td>2022</td><td>Open Government Data OFS</td></tr>
+          <tr><td><a href="https://www.seco.admin.ch/seco/fr/home/Arbeit/Arbeitsmarkt/Observatoire_du_marche_du_travail.html" target="_blank" style="color:var(--acc2)">SECO · Observatoire marché du travail</a></td><td><span data-i18n="meth_src_seco">Besoins en main-d'œuvre, taux de tension et pénuries par secteur économique suisse</span></td><td>2024</td><td>Open Government Data</td></tr>
+          <tr><td>ISCO-08 · BIT / OFS</td><td><span data-i18n="meth_src_isco">Classification internationale type des professions (4 chiffres), base NP 2010</span></td><td><span data-i18n="meth_yr_isco">2008 (révisé 2012)</span></td><td><span data-i18n="meth_lic_ilo">BIT Genève / OFS</span></td></tr>
           <tr>
             <td><a href="https://www.journals.uchicago.edu/doi/10.1086/718327" target="_blank" style="color:var(--acc2)">Acemoglu, Autor, Hazell &amp; Restrepo · J. Labor Econ. 2022</a></td>
-            <td>Données vacances d'emploi US 2010-2018 (near-universe). Résultat : les entreprises exposées à l'IA réduisent certains recrutements mais <strong>aucun impact agrégé détectable</strong> sur l'emploi ou les salaires au niveau des occupations ou industries.</td>
+            <td><span data-i18n-html="meth_study_acemoglu">Données vacances d'emploi US 2010-2018 (near-universe). Résultat : les entreprises exposées à l'IA réduisent certains recrutements mais <strong>aucun impact agrégé détectable</strong> sur l'emploi ou les salaires au niveau des occupations ou industries.</span></td>
             <td>2022 · Journal of Labor Economics (peer-reviewed)</td>
             <td>T1</td>
           </tr>
           <tr>
             <td><a href="https://academic.oup.com/economicpolicy/article/40/121/71/7902396" target="_blank" style="color:var(--acc2)">Albanesi, Dias da Silva, Jimeno et al. · Economic Policy 2025</a></td>
-            <td>Données zone euro 2011-2019. Résultat clé : <strong>les occupations plus exposées à l'IA ont vu leur part d'emploi augmenter</strong>, suggérant une complémentarité plutôt qu'une substitution sur cette période.</td>
+            <td><span data-i18n-html="meth_study_albanesi">Données zone euro 2011-2019. Résultat clé : <strong>les occupations plus exposées à l'IA ont vu leur part d'emploi augmenter</strong>, suggérant une complémentarité plutôt qu'une substitution sur cette période.</span></td>
             <td>2025 · Economic Policy (peer-reviewed)</td>
             <td>T1</td>
           </tr>
           <tr>
             <td><a href="https://cepr.org/voxeu/columns/how-ai-affecting-productivity-and-jobs-europe" target="_blank" style="color:var(--acc2)">Aldasoro et al. · BIS/CEPR 2026</a></td>
-            <td>Première preuve causale sur 12 000+ firmes européennes (panel). Résultat : <strong>aucune réduction d'emploi à court terme</strong> liée à l'adoption de l'IA, avec des gains de productivité significatifs (+10% à +65% selon les tâches). Capital deepening, pas substitution.</td>
+            <td><span data-i18n-html="meth_study_bis">Première preuve causale sur 12 000+ firmes européennes (panel). Résultat : <strong>aucune réduction d'emploi à court terme</strong> liée à l'adoption de l'IA, avec des gains de productivité significatifs (+10% à +65% selon les tâches). Capital deepening, pas substitution.</span></td>
             <td>2026 · BIS Working Paper (forthcoming)</td>
             <td>T1</td>
           </tr>
           <tr>
             <td><a href="https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure" target="_blank" style="color:var(--acc2)">Gmyrek, Berg et al. · ILO Working Paper 140 · OIT/NASK 2025</a></td>
-            <td>Indice mondial révisé d'exposition à la GenAI. 29 753 tâches (classification polonaise 6 chiffres) · 52 558 points de données humaines · validation Delphi internationale. <strong>4 gradients d'exposition progressifs</strong> (ISCO-08 4 chiffres). Gradient 4 : analystes financiers (0,62), secrétaires (0,58-0,64), développeurs web (0,60). Gradient 3 (en hausse vs 2023) : traducteurs (0,59), software developers (0,53), conseillères bancaires (0,58). Professions non exposées : médecins généralistes (0,29), infirmiers (0,25), enseignants primaire (0,26). Score moyen mondial 0,29 · <strong>transformation plutôt que suppression</strong> dans la majorité des cas.</td>
+            <td><span data-i18n-html="meth_study_ilo">Indice mondial révisé d'exposition à la GenAI. 29 753 tâches (classification polonaise 6 chiffres) · 52 558 points de données humaines · validation Delphi internationale. <strong>4 gradients d'exposition progressifs</strong> (ISCO-08 4 chiffres). Gradient 4 : analystes financiers (0,62), secrétaires (0,58-0,64), développeurs web (0,60). Gradient 3 (en hausse vs 2023) : traducteurs (0,59), software developers (0,53), conseillères bancaires (0,58). Professions non exposées : médecins généralistes (0,29), infirmiers (0,25), enseignants primaire (0,26). Score moyen mondial 0,29 · <strong>transformation plutôt que suppression</strong> dans la majorité des cas.</span></td>
             <td>Mai 2025 · ILO Working Paper 140 (peer-reviewed)<br><a href="https://www.ilo.org/observatory-ai-and-work-digital-economy" target="_blank" style="color:var(--acc2);font-size:11px">→ Observatoire OIT IA & Travail</a></td>
             <td>T1</td>
           </tr>
           <tr>
             <td><a href="https://www.bruegel.org/working-paper/exposure-generative-artificial-intelligence-european-labour-market" target="_blank" style="color:var(--acc2)">Nurski &amp; Ruer · Bruegel 2024</a></td>
-            <td>Application de deux indices d'exposition GenAI à l'Enquête européenne sur les forces de travail (EFT). Femmes, diplômés et jeunes plus exposés en Europe. L'analyse par tâche est plus robuste que l'analyse par capacité pour évaluer l'impact réel.</td>
+            <td><span data-i18n-html="meth_study_nurski">Application de deux indices d'exposition GenAI à l'Enquête européenne sur les forces de travail (EFT). Femmes, diplômés et jeunes plus exposés en Europe. L'analyse par tâche est plus robuste que l'analyse par capacité pour évaluer l'impact réel.</span></td>
             <td>2024 · Bruegel Working Paper 06/2024</td>
             <td>T2</td>
           </tr>
           <tr>
             <td><a href="https://www.imf.org/-/media/files/publications/wp/2025/english/wpiea2025067-print-pdf.pdf" target="_blank" style="color:var(--acc2)">FMI · AI and Productivity in Europe WP/2025/067</a></td>
-            <td>Effets macroéconomiques de l'IA sur la productivité en Europe. Gains PTF cumulés estimés à 1,1% à moyen terme pour la zone euro. Forte hétérogénéité entre pays · les économies avancées bénéficient davantage.</td>
+            <td><span data-i18n-html="meth_study_imf">Effets macroéconomiques de l'IA sur la productivité en Europe. Gains PTF cumulés estimés à 1,1% à moyen terme pour la zone euro. Forte hétérogénéité entre pays · les économies avancées bénéficient davantage.</span></td>
             <td>2025 · IMF Working Paper</td>
             <td>T2</td>
           </tr>
@@ -897,9 +897,9 @@ footer a{color:var(--tx2);text-decoration:none;}
     <div style="background:rgba(19,128,80,0.06);border:1px solid rgba(19,128,80,0.2);border-radius:10px;padding:14px 16px;margin-bottom:22px;">
       <div style="font-size:11px;font-weight:700;color:var(--acc3);font-family:'Inter',sans-serif;margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px;" data-i18n="fund_title">Distinction fondamentale · exposition ≠ suppression d'emploi</div>
       <div style="font-size:13px;color:var(--tx2);line-height:1.75;font-family:'Inter',sans-serif;">
-        <strong style="color:var(--tx)">Ce que ce score mesure :</strong> la proportion des tâches d'un métier que l'IA générative pourrait théoriquement effectuer aujourd'hui. Un score de 8/10 signifie que 80% des tâches sont exposées · pas que 80% des travailleurs perdront leur emploi.<br><br>
+        <span data-i18n-html="meth_score_explain"><strong style="color:var(--tx)">Ce que ce score mesure :</strong> la proportion des tâches d'un métier que l'IA générative pourrait théoriquement effectuer aujourd'hui. Un score de 8/10 signifie que 80% des tâches sont exposées · pas que 80% des travailleurs perdront leur emploi.<br><br>
         <strong style="color:var(--tx)">Ce que la recherche montre :</strong> Acemoglu, Autor, Hazell &amp; Restrepo (2022, <em>Journal of Labor Economics</em>) trouvent <strong style="color:var(--acc3)">aucun impact agrégé détectable</strong> sur l'emploi malgré l'exposition. Albanesi et al. (2025, <em>Economic Policy</em>) constatent que les occupations plus exposées à l'IA en Europe ont vu leur <strong style="color:var(--acc3)">part d'emploi augmenter</strong> entre 2011 et 2019. Aldasoro et al. (BIS 2026, Bâle) confirment sur 12 000 firmes européennes · dont des firmes suisses · : <strong style="color:var(--acc3)">aucune réduction d'emploi à court terme</strong>.<br><br>
-        <strong style="color:var(--tx)">Le consensus académique en 2026 :</strong> l'IA transforme les tâches plutôt qu'elle ne supprime les emplois · du moins à ce stade. Le signal préoccupant reste le ralentissement des embauches des 22-25 ans dans les métiers très exposés (−14%, Massenkoff &amp; McCrory 2026, à peine significatif). En Suisse, le taux de chômage reste à 2.4% (SECO mars 2026), sans signal d'impact IA détectable à ce jour.
+        <strong style="color:var(--tx)">Le consensus académique en 2026 :</strong> l'IA transforme les tâches plutôt qu'elle ne supprime les emplois · du moins à ce stade. Le signal préoccupant reste le ralentissement des embauches des 22-25 ans dans les métiers très exposés (−14%, Massenkoff &amp; McCrory 2026, à peine significatif). En Suisse, le taux de chômage reste à 2.4% (SECO mars 2026), sans signal d'impact IA détectable à ce jour.</span>
       </div>
     </div>
 
@@ -908,11 +908,11 @@ footer a{color:var(--tx2);text-decoration:none;}
       <table class="meth-table">
         <thead><tr><th data-i18n="th_score_col">Score</th><th data-i18n="th_couleur">Couleur</th><th data-i18n="th_interpretation">Interprétation</th><th data-i18n="th_exemples">Exemples</th></tr></thead>
         <tbody>
-          <tr><td>0 – 2</td><td><span class="meth-swatch" style="background:#4ECDC4"></span>Teal</td><td>Exposition minimale · tâches manuelles, relationnelles ou créatives non-reproductibles</td><td>Aide à domicile, Maçon, Guide de montagne</td></tr>
-          <tr><td>3 – 4</td><td><span class="meth-swatch" style="background:#62BFA3"></span>Vert</td><td>Faible · certaines tâches assistables mais le cœur reste humain</td><td>Infirmier, Policier, Horloger</td></tr>
-          <tr><td>5 – 6</td><td><span class="meth-swatch" style="background:#F7B731"></span>Jaune</td><td>Modérée · mix de tâches exposées et résistantes</td><td>Médecin généraliste, Ingénieur process, Architecte</td></tr>
-          <tr><td>7 – 8</td><td><span class="meth-swatch" style="background:#FF8C69"></span>Corail</td><td>Élevée · majorité des tâches partiellement automatisables</td><td>Conseiller bancaire, Gestionnaire de fortune, DRH</td></tr>
-          <tr><td>9 – 10</td><td><span class="meth-swatch" style="background:#FF6B6B"></span>Rouge</td><td>Très élevée · tâches majoritairement reproductibles par l'IA</td><td>Rédacteur web, Compliance officer, Analyste financier, Data scientist</td></tr>
+          <tr><td>0 – 2</td><td><span class="meth-swatch" style="background:#4ECDC4"></span>Teal</td><td><span data-i18n="meth_scale_0">Exposition minimale · tâches manuelles, relationnelles ou créatives non-reproductibles</span></td><td><span data-i18n="meth_ex_0">Aide à domicile, Maçon, Guide de montagne</span></td></tr>
+          <tr><td>3 – 4</td><td><span class="meth-swatch" style="background:#62BFA3"></span>Vert</td><td><span data-i18n="meth_scale_1">Faible · certaines tâches assistables mais le cœur reste humain</span></td><td><span data-i18n="meth_ex_1">Infirmier, Policier, Horloger</span></td></tr>
+          <tr><td>5 – 6</td><td><span class="meth-swatch" style="background:#F7B731"></span>Jaune</td><td><span data-i18n="meth_scale_2">Modérée · mix de tâches exposées et résistantes</span></td><td><span data-i18n="meth_ex_2">Médecin généraliste, Ingénieur process, Architecte</span></td></tr>
+          <tr><td>7 – 8</td><td><span class="meth-swatch" style="background:#FF8C69"></span>Corail</td><td><span data-i18n="meth_scale_3">Élevée · majorité des tâches partiellement automatisables</span></td><td><span data-i18n="meth_ex_3">Conseiller bancaire, Gestionnaire de fortune, DRH</span></td></tr>
+          <tr><td>9 – 10</td><td><span class="meth-swatch" style="background:#FF6B6B"></span>Rouge</td><td><span data-i18n="meth_scale_4">Très élevée · tâches majoritairement reproductibles par l'IA</span></td><td><span data-i18n="meth_ex_4">Rédacteur web, Compliance officer, Analyste financier, Data scientist</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -923,19 +923,19 @@ footer a{color:var(--tx2);text-decoration:none;}
       <div class="meth-vs">
         <div class="meth-vs-col">
           <div class="meth-vs-title" data-i18n="meth_our">Nos avantages</div>
-          <div class="meth-vs-item"><span>+</span>Scoring multi-sources pondéré par niveau de preuve</div>
-          <div class="meth-vs-item"><span>+</span>3 pistes de réinvention par métier</div>
-          <div class="meth-vs-item"><span>+</span>5 onglets analytiques (timeline, prédictions, productivité, usage)</div>
-          <div class="meth-vs-item"><span>+</span>Données usage IA Suisse (OFS ICT, KPMG, Digitalswitzerland)</div>
-          <div class="meth-vs-item"><span>+</span>Métiers spécifiques suisses (horlogerie, formation duale, place financière)</div>
+          <div class="meth-vs-item"><span>+</span><span data-i18n="meth_ours_1">Scoring multi-sources pondéré par niveau de preuve</span></div>
+          <div class="meth-vs-item"><span>+</span><span data-i18n="meth_ours_2">3 pistes de réinvention par métier</span></div>
+          <div class="meth-vs-item"><span>+</span><span data-i18n="meth_ours_3">5 onglets analytiques (timeline, prédictions, productivité, usage)</span></div>
+          <div class="meth-vs-item"><span>+</span><span data-i18n="meth_ours_4">Données usage IA Suisse (OFS ICT, KPMG, Digitalswitzerland)</span></div>
+          <div class="meth-vs-item"><span>+</span><span data-i18n="meth_ours_5">Métiers spécifiques suisses (horlogerie, formation duale, place financière)</span></div>
         </div>
         <div class="meth-vs-col">
           <div class="meth-vs-title" data-i18n="meth_their">Avantages indice-ia.fr</div>
-          <div class="meth-vs-item"><span>+</span>228 métiers FAP 2021 complets (vs 38 démo)</div>
-          <div class="meth-vs-item"><span>+</span>Pages Diplômes, Salaires, Classement Top/Flop</div>
-          <div class="meth-vs-item"><span>+</span>Interface épurée, URL courte</div>
-          <div class="meth-vs-item minus"><span>–</span>Scoring LLM unique (sans croisement sources)</div>
-          <div class="meth-vs-item minus"><span>–</span>Pas de pistes de réinvention</div>
+          <div class="meth-vs-item"><span>+</span><span data-i18n="meth_their_1">228 métiers FAP 2021 complets (vs 38 démo)</span></div>
+          <div class="meth-vs-item"><span>+</span><span data-i18n="meth_their_2">Pages Diplômes, Salaires, Classement Top/Flop</span></div>
+          <div class="meth-vs-item"><span>+</span><span data-i18n="meth_their_3">Interface épurée, URL courte</span></div>
+          <div class="meth-vs-item minus"><span>–</span><span data-i18n="meth_their_4">Scoring LLM unique (sans croisement sources)</span></div>
+          <div class="meth-vs-item minus"><span>–</span><span data-i18n="meth_their_5">Pas de pistes de réinvention</span></div>
         </div>
       </div>
     </div>
@@ -945,11 +945,11 @@ footer a{color:var(--tx2);text-decoration:none;}
       <table class="meth-table">
         <thead><tr><th data-i18n="th_limite">Limite</th><th data-i18n="th_impact">Impact</th></tr></thead>
         <tbody>
-          <tr><td>Exposition ≠ suppression</td><td>Un métier fortement exposé peut évoluer plutôt que disparaître. Le score mesure les tâches, pas la probabilité de remplacement.</td></tr>
-          <tr><td>Données ESPA approximatives</td><td>Certains effectifs sont des estimations ESPA 2024 arrondies. La NP 2010 couvre 394 groupes de professions ; ce dashboard en couvre 71.</td></tr>
-          <tr><td>Hétérogénéité des sources</td><td>Les sources T1 à T4 peuvent définir « exposition » différemment. La pondération atténue ce biais mais ne l'élimine pas.</td></tr>
-          <tr><td>Obsolescence rapide</td><td>Les capacités des modèles évoluent vite. Ce snapshot date de mars 2026 · les scores sont à réévaluer tous les 6 mois.</td></tr>
-          <tr><td>Limites géographiques</td><td>Certaines études sont américaines ou européennes. L'extrapolation au marché suisse peut introduire un biais (structure salariale, formation duale, place financière).</td></tr>
+          <tr><td>Exposition ≠ suppression</td><td><span data-i18n="meth_lim_1">Un métier fortement exposé peut évoluer plutôt que disparaître. Le score mesure les tâches, pas la probabilité de remplacement.</span></td></tr>
+          <tr><td><span data-i18n="meth_limlbl_2">Données ESPA approximatives</span></td><td><span data-i18n="meth_lim_2">Certains effectifs sont des estimations ESPA 2024 arrondies. La NP 2010 couvre 394 groupes de professions ; ce dashboard en couvre 71.</span></td></tr>
+          <tr><td><span data-i18n="meth_limlbl_3">Hétérogénéité des sources</span></td><td><span data-i18n="meth_lim_3">Les sources T1 à T4 peuvent définir « exposition » différemment. La pondération atténue ce biais mais ne l'élimine pas.</span></td></tr>
+          <tr><td><span data-i18n="meth_limlbl_4">Obsolescence rapide</span></td><td><span data-i18n="meth_lim_4">Les capacités des modèles évoluent vite. Ce snapshot date de mars 2026 · les scores sont à réévaluer tous les 6 mois.</span></td></tr>
+          <tr><td><span data-i18n="meth_limlbl_5">Limites géographiques</span></td><td><span data-i18n="meth_lim_5">Certaines études sont américaines ou européennes. L'extrapolation au marché suisse peut introduire un biais (structure salariale, formation duale, place financière).</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -962,19 +962,19 @@ footer a{color:var(--tx2);text-decoration:none;}
           <tr>
             <td><a href="https://joshkale.github.io/jobs" target="_blank" style="color:var(--acc2)">joshkale.github.io/jobs</a></td>
             <td>Josh Kale</td>
-            <td>Adaptation de l'idée originale d'Andrej Karpathy · treemap des emplois BLS américains exposés à l'IA, avec scoring par LLM et visualisation D3.js proportionnelle aux effectifs.</td>
+            <td><span data-i18n="meth_cred_1">Adaptation de l'idée originale d'Andrej Karpathy · treemap des emplois BLS américains exposés à l'IA, avec scoring par LLM et visualisation D3.js proportionnelle aux effectifs.</span></td>
             <td>MIT</td>
           </tr>
           <tr>
             <td><a href="https://github.com/karpathy/jobs" target="_blank" style="color:var(--acc2)">github.com/karpathy/jobs</a></td>
             <td>Andrej Karpathy</td>
-            <td>Concept original : visualiser l'exposition des métiers à l'IA à partir des données Bureau of Labor Statistics (BLS). Ce projet est une adaptation française avec les données officielles françaises (ROME 4.0, EEC 2024, FAP 2021).</td>
+            <td><span data-i18n="meth_cred_2">Concept original : visualiser l'exposition des métiers à l'IA à partir des données Bureau of Labor Statistics (BLS). Ce projet est une adaptation française avec les données officielles françaises (ROME 4.0, EEC 2024, FAP 2021).</span></td>
             <td>MIT</td>
           </tr>
           <tr>
             <td><a href="https://indice-ia.fr" target="_blank" style="color:var(--acc2)">indice-ia.fr</a></td>
             <td>Yann Decoopman</td>
-            <td>Adaptation française du même concept · 228 métiers FAP 2021, scoring Claude Sonnet 4.5, données EEC 2024. Notre projet étend cette approche avec un scoring multi-sources pondéré et des pistes de réinvention.</td>
+            <td><span data-i18n="meth_cred_3">Adaptation française du même concept · 228 métiers FAP 2021, scoring Claude Sonnet 4.5, données EEC 2024. Notre projet étend cette approche avec un scoring multi-sources pondéré et des pistes de réinvention.</span></td>
             <td>MIT</td>
           </tr>
           <tr>
@@ -1185,10 +1185,63 @@ function fmt(n){if(!n)return"";if(n>=1e6)return(n/1e6).toFixed(1)+"M";if(n>=1e3)
 // ═══════════════════════════════ I18N · FR / DE / IT ══════════════════════
 const T18N={
   fr:{
+    badge_np2010:"84 métiers NP 2010",
+    badge_scoring:"Scoring multi-sources T1–T4",
+    badge_reg:"Facteur réglementaire CH",
+    meth_src_np2010:"Nomenclature suisse des professions (NP 2010) : 394 groupes compatibles ISCO-08",
+    meth_yr_np2010:"2010 (en vigueur)",
+    meth_lic_ofs:"Open Government Data OFS",
+    meth_src_espa:"Enquête suisse sur la population active : effectifs réels par profession (NP 2010) et secteur économique",
+    meth_src_ess:"Enquête suisse sur la structure des salaires : salaire médian mensuel (CHF) par profession et secteur",
+    meth_src_seco:"Besoins en main-d\'oeuvre, taux de tension et pénuries par secteur économique suisse",
+    meth_lic_ogd:"Open Government Data",
+    meth_src_isco:"Classification internationale type des professions (4 chiffres), base NP 2010",
+    meth_yr_isco:"2008 (révisé 2012)",
+    meth_lic_ilo:"BIT Genève / OFS",
+    meth_scale_0:"Exposition minimale · tâches manuelles, relationnelles ou créatives non-reproductibles",
+    meth_scale_1:"Faible · certaines tâches assistables mais le coeur reste humain",
+    meth_scale_2:"Modérée · mix de tâches exposées et résistantes",
+    meth_scale_3:"Élevée · majorité des tâches partiellement automatisables",
+    meth_scale_4:"Très élevée · tâches majoritairement reproductibles par l\'IA",
+    meth_ex_0:"Aide à domicile, Maçon, Guide de montagne",
+    meth_ex_1:"Infirmier, Policier, Horloger",
+    meth_ex_2:"Médecin généraliste, Ingénieur process, Architecte",
+    meth_ex_3:"Conseiller bancaire, Gestionnaire de fortune, DRH",
+    meth_ex_4:"Rédacteur web, Compliance officer, Analyste financier, Data scientist",
+    meth_limlbl_1:"Exposition ≠ suppression",
+    meth_limlbl_2:"Données ESPA approximatives",
+    meth_limlbl_3:"Hétérogénéité des sources",
+    meth_limlbl_4:"Obsolescence rapide",
+    meth_limlbl_5:"Limites géographiques",
+    meth_lim_1:"Un métier fortement exposé peut évoluer plutôt que disparaître. Le score mesure les tâches, pas la probabilité de remplacement.",
+    meth_lim_2:"Certains effectifs sont des estimations ESPA 2024 arrondies. La NP 2010 couvre 394 groupes ; ce dashboard en couvre 84.",
+    meth_lim_3:"Les sources T1 à T4 peuvent définir \'exposition\' différemment. La pondération atténue ce biais mais ne l\'élimine pas.",
+    meth_lim_4:"Les capacités des modèles évoluent vite. Ce snapshot date de mars 2026 · les scores sont à réévaluer tous les 6 mois.",
+    meth_lim_5:"Certaines études sont américaines ou européennes. L\'extrapolation au marché suisse peut introduire un biais.",
+    meth_ours_1:"Scoring multi-sources pondéré par niveau de preuve",
+    meth_ours_2:"3 pistes de réinvention par métier",
+    meth_ours_3:"5 onglets analytiques (timeline, prédictions, productivité, usage)",
+    meth_ours_4:"Données usage IA Suisse (OFS ICT, KPMG, Digitalswitzerland)",
+    meth_ours_5:"Métiers spécifiques suisses (horlogerie, formation duale, place financière)",
+    meth_their_1:"228 métiers FAP 2021 complets (vs 38 démo)",
+    meth_their_2:"Pages Diplômes, Salaires, Classement Top/Flop",
+    meth_their_3:"Interface épurée, URL courte",
+    meth_their_4:"Scoring LLM unique (sans croisement sources)",
+    meth_their_5:"Pas de pistes de réinvention",
+    meth_cred_1:"Adaptation de l\'idée originale d\'Andrej Karpathy · treemap des emplois BLS américains exposés à l\'IA, scoring LLM et visualisation D3.js.",
+    meth_cred_2:"Concept original : visualiser l\'exposition des métiers à l\'IA à partir des données BLS américaines.",
+    meth_cred_3:"Adaptation française · 228 métiers FAP 2021, scoring Claude Sonnet 4.5, données EEC 2024. Notre projet étend cette approche avec un scoring multi-sources pondéré.",
+    meth_study_acemoglu:"Données vacances d\'emploi US 2010-2018. Résultat : entreprises exposées à l\'IA réduisent certains recrutements mais <strong>aucun impact agrégé détectable</strong> sur l\'emploi ou les salaires.",
+    meth_study_albanesi:"Données zone euro 2011-2019. Résultat clé : <strong>les occupations exposées à l\'IA ont vu leur part d\'emploi augmenter</strong>, complémentarité plutôt que substitution.",
+    meth_study_bis:"Première preuve causale sur 12 000+ firmes européennes. Résultat : <strong>aucune réduction d\'emploi à court terme</strong> liée à l\'IA, avec gains de productivité significatifs (+10% à +65%). Capital deepening, pas substitution.",
+    meth_study_nurski:"Application de deux indices GenAI à l\'Enquête européenne sur les forces de travail. Femmes, diplômés et jeunes plus exposés. L\'analyse par tâche est plus robuste que l\'analyse par capacité.",
+    meth_study_imf:"Effets macroéconomiques de l\'IA sur la productivité en Europe. Gains PTF cumulés estimés à 1,1% à moyen terme pour la zone euro. Forte hétérogénéité entre pays.",
+    meth_study_ilo:"Indice mondial révisé d\'exposition à la GenAI. 29 753 tâches · 52 558 points de données humaines · validation Delphi. <strong>4 gradients d\'exposition progressifs</strong>. Gradient 4 : secrétaires (0,64), analystes financiers (0,62). Non exposés : médecins (0,29), infirmiers (0,25). Score moyen mondial 0,29 · <strong>transformation plutôt que suppression</strong>.",
+    meth_score_explain:"<strong>Ce que ce score mesure :</strong> la proportion des tâches d\'un métier que l\'IA générative pourrait effectuer aujourd\'hui. Un score de 8/10 signifie que 80% des tâches sont exposées, pas que 80% des travailleurs perdront leur emploi.<br><br><strong>Ce que la recherche montre :</strong> Acemoglu et al. (2022) : <strong style=\'color:var(--acc3)\'>aucun impact agrégé détectable</strong> sur l\'emploi. Albanesi et al. (2025) : les occupations exposées ont vu leur <strong style=\'color:var(--acc3)\'>part d\'emploi augmenter</strong>. BIS (2026) : <strong style=\'color:var(--acc3)\'>aucune réduction d\'emploi à court terme</strong> sur 12 000 firmes.<br><br><strong>Le consensus en 2026 :</strong> l\'IA transforme les tâches plutôt qu\'elle ne supprime les emplois. Signal : ralentissement embauches 22-25 ans (−14%, Anthropic 2026). Suisse : chômage stable à 2.4% (SECO mars 2026).",
     tab_intro:"À propos",
     intro_eyebrow:"Observatoire · transitions-ia.ch · Mars 2026",
     intro_hero_title:"L'IA générative face aux métiers suisses : comprendre pour agir",
-    intro_hero_sub:"Ce tableau de bord mesure l'<b>exposition des tâches</b> à l'IA générative pour 67 professions suisses, en croisant données officielles OFS, réglementation helvétique et recherches académiques de niveau T1. Il ne prédit pas la disparition d'emplois · il cartographie les <b>zones de transformation</b> pour orienter formation, reconversion et stratégie RH.",
+    intro_hero_sub:"Ce tableau de bord mesure l'<b>exposition des tâches</b> à l'IA générative pour 84 professions suisses, en croisant données officielles OFS, réglementation helvétique et recherches académiques de niveau T1. Il ne prédit pas la disparition d'emplois · il cartographie les <b>zones de transformation</b> pour orienter formation, reconversion et stratégie RH.",
     intro_kpi1:"Métiers suisses analysés (NP 2010)",
     intro_kpi2:"Emplois couverts (ESPA 2024)",
     intro_kpi3:"Score moyen d'exposition (/10)",
@@ -1284,6 +1337,59 @@ const T18N={
     meth_compare_p:"Ce dashboard s'inspire du projet français <a href=\"https://indice-ia.fr\" target=\"_blank\" style=\"color:var(--acc2)\">indice-ia.fr</a> (Yann Decoopman, 2026) et partage la source d'inspiration originale (<a href=\"https://joshkale.github.io/jobs\" target=\"_blank\" style=\"color:var(--acc2)\">joshkale.github.io/jobs</a> / Andrej Karpathy). transitions-ia.ch est la première adaptation suisse avec données OFS officielles (NP 2010, ESPA 2024, ESS 2022).",
   },
   de:{
+    badge_np2010:"84 Berufe NP 2010",
+    badge_scoring:"Mehrquellen-Scoring T1–T4",
+    badge_reg:"Regulierungsfaktor CH",
+    meth_src_np2010:"Schweizerische Berufsnomenklatur (NP 2010): 394 Berufsgruppen ISCO-08-kompatibel",
+    meth_yr_np2010:"2010 (in Kraft)",
+    meth_lic_ofs:"Open Government Data BFS",
+    meth_src_espa:"Schweizerische Arbeitskräfteerhebung (SAKE): Beschäftigte nach Beruf (NP 2010) und Wirtschaftssektor",
+    meth_src_ess:"Schweizerische Lohnstrukturerhebung (LSE): monatlicher Medianlohn (CHF) nach Beruf und Sektor",
+    meth_src_seco:"Arbeitskräftebedarf, Spannungsindikator und Fachkräftemangel nach Wirtschaftssektor",
+    meth_lic_ogd:"Open Government Data",
+    meth_src_isco:"Internationale Standardklassifikation der Berufe (4-stellig), Basis NP 2010",
+    meth_yr_isco:"2008 (überarbeitet 2012)",
+    meth_lic_ilo:"ILO Genf / BFS",
+    meth_scale_0:"Minimale Exposition · manuelle, relationale oder kreative nicht-reproduzierbare Aufgaben",
+    meth_scale_1:"Gering · einige Aufgaben assistierbar, aber der Kern bleibt menschlich",
+    meth_scale_2:"Moderat · Mix aus exponierten und resistenten Aufgaben",
+    meth_scale_3:"Hoch · Mehrheit der Aufgaben teilweise automatisierbar",
+    meth_scale_4:"Sehr hoch · Aufgaben überwiegend durch KI reproduzierbar",
+    meth_ex_0:"Haushaltshilfe, Maurer, Bergführer",
+    meth_ex_1:"Pflegefachkraft, Polizist, Uhrmacher",
+    meth_ex_2:"Allgemeinmediziner, Prozessingenieur, Architekt",
+    meth_ex_3:"Bankberater, Vermögensverwalter, HR-Leiter",
+    meth_ex_4:"Web-Texter, Compliance Officer, Finanzanalyst, Data Scientist",
+    meth_limlbl_1:"Exposition ≠ Stellenabbau",
+    meth_limlbl_2:"SAKE-Daten sind Näherungswerte",
+    meth_limlbl_3:"Heterogenität der Quellen",
+    meth_limlbl_4:"Schnelle Veralterung",
+    meth_limlbl_5:"Geografische Grenzen",
+    meth_lim_1:"Ein stark exponierter Beruf kann sich wandeln statt zu verschwinden. Der Score misst Aufgaben, nicht die Substitutionswahrscheinlichkeit.",
+    meth_lim_2:"Einige Beschäftigtenzahlen sind gerundete SAKE-2024-Schätzungen. NP 2010 umfasst 394 Gruppen; dieses Dashboard deckt 84 ab.",
+    meth_lim_3:"Quellen T1 bis T4 können \'Exposition\' unterschiedlich definieren. Die Gewichtung mindert diese Verzerrung, eliminiert sie aber nicht.",
+    meth_lim_4:"Die Modellkapazitäten entwickeln sich schnell. Dieser Snapshot stammt von März 2026 · Scores sollten alle 6 Monate neu bewertet werden.",
+    meth_lim_5:"Einige Studien sind amerikanisch oder europäisch. Die Übertragung auf den Schweizer Markt kann Verzerrungen einführen.",
+    meth_ours_1:"Mehrquellen-Scoring nach Evidenzniveau gewichtet",
+    meth_ours_2:"3 Neuorientierungspfade pro Beruf",
+    meth_ours_3:"5 Analyseregisterkarten (Timeline, Prognosen, Produktivität, Nutzung)",
+    meth_ours_4:"KI-Nutzungsdaten Schweiz (BFS ICT, KPMG, Digitalswitzerland)",
+    meth_ours_5:"Schweizer Spezialberufe (Uhrmacherei, Berufsbildung, Finanzplatz)",
+    meth_their_1:"228 vollständige FAP-2021-Berufe (vs 38 Demo)",
+    meth_their_2:"Seiten für Abschlüsse, Gehälter, Top/Flop-Ranking",
+    meth_their_3:"Klares Interface, kurze URL",
+    meth_their_4:"Einzel-LLM-Scoring (ohne Quellenkreuzung)",
+    meth_their_5:"Keine Neuorientierungspfade",
+    meth_cred_1:"Adaption der Originalidee von Andrej Karpathy · Treemap der US-BLS-Berufe mit KI-Exposition, LLM-Scoring und D3.js-Visualisierung.",
+    meth_cred_2:"Originalkonzept: KI-Exposition von Berufen auf Basis von US-BLS-Daten visualisieren.",
+    meth_cred_3:"Französische Adaption · 228 FAP-2021-Berufe, Claude-Sonnet-4.5-Scoring, EEC-2024-Daten. Unser Projekt erweitert diesen Ansatz mit gewichtetem Mehrquellen-Scoring.",
+    meth_study_acemoglu:"US-Stellendaten 2010–2018. Ergebnis: KI-exponierte Unternehmen reduzieren Einstellungen, aber <strong>kein aggregierter nachweisbarer Effekt</strong> auf Beschäftigung oder Löhne.",
+    meth_study_albanesi:"Eurozonendaten 2011–2019. Hauptergebnis: <strong>KI-exponierte Berufe verzeichneten einen Anstieg ihres Beschäftigungsanteils</strong> — Komplementarität statt Substitution.",
+    meth_study_bis:"Erste kausale Evidenz aus 12 000+ europäischen Unternehmen. Ergebnis: <strong>kein kurzfristiger Stellenabbau</strong> durch KI-Adoption, aber signifikante Produktivitätssteigerungen (+10% bis +65%). Kapitalvertiefung, keine Substitution.",
+    meth_study_nurski:"Anwendung zweier GenAI-Expositionsindizes auf die europäische Arbeitskräfteerhebung. Frauen, Hochqualifizierte und Jüngere stärker exponiert. Aufgabenanalyse ist robuster als Kompetenzanalyse.",
+    meth_study_imf:"Makroökonomische Auswirkungen der KI auf die Produktivität in Europa. Kumulierte TFP-Gewinne von 1,1% mittelfristig für die Eurozone geschätzt. Starke Heterogenität zwischen Ländern.",
+    meth_study_ilo:"Überarbeiteter globaler GenAI-Expositionsindex. 29 753 Aufgaben · 52 558 Datenpunkte · Delphi-Validierung. <strong>4 progressive Expositionsgradienten</strong>. Gradient 4: Sekretärinnen (0,64), Finanzanalysten (0,62). Nicht exponiert: Ärzte (0,29), Pflegepersonal (0,25). Weltweiter Durchschnitt 0,29 · <strong>Transformation statt Substitution</strong>.",
+    meth_score_explain:"<strong>Was dieser Score misst:</strong> Den Anteil der Aufgaben, die generative KI heute theoretisch übernehmen könnte. 8/10 bedeutet 80% der Aufgaben exponiert, nicht dass 80% die Stelle verlieren.<br><br><strong>Was die Forschung zeigt:</strong> Acemoglu et al. (2022): <strong style=\'color:var(--acc3)\'>kein aggregierter nachweisbarer Effekt</strong>. Albanesi et al. (2025): exponierte Berufe haben <strong style=\'color:var(--acc3)\'>Beschäftigungsanteil erhöht</strong>. BIS (2026): <strong style=\'color:var(--acc3)\'>kein Stellenabbau</strong> bei 12 000 Firmen.<br><br><strong>Konsens 2026:</strong> KI transformiert Aufgaben. Signal: Verlangsamung Neueinstellungen 22-25 J. (−14%, Anthropic 2026). Schweiz: 2,4% Arbeitslosigkeit stabil (SECO März 2026).",
     tab_intro:"Über uns",
     intro_eyebrow:"Observatorium · transitions-ia.ch · März 2026",
     intro_hero_title:"Generative KI und Schweizer Berufe: verstehen, um zu handeln",
@@ -1383,6 +1489,59 @@ const T18N={
     meth_compare_p:"Dieses Dashboard wurde vom französischen Projekt <a href=\"https://indice-ia.fr\" target=\"_blank\" style=\"color:var(--acc2)\">indice-ia.fr</a> (Yann Decoopman, 2026) inspiriert und teilt die gemeinsame Quelle (<a href=\"https://joshkale.github.io/jobs\" target=\"_blank\" style=\"color:var(--acc2)\">joshkale.github.io/jobs</a> / Andrej Karpathy). transitions-ia.ch ist die erste Schweizer Adaptation mit offiziellen BFS-Daten (NP 2010, ESPA 2024, ESS 2022).",
   },
   it:{
+    badge_np2010:"84 mestieri NP 2010",
+    badge_scoring:"Scoring multi-fonti T1–T4",
+    badge_reg:"Fattore regolatorio CH",
+    meth_src_np2010:"Nomenclatura svizzera delle professioni (NP 2010): 394 gruppi professionali compatibili ISCO-08",
+    meth_yr_np2010:"2010 (in vigore)",
+    meth_lic_ofs:"Open Government Data UST",
+    meth_src_espa:"Rilevazione sulle forze di lavoro in Svizzera (RIFOS): effettivi per professione (NP 2010) e settore economico",
+    meth_src_ess:"Rilevazione svizzera della struttura dei salari (RSS): salario mediano mensile (CHF) per professione e settore",
+    meth_src_seco:"Fabbisogno di manodopera, indicatore di tensione e carenze per settore economico svizzero",
+    meth_lic_ogd:"Open Government Data",
+    meth_src_isco:"Classificazione internazionale tipo delle professioni (4 cifre), base NP 2010",
+    meth_yr_isco:"2008 (rivisto 2012)",
+    meth_lic_ilo:"ILO Ginevra / UST",
+    meth_scale_0:"Esposizione minima · compiti manuali, relazionali o creativi non riproducibili",
+    meth_scale_1:"Bassa · alcuni compiti assistibili ma il nucleo rimane umano",
+    meth_scale_2:"Moderata · mix di compiti esposti e resistenti",
+    meth_scale_3:"Elevata · maggioranza dei compiti parzialmente automatizzabili",
+    meth_scale_4:"Molto elevata · compiti prevalentemente riproducibili dall\'IA",
+    meth_ex_0:"Assistente domiciliare, Muratore, Guida alpina",
+    meth_ex_1:"Infermiere, Poliziotto, Orologiaio",
+    meth_ex_2:"Medico di base, Ingegnere di processo, Architetto",
+    meth_ex_3:"Consulente bancario, Gestore patrimoniale, Direttore HR",
+    meth_ex_4:"Redattore web, Compliance officer, Analista finanziario, Data scientist",
+    meth_limlbl_1:"Esposizione ≠ soppressione",
+    meth_limlbl_2:"Dati RIFOS approssimativi",
+    meth_limlbl_3:"Eterogeneità delle fonti",
+    meth_limlbl_4:"Rapida obsolescenza",
+    meth_limlbl_5:"Limiti geografici",
+    meth_lim_1:"Una professione fortemente esposta può evolversi piuttosto che scomparire. Il punteggio misura i compiti, non la probabilità di sostituzione.",
+    meth_lim_2:"Alcuni effettivi sono stime RIFOS 2024 arrotondate. La NP 2010 copre 394 gruppi; questo dashboard ne copre 84.",
+    meth_lim_3:"Le fonti T1–T4 possono definire \'esposizione\' in modo diverso. La ponderazione attenua ma non elimina questa distorsione.",
+    meth_lim_4:"Le capacità dei modelli evolvono rapidamente. Questo snapshot è di marzo 2026 · i punteggi devono essere rivalutati ogni 6 mesi.",
+    meth_lim_5:"Alcuni studi sono americani o europei. L'estrapolazione al mercato svizzero può introdurre distorsioni.",
+    meth_ours_1:"Scoring multi-fonti ponderato per livello di evidenza",
+    meth_ours_2:"3 percorsi di reinvenzione per professione",
+    meth_ours_3:"5 schede analitiche (timeline, previsioni, produttività, utilizzo)",
+    meth_ours_4:"Dati utilizzo IA Svizzera (UST ICT, KPMG, Digitalswitzerland)",
+    meth_ours_5:"Professioni specifiche svizzere (orologeria, formazione duale, piazza finanziaria)",
+    meth_their_1:"228 mestieri FAP 2021 completi (vs 38 demo)",
+    meth_their_2:"Pagine Diplomi, Stipendi, Classifica Top/Flop",
+    meth_their_3:"Interfaccia pulita, URL corto",
+    meth_their_4:"Scoring LLM singolo (senza incrocio fonti)",
+    meth_their_5:"Nessun percorso di reinvenzione",
+    meth_cred_1:"Adattamento dell\'idea originale di Andrej Karpathy · treemap dei lavori BLS americani esposti all\'IA, scoring LLM e visualizzazione D3.js.",
+    meth_cred_2:"Concetto originale: visualizzare l\'esposizione dei mestieri all\'IA a partire dai dati BLS americani.",
+    meth_cred_3:"Adattamento francese · 228 mestieri FAP 2021, scoring Claude Sonnet 4.5, dati EEC 2024. Il nostro progetto estende questo approccio con scoring multi-fonti ponderato.",
+    meth_study_acemoglu:"Dati sulle offerte di lavoro USA 2010–2018. Risultato: imprese esposte all\'IA riducono assunzioni ma <strong>nessun impatto aggregato rilevabile</strong> su occupazione o salari.",
+    meth_study_albanesi:"Dati zona euro 2011–2019. Risultato chiave: <strong>le occupazioni esposte all\'IA hanno visto aumentare la loro quota occupazionale</strong>, complementarità piuttosto che sostituzione.",
+    meth_study_bis:"Prima evidenza causale su 12 000+ imprese europee. Risultato: <strong>nessuna riduzione occupazionale a breve termine</strong> legata all\'IA, con guadagni di produttività significativi (+10% a +65%). Capital deepening, non sostituzione.",
+    meth_study_nurski:"Applicazione di due indici GenAI all\'Indagine europea sulle forze di lavoro. Donne, laureati e giovani più esposti. L\'analisi per compiti è più robusta dell\'analisi per capacità.",
+    meth_study_imf:"Effetti macroeconomici dell\'IA sulla produttività in Europa. Guadagni TFP cumulati stimati all\'1,1% a medio termine per la zona euro. Forte eterogeneità tra paesi.",
+    meth_study_ilo:"Indice globale rivisto di esposizione alla GenAI. 29 753 compiti · 52 558 punti dati umani · validazione Delphi. <strong>4 gradienti di esposizione progressivi</strong>. Gradiente 4: segretarie (0,64), analisti finanziari (0,62). Non esposti: medici (0,29), infermieri (0,25). Media mondiale 0,29 · <strong>trasformazione piuttosto che soppressione</strong>.",
+    meth_score_explain:"<strong>Cosa misura questo punteggio:</strong> La proporzione dei compiti che l\'IA generativa potrebbe svolgere oggi. 8/10 significa 80% dei compiti esposti, non che l\'80% perderà il lavoro.<br><br><strong>Cosa mostra la ricerca:</strong> Acemoglu et al. (2022): <strong style=\'color:var(--acc3)\'>nessun impatto aggregato rilevabile</strong>. Albanesi et al. (2025): le occupazioni esposte hanno <strong style=\'color:var(--acc3)\'>aumentato la quota occupazionale</strong>. BIS (2026): <strong style=\'color:var(--acc3)\'>nessuna riduzione occupazionale</strong> su 12 000 imprese.<br><br><strong>Consenso 2026:</strong> l\'IA trasforma i compiti. Segnale: rallentamento assunzioni 22-25enni (−14%, Anthropic 2026). Svizzera: 2,4% disoccupazione stabile (SECO marzo 2026).",
     tab_intro:"Informazioni",
     intro_eyebrow:"Osservatorio · transitions-ia.ch · Marzo 2026",
     intro_hero_title:"L'IA generativa di fronte alle professioni svizzere: capire per agire",
