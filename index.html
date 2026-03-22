@@ -65,7 +65,7 @@
   --shadow:0 1px 4px rgba(0,0,0,0.2),0 4px 16px rgba(0,0,0,0.25);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-html,body{background:var(--bg);color:var(--tx);font-family:'Inter',system-ui,sans-serif;min-height:100vh;transition:background .22s,color .22s;font-size:14px;line-height:1.5;font-feature-settings:'kern' 1,'tnum' 0;}
+html,body{background:var(--bg);color:var(--tx);font-family:'Inter',system-ui,sans-serif;transition:background .22s,color .22s;font-size:14px;line-height:1.5;font-feature-settings:'kern' 1,'tnum' 0;}
 
 /* ── HEADER ── */
 .hd{background:var(--sf);border-bottom:1px solid var(--br);padding:12px 20px;display:flex;align-items:center;gap:14px;}
@@ -166,9 +166,6 @@ html,body{background:var(--bg);color:var(--tx);font-family:'Inter',system-ui,san
 .rpopup-from strong{color:var(--tx2);}
 .rpopup-close{width:100%;padding:11px;border:none;border-top:1px solid var(--br);background:transparent;font-size:13px;font-family:'Inter',sans-serif;font-weight:600;color:var(--tx2);cursor:pointer;transition:background .15s;}
 .rpopup-close:hover{background:var(--bg2);}
-.orientation-lnk{display:flex;align-items:center;gap:6px;margin-top:12px;padding:9px 12px;background:var(--bg2);border-radius:8px;border:1px solid var(--br);text-decoration:none;color:var(--tx3);font-size:12px;font-family:'Inter',sans-serif;font-weight:500;transition:background .15s,color .15s;}
-.orientation-lnk:hover{background:var(--bg);color:var(--tx2);}
-.orientation-lnk img{width:16px;height:16px;border-radius:3px;flex-shrink:0;}
 
 /* ── MATRIX TAB ── */
 .main-wrap{display:flex;min-height:0;}
@@ -698,10 +695,7 @@ footer a{color:var(--tx2);text-decoration:none;}
         <div class="psum" id="psum"></div>
         <div class="psec" data-i18n="reinvention_title">Pistes de réinvention</div>
         <div class="reinv-list" id="preinv"></div>
-        <a id="porientation-lnk" class="orientation-lnk" href="https://www.orientation.ch/dyn/show/1940?lang=fr" target="_blank" rel="noopener" style="display:none">
-          <img src="https://www.orientation.ch/favicon.ico" onerror="this.style.display='none'" alt="">
-          <span>En savoir plus sur ce métier → orientation.ch</span>
-        </a>
+
       </div>
     </div>
   </div>
@@ -2002,8 +1996,6 @@ function openP(job){
       <div class="reinv-hint">Cliquer pour en savoir plus</div>
     </div>`).join("");
 
-  const olnk=document.getElementById("porientation-lnk");
-  if(olnk){const u=job.url_ch||"https://www.orientation.ch/dyn/show/1940?lang=fr";olnk.href=u;olnk.style.display="flex";}
 
   document.getElementById("panel").classList.add("open");
   setTimeout(()=>{if(!lv)btreemap();},280);
