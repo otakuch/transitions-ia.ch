@@ -65,7 +65,7 @@
   --shadow:0 1px 4px rgba(0,0,0,0.2),0 4px 16px rgba(0,0,0,0.25);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-html,body{background:var(--bg);color:var(--tx);font-family:'Inter',system-ui,sans-serif;transition:background .22s,color .22s;font-size:14px;line-height:1.5;font-feature-settings:'kern' 1,'tnum' 0;}
+html{background:var(--bg);}body{background:var(--bg);color:var(--tx);font-family:'Inter',system-ui,sans-serif;transition:background .22s,color .22s;font-size:14px;line-height:1.5;font-feature-settings:'kern' 1,'tnum' 0;}
 
 /* ── HEADER ── */
 .hd{background:var(--sf);border-bottom:1px solid var(--br);padding:12px 20px;display:flex;align-items:center;gap:14px;}
@@ -2028,7 +2028,14 @@ function btreemap(){
   const totalJobs=fil.length;
   const CELL_MIN=70;
   const totalArea=totalJobs*CELL_MIN*CELL_MIN;
-  const H=Math.max(Math.ceil(totalArea/availW),500);
+  const vph=window.innerHeight||600;
+  const hHd=document.querySelector('.hd')?.offsetHeight||60;
+  const hTb=document.querySelector('.tabs')?.offsetHeight||40;
+  const hFl=document.querySelector('.tb')?.offsetHeight||48;
+  const hLg=document.querySelector('.lgd')?.offsetHeight||45;
+  const hFt=document.querySelector('footer')?.offsetHeight||50;
+  const minH=Math.max(vph-hHd-hTb-hFl-hLg-hFt,400);
+  const H=Math.max(Math.ceil(totalArea/availW),minH);
 
   // ─── D3 treemap ───────────────────────────────────────────────────
   const root=d3.hierarchy(data).sum(d=>d.value||0).sort((a,b)=>b.value-a.value);
