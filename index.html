@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="transitions-ia.ch · Observatoire des métiers suisses face à l'IA générative. NP 2010 · ESPA 2024 (OFS) · ESS 2022 · Scoring multi-sources pondéré. Par Naully Nicolas.">
 <meta property="og:title" content="IA & Métiers Suisses · transitions-ia.ch">
-<meta property="og:description" content="Observatoire des 71 métiers suisses face à l'IA générative. Données OFS (ESPA 2024, ESS 2022). Trilinguisme FR/DE/IT.">
+<meta property="og:description" content="Observatoire des 91 métiers suisses face à l'IA générative. Données OFS (ESPA 2024, ESS 2022). Trilinguisme FR/DE/IT.">
 <meta name="author" content="Naully Nicolas · naullynicolas.ch">
 
 <title>IA & Métiers Suisses : Observatoire des données · transitions-ia.ch</title>
@@ -39,7 +39,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&family=Syne:wght@800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
 /* Typography system · Datawrapper + Nightingale principles
    Display  → Syne 800 (h1 uniquement · police d'affichage)
    Data     → IBM Plex Mono 400/500 (valeurs numériques, tabular figures)
@@ -65,12 +65,12 @@
   --shadow:0 1px 4px rgba(0,0,0,0.2),0 4px 16px rgba(0,0,0,0.25);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-html,body{background:var(--bg);color:var(--tx);font-family:'Inter',system-ui,sans-serif;min-height:100vh;transition:background .22s,color .22s;font-size:14px;line-height:1.5;font-feature-settings:'kern' 1,'tnum' 0;}
+html{background:var(--bg);}body{background:var(--bg);color:var(--tx);font-family:'Inter',system-ui,sans-serif;transition:background .22s,color .22s;font-size:14px;line-height:1.5;font-feature-settings:'kern' 1,'tnum' 0;}
 
 /* ── HEADER ── */
 .hd{background:var(--sf);border-bottom:1px solid var(--br);padding:12px 20px;display:flex;align-items:center;gap:14px;}
 .hd-t{flex:1;}
-.hd-t h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(--tx);}
+.hd-t h1{font-family:'Roboto',sans-serif;font-size:15px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;color:var(--tx);}
 .hd-t .sub{font-size:11px;color:var(--tx3);font-family:'Inter',sans-serif;margin-top:2px;}
 .hd-r{display:flex;gap:6px;align-items:center;flex-shrink:0;}
 .badge{font-size:11px;font-family:'IBM Plex Mono',monospace;padding:3px 9px;border-radius:4px;border:1px solid var(--br);color:var(--tx2);background:var(--bg2);}
@@ -166,9 +166,6 @@ html,body{background:var(--bg);color:var(--tx);font-family:'Inter',system-ui,san
 .rpopup-from strong{color:var(--tx2);}
 .rpopup-close{width:100%;padding:11px;border:none;border-top:1px solid var(--br);background:transparent;font-size:13px;font-family:'Inter',sans-serif;font-weight:600;color:var(--tx2);cursor:pointer;transition:background .15s;}
 .rpopup-close:hover{background:var(--bg2);}
-.orientation-lnk{display:flex;align-items:center;gap:6px;margin-top:12px;padding:9px 12px;background:var(--bg2);border-radius:8px;border:1px solid var(--br);text-decoration:none;color:var(--tx3);font-size:12px;font-family:'Inter',sans-serif;font-weight:500;transition:background .15s,color .15s;}
-.orientation-lnk:hover{background:var(--bg);color:var(--tx2);}
-.orientation-lnk img{width:16px;height:16px;border-radius:3px;flex-shrink:0;}
 
 /* ── MATRIX TAB ── */
 .main-wrap{display:flex;min-height:0;}
@@ -516,6 +513,69 @@ footer a{color:var(--tx2);text-decoration:none;}
 .cat-stat-bar{height:4px;border-radius:2px;background:var(--br2);overflow:hidden;margin-top:2px;}
 .cat-stat-fill{height:100%;border-radius:2px;background:var(--clr,#888);transition:width .5s;}
 .cat-stat-avg{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--tx3);}
+
+/* ── DIAGNOSTIC IA TAB ── */
+.diag-tab{background:linear-gradient(90deg,rgba(201,74,18,.12),rgba(30,92,184,.10))!important;font-weight:700!important;color:var(--acc)!important;}
+.diag-tab.on{color:var(--acc)!important;}
+.diag-wrap{max-width:960px;margin:0 auto;padding:28px 20px 48px;}
+.diag-hero{background:var(--sf);border:1px solid var(--br);border-radius:16px;padding:32px 36px 28px;margin-bottom:28px;text-align:center;}
+.diag-hero-eyebrow{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--acc);margin-bottom:8px;}
+.diag-hero-title{font-family:'Roboto',sans-serif;font-size:26px;font-weight:900;letter-spacing:.6px;color:var(--tx);margin-bottom:10px;}
+.diag-hero-sub{font-size:13px;color:var(--tx2);max-width:640px;margin:0 auto 22px;line-height:1.7;}
+.diag-search-row{display:flex;justify-content:center;gap:10px;}
+.diag-search-box{position:relative;width:100%;max-width:520px;}
+.diag-input{width:100%;padding:13px 18px;font-size:14px;font-family:'Inter',sans-serif;border:2px solid var(--br3);border-radius:10px;background:var(--bg);color:var(--tx);outline:none;transition:border-color .2s;}
+.diag-input:focus{border-color:var(--acc);}
+.diag-input::placeholder{color:var(--tx3);}
+.diag-autocomplete{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--sf);border:1px solid var(--br3);border-radius:10px;box-shadow:var(--shadow);max-height:280px;overflow-y:auto;z-index:200;display:none;}
+.diag-autocomplete.open{display:block;}
+.diag-ac-item{padding:10px 16px;cursor:pointer;font-size:13px;color:var(--tx);border-bottom:1px solid var(--br2);transition:background .1s;}
+.diag-ac-item:last-child{border-bottom:none;}
+.diag-ac-item:hover,.diag-ac-item.active{background:var(--bg2);}
+.diag-ac-item b{color:var(--acc);}
+.diag-ac-domain{font-size:11px;color:var(--tx3);margin-left:6px;}
+.diag-no-result{font-size:13px;color:var(--tx3);text-align:center;margin-top:10px;}
+.diag-job-header{background:var(--sf);border:1px solid var(--br);border-radius:12px;padding:18px 22px;margin-bottom:20px;display:flex;align-items:center;gap:16px;}
+.diag-job-color{width:10px;height:52px;border-radius:4px;flex-shrink:0;}
+.diag-job-info{flex:1;}
+.diag-job-title{font-size:18px;font-weight:700;color:var(--tx);margin-bottom:3px;}
+.diag-job-domain{font-size:12px;color:var(--tx2);}
+.diag-job-score-badge{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700;flex-shrink:0;}
+.diag-volets{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+.diag-volet{background:var(--sf);border:1px solid var(--br);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;}
+.diag-volet-hd{display:flex;align-items:center;gap:12px;padding:14px 18px;color:#fff;}
+.diag-volet-num{width:26px;height:26px;min-width:26px;border-radius:50%;background:rgba(255,255,255,0.25);font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.diag-volet-name{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+.diag-volet-body{padding:18px;flex:1;display:flex;flex-direction:column;gap:12px;}
+/* Volet 1 - score */
+.diag-score-big{display:flex;align-items:center;gap:14px;padding:14px;background:var(--bg2);border-radius:10px;}
+.diag-score-num{font-family:'IBM Plex Mono',monospace;font-size:36px;font-weight:700;line-height:1;}
+.diag-score-meta{flex:1;}
+.diag-score-label{font-size:12px;font-weight:600;color:var(--tx);}
+.diag-score-bar-wrap{height:6px;background:var(--br2);border-radius:3px;margin-top:6px;overflow:hidden;}
+.diag-score-bar-fill{height:100%;border-radius:3px;transition:width .6s;}
+.diag-kv-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:6px 0;border-bottom:1px solid var(--br2);}
+.diag-kv-row:last-child{border-bottom:none;}
+.diag-kv-k{color:var(--tx3);font-weight:500;}
+.diag-kv-v{color:var(--tx);font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;}
+.diag-rat{font-size:12px;color:var(--tx2);line-height:1.65;background:var(--bg2);border-radius:8px;padding:12px 14px;}
+/* Volet 2 - reinvention */
+.diag-rcard{background:var(--bg2);border-radius:10px;padding:13px 15px;cursor:pointer;transition:background .15s;}
+.diag-rcard:hover{background:var(--sf3);}
+.diag-rcard-head{display:flex;align-items:center;gap:10px;margin-bottom:5px;}
+.diag-rcard-num{width:22px;height:22px;min-width:22px;border-radius:50%;border:2px solid;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.diag-rcard-title{font-size:13px;font-weight:600;color:var(--tx);}
+.diag-rcard-desc{font-size:11px;color:var(--tx2);line-height:1.55;padding-left:32px;}
+/* Volet 3 - formations */
+.diag-school{background:var(--bg2);border-radius:10px;padding:12px 15px;display:flex;align-items:flex-start;gap:12px;}
+.diag-school-logo{width:36px;height:36px;min-width:36px;border-radius:8px;background:var(--sf);border:1px solid var(--br);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--tx2);text-align:center;line-height:1.2;font-family:'IBM Plex Mono',monospace;}
+.diag-school-info{flex:1;}
+.diag-school-name{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:2px;}
+.diag-school-type{font-size:11px;color:var(--acc);font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px;}
+.diag-school-desc{font-size:11px;color:var(--tx2);line-height:1.55;}
+.diag-school-loc{font-size:10px;color:var(--tx3);margin-top:3px;}
+.diag-school a{color:var(--acc2);text-decoration:none;font-size:11px;}
+.diag-school a:hover{text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -549,6 +609,7 @@ footer a{color:var(--tx2);text-decoration:none;}
   <button class="tab" data-tab="prod" data-i18n="tab_prod">Productivité & IA</button>
   <button class="tab" data-tab="usage" data-i18n="tab_usage">Usage IA France</button>
   <button class="tab" data-tab="meth" data-i18n="tab_meth">Méthodologie</button>
+  <button class="tab diag-tab" data-tab="diag">🔍 Mon Diagnostic IA</button>
 </nav>
 
 
@@ -561,9 +622,9 @@ footer a{color:var(--tx2);text-decoration:none;}
     <div class="intro-hero">
       <div class="intro-hero-eyebrow" data-i18n="intro_eyebrow">Observatoire · transitions-ia.ch · Mars 2026</div>
       <div class="intro-hero-title" data-i18n="intro_hero_title">L'IA générative face aux métiers suisses : comprendre pour agir</div>
-      <div class="intro-hero-sub" data-i18n-html="intro_hero_sub">Ce tableau de bord mesure l'<b>exposition des tâches</b> à l'IA générative pour 84 professions suisses, en croisant données officielles OFS, réglementation helvétique et recherches académiques de niveau T1. Il ne prédit pas la disparition d'emplois · il cartographie les <b>zones de transformation</b> pour orienter formation, reconversion et stratégie RH.</div>
+      <div class="intro-hero-sub" data-i18n-html="intro_hero_sub">Ce tableau de bord mesure l'<b>exposition des tâches</b> à l'IA générative pour 91 professions suisses, en croisant données officielles OFS, réglementation helvétique et recherches académiques de niveau T1. Il ne prédit pas la disparition d'emplois · il cartographie les <b>zones de transformation</b> pour orienter formation, reconversion et stratégie RH.</div>
       <div class="intro-hero-badges">
-        <span class="intro-hero-badge" data-i18n="badge_np2010">84 métiers NP 2010</span>
+        <span class="intro-hero-badge" data-i18n="badge_np2010">91 métiers NP 2010</span>
         <span class="intro-hero-badge">ESPA 2024 · OFS</span>
         <span class="intro-hero-badge">ESS 2022 · OFS</span>
         <span class="intro-hero-badge" data-i18n="badge_scoring">Scoring multi-sources T1–T4</span>
@@ -698,10 +759,7 @@ footer a{color:var(--tx2);text-decoration:none;}
         <div class="psum" id="psum"></div>
         <div class="psec" data-i18n="reinvention_title">Pistes de réinvention</div>
         <div class="reinv-list" id="preinv"></div>
-        <a id="porientation-lnk" class="orientation-lnk" href="https://www.orientation.ch/dyn/show/1940?lang=fr" target="_blank" rel="noopener" style="display:none">
-          <img src="https://www.orientation.ch/favicon.ico" onerror="this.style.display='none'" alt="">
-          <span>En savoir plus sur ce métier → orientation.ch</span>
-        </a>
+
       </div>
     </div>
   </div>
@@ -953,7 +1011,7 @@ footer a{color:var(--tx2);text-decoration:none;}
         <thead><tr><th data-i18n="th_limite">Limite</th><th data-i18n="th_impact">Impact</th></tr></thead>
         <tbody>
           <tr><td>Exposition ≠ suppression</td><td><span data-i18n="meth_lim_1">Un métier fortement exposé peut évoluer plutôt que disparaître. Le score mesure les tâches, pas la probabilité de remplacement.</span></td></tr>
-          <tr><td><span data-i18n="meth_limlbl_2">Données ESPA approximatives</span></td><td><span data-i18n="meth_lim_2">Certains effectifs sont des estimations ESPA 2024 arrondies. La NP 2010 couvre 394 groupes de professions ; ce dashboard en couvre 71.</span></td></tr>
+          <tr><td><span data-i18n="meth_limlbl_2">Données ESPA approximatives</span></td><td><span data-i18n="meth_lim_2">Certains effectifs sont des estimations ESPA 2024 arrondies. La NP 2010 couvre 394 groupes de professions ; ce dashboard en couvre 91.</span></td></tr>
           <tr><td><span data-i18n="meth_limlbl_3">Hétérogénéité des sources</span></td><td><span data-i18n="meth_lim_3">Les sources T1 à T4 peuvent définir « exposition » différemment. La pondération atténue ce biais mais ne l'élimine pas.</span></td></tr>
           <tr><td><span data-i18n="meth_limlbl_4">Obsolescence rapide</span></td><td><span data-i18n="meth_lim_4">Les capacités des modèles évoluent vite. Ce snapshot date de mars 2026 · les scores sont à réévaluer tous les 6 mois.</span></td></tr>
           <tr><td><span data-i18n="meth_limlbl_5">Limites géographiques</span></td><td><span data-i18n="meth_lim_5">Certaines études sont américaines ou européennes. L'extrapolation au marché suisse peut introduire un biais (structure salariale, formation duale, place financière).</span></td></tr>
@@ -1009,6 +1067,66 @@ footer a{color:var(--tx2);text-decoration:none;}
   </div>
 </div>
 
+
+
+<!-- ═══════════════════════════════════════════════════════ TAB 8: DIAGNOSTIC IA ═══ -->
+<div id="tab-diag" class="tab-content">
+  <div class="diag-wrap">
+
+    <!-- HERO SEARCH -->
+    <div class="diag-hero">
+      <div class="diag-hero-eyebrow">Transitions-ia.ch · Outil personnalisé</div>
+      <div class="diag-hero-title">🔍 Mon Diagnostic IA</div>
+      <div class="diag-hero-sub">Entrez votre métier pour obtenir une analyse personnalisée de l'exposition à l'IA, des pistes de reconversion et des formations disponibles en Suisse.</div>
+      <div class="diag-search-row">
+        <div class="diag-search-box">
+          <input type="search" id="diag-srch" class="diag-input" placeholder="Ex : Comptable, Infirmier·ère, Développeur·se…" autocomplete="off">
+          <div class="diag-autocomplete" id="diag-ac"></div>
+        </div>
+      </div>
+      <div class="diag-no-result" id="diag-noresult" style="display:none">Aucun métier trouvé. Essayez un autre terme.</div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="diag-results" id="diag-results" style="display:none">
+
+      <!-- JOB HEADER -->
+      <div class="diag-job-header" id="diag-job-header"></div>
+
+      <div class="diag-volets">
+
+        <!-- VOLET 1 : ANALYSE DU MÉTIER -->
+        <div class="diag-volet">
+          <div class="diag-volet-hd" style="background:var(--t1)">
+            <span class="diag-volet-num">1</span>
+            <span class="diag-volet-name">Analyse du métier</span>
+          </div>
+          <div class="diag-volet-body" id="diag-v1"></div>
+        </div>
+
+        <!-- VOLET 2 : PISTES DE TRANSITION -->
+        <div class="diag-volet">
+          <div class="diag-volet-hd" style="background:var(--t2)">
+            <span class="diag-volet-num">2</span>
+            <span class="diag-volet-name">Pistes de transition</span>
+          </div>
+          <div class="diag-volet-body" id="diag-v2"></div>
+        </div>
+
+        <!-- VOLET 3 : FORMATIONS EN SUISSE -->
+        <div class="diag-volet">
+          <div class="diag-volet-hd" style="background:var(--t3)">
+            <span class="diag-volet-num">3</span>
+            <span class="diag-volet-name">Se former en Suisse</span>
+          </div>
+          <div class="diag-volet-body" id="diag-v3"></div>
+        </div>
+
+      </div><!-- /diag-volets -->
+    </div><!-- /diag-results -->
+
+  </div><!-- /diag-wrap -->
+</div>
 
 
 <footer>
@@ -1192,7 +1310,7 @@ function fmt(n){if(!n)return"";if(n>=1e6)return(n/1e6).toFixed(1)+"M";if(n>=1e3)
 // ═══════════════════════════════ I18N · FR / DE / IT ══════════════════════
 const T18N={
   fr:{
-    badge_np2010:"84 métiers NP 2010",
+    badge_np2010:"91 métiers NP 2010",
     badge_scoring:"Scoring multi-sources T1–T4",
     badge_reg:"Facteur réglementaire CH",
     meth_src_np2010:"Nomenclature suisse des professions (NP 2010) : 394 groupes compatibles ISCO-08",
@@ -1221,7 +1339,7 @@ const T18N={
     meth_limlbl_4:"Obsolescence rapide",
     meth_limlbl_5:"Limites géographiques",
     meth_lim_1:"Un métier fortement exposé peut évoluer plutôt que disparaître. Le score mesure les tâches, pas la probabilité de remplacement.",
-    meth_lim_2:"Certains effectifs sont des estimations ESPA 2024 arrondies. La NP 2010 couvre 394 groupes ; ce dashboard en couvre 84.",
+    meth_lim_2:"Certains effectifs sont des estimations ESPA 2024 arrondies. La NP 2010 couvre 394 groupes ; ce dashboard en couvre 91.",
     meth_lim_3:"Les sources T1 à T4 peuvent définir \'exposition\' différemment. La pondération atténue ce biais mais ne l\'élimine pas.",
     meth_lim_4:"Les capacités des modèles évoluent vite. Ce snapshot date de mars 2026 · les scores sont à réévaluer tous les 6 mois.",
     meth_lim_5:"Certaines études sont américaines ou européennes. L\'extrapolation au marché suisse peut introduire un biais.",
@@ -1248,7 +1366,7 @@ const T18N={
     tab_intro:"À propos",
     intro_eyebrow:"Observatoire · transitions-ia.ch · Mars 2026",
     intro_hero_title:"L'IA générative face aux métiers suisses : comprendre pour agir",
-    intro_hero_sub:"Ce tableau de bord mesure l'<b>exposition des tâches</b> à l'IA générative pour 84 professions suisses, en croisant données officielles OFS, réglementation helvétique et recherches académiques de niveau T1. Il ne prédit pas la disparition d'emplois · il cartographie les <b>zones de transformation</b> pour orienter formation, reconversion et stratégie RH.",
+    intro_hero_sub:"Ce tableau de bord mesure l'<b>exposition des tâches</b> à l'IA générative pour 91 professions suisses, en croisant données officielles OFS, réglementation helvétique et recherches académiques de niveau T1. Il ne prédit pas la disparition d'emplois · il cartographie les <b>zones de transformation</b> pour orienter formation, reconversion et stratégie RH.",
     intro_kpi1:"Métiers suisses analysés (NP 2010)",
     intro_kpi2:"Emplois couverts (ESPA 2024)",
     intro_kpi3:"Score moyen d'exposition (/10)",
@@ -1344,7 +1462,7 @@ const T18N={
     meth_compare_p:"Ce dashboard s'inspire du projet français <a href=\"https://indice-ia.fr\" target=\"_blank\" style=\"color:var(--acc2)\">indice-ia.fr</a> (Yann Decoopman, 2026) et partage la source d'inspiration originale (<a href=\"https://joshkale.github.io/jobs\" target=\"_blank\" style=\"color:var(--acc2)\">joshkale.github.io/jobs</a> / Andrej Karpathy). transitions-ia.ch est la première adaptation suisse avec données OFS officielles (NP 2010, ESPA 2024, ESS 2022).",
   },
   de:{
-    badge_np2010:"84 Berufe NP 2010",
+    badge_np2010:"91 Berufe NP 2010",
     badge_scoring:"Mehrquellen-Scoring T1–T4",
     badge_reg:"Regulierungsfaktor CH",
     meth_src_np2010:"Schweizerische Berufsnomenklatur (NP 2010): 394 Berufsgruppen ISCO-08-kompatibel",
@@ -1373,7 +1491,7 @@ const T18N={
     meth_limlbl_4:"Schnelle Veralterung",
     meth_limlbl_5:"Geografische Grenzen",
     meth_lim_1:"Ein stark exponierter Beruf kann sich wandeln statt zu verschwinden. Der Score misst Aufgaben, nicht die Substitutionswahrscheinlichkeit.",
-    meth_lim_2:"Einige Beschäftigtenzahlen sind gerundete SAKE-2024-Schätzungen. NP 2010 umfasst 394 Gruppen; dieses Dashboard deckt 84 ab.",
+    meth_lim_2:"Einige Beschäftigtenzahlen sind gerundete SAKE-2024-Schätzungen. NP 2010 umfasst 394 Gruppen; dieses Dashboard deckt 91 ab.",
     meth_lim_3:"Quellen T1 bis T4 können \'Exposition\' unterschiedlich definieren. Die Gewichtung mindert diese Verzerrung, eliminiert sie aber nicht.",
     meth_lim_4:"Die Modellkapazitäten entwickeln sich schnell. Dieser Snapshot stammt von März 2026 · Scores sollten alle 6 Monate neu bewertet werden.",
     meth_lim_5:"Einige Studien sind amerikanisch oder europäisch. Die Übertragung auf den Schweizer Markt kann Verzerrungen einführen.",
@@ -1496,7 +1614,7 @@ const T18N={
     meth_compare_p:"Dieses Dashboard wurde vom französischen Projekt <a href=\"https://indice-ia.fr\" target=\"_blank\" style=\"color:var(--acc2)\">indice-ia.fr</a> (Yann Decoopman, 2026) inspiriert und teilt die gemeinsame Quelle (<a href=\"https://joshkale.github.io/jobs\" target=\"_blank\" style=\"color:var(--acc2)\">joshkale.github.io/jobs</a> / Andrej Karpathy). transitions-ia.ch ist die erste Schweizer Adaptation mit offiziellen BFS-Daten (NP 2010, ESPA 2024, ESS 2022).",
   },
   it:{
-    badge_np2010:"84 mestieri NP 2010",
+    badge_np2010:"91 mestieri NP 2010",
     badge_scoring:"Scoring multi-fonti T1–T4",
     badge_reg:"Fattore regolatorio CH",
     meth_src_np2010:"Nomenclatura svizzera delle professioni (NP 2010): 394 gruppi professionali compatibili ISCO-08",
@@ -1681,6 +1799,10 @@ const D=[
   {l:"Agriculteur·trice / Paysan·ne (CFC)",url_ch:"https://www.orientation.ch/dyn/show/1900?id=10&lang=fr",d:"A",fap:"6111",sal:3800,eff:42000,reg:{score: 3, bodies: ["LAgr", "OPD", "OFAG"], effect: "N"},sources:[{tier:2,val:2,year:2023,src:"KOF EPFZ · automatisation agriculture CH"},{tier:1,val:3,year:2024,src:"Frey & Osborne 2024 update"},{tier:3,val:3,year:2024,src:"Agri-Info CH · IA et agriculture"}],rat:"Présence terrain et gestion des aléas climatiques alpins limitent l'automatisation. Les outils de precision farming progressent mais restent en appui.",rn:[{t:"Consultant·e agri-tech & precision farming",x:"Capteurs IoT, drones, IA d'irrigation · brevet fédéral Spécialiste en agriculture (AGRO-BF) · orientation professionnelle via OCOSP · forte demande."},{t:"Expert·e agriculture biologique Bio Suisse / IP-SUISSE",x:"Labelisation Bio Suisse, IP-SUISSE, circuits courts · bilan de compétences disponible via OCOSP cantonal · premium suisse."},{t:"Formateur formation agricole duale (CFC)",x:"Centres de formation agricoles cantonaux · pénurie formateurs."}]},
   {l:"Maraîcher·ère / Horticulteur·trice (CFC)",url_ch:"https://www.orientation.ch/dyn/show/1900?id=74&lang=fr",d:"A",fap:"6113",sal:3500,eff:12000,reg:{score: 2, bodies: ["LAgr", "OPD"], effect: "N"},sources:[{tier:2,val:2,year:2022,src:"OCDE · automatisation agriculture"},{tier:1,val:2,year:2023,src:"Acemoglu & Restrepo · travail manuel"}],rat:"Travail saisonnier, grande diversité de cultures et terrain alpin limitent l'automatisation. Pénurie persistante de travailleurs.",rn:[{t:"Producteur·trice circuits courts & AMAP suisse",x:"Vente directe, marchés paysans, abonnements paniers · formation continue Agri-formation Suisse · marché porteur."},{t:"Consultant agroécologie & transition Bio",x:"Bio Suisse, IP-SUISSE, transition vers pratiques bas-intrants."},{t:"Expert agriculture urbaine & vertical farming",x:"Zurich, Bâle, Genève · forte demande urbaniste."}]},
   {l:"Agri-éleveur·euse bovin·e (CFC)",url_ch:"https://www.orientation.ch/dyn/show/1900?id=10&lang=fr",d:"A",fap:"6121",sal:3800,eff:22000,reg:{score: 3, bodies: ["OVF", "LAgr", "OSAV"], effect: "N"},sources:[{tier:2,val:2,year:2023,src:"Agroscope CH · robots de traite"},{tier:3,val:3,year:2024,src:"UFA Revue · IA et élevage suisse"}],rat:"Robots de traite AMS (DeLaval, Lely) présents en Suisse, mais gestion du troupeau et terrains alpins maintiennent l'humain au cœur.",rn:[{t:"Spécialiste bien-être animal & AlpCheck",x:"Certification bien-être animaux de rente · exigence suisse forte."},{t:"Producteur AOP/IGP (gruyère, raclette, etc.)",x:"Valorisation terroir, filières laitières à haute valeur ajoutée."},{t:"Conseiller zootechnique Swissgenetics",x:"Optimisation génétique, reproduction assistée, OES."}]},
+  // ── ARTS & CULTURE ── OFS 2024 · 295 000 travailleurs culturels CH · +38% depuis 2010 · ESPA 2024 ──
+  {l:"Artiste plasticien·ne / Peintre-sculpteur·trice",url_ch:"https://www.orientation.ch/dyn/show/2886?id=79001&lang=fr",d:"B",fap:"2651",sal:4200,eff:12000,reg:{score: 3, bodies: ["ProLitteris", "LDA", "SSA"], effect: "N"},sources:[{tier:1,val:3,year:2024,src:"Frey & Osborne 2024 Reappraisal · visual artists very low automation · creative intelligence bottleneck persist"},{tier:1,val:4,year:2025,src:"ILO Research Brief GenAI & media/culture · ISCO 2651 Gradient 2 (mean 0.33) · pression concurrentielle IA générative"},{tier:2,val:4,year:2025,src:"OFS / Observatoire Romand de la culture · 295 000 travailleurs culturels CH 2024 · 61% temps partiel artistes·visuels"},{tier:2,val:5,year:2024,src:"Pro Helvetia · rapport IA et arts visuels suisses 2024 · Midjourney, DALL-E déstabilisent commandes commerciales"},{tier:3,val:5,year:2025,src:"HEAD Genève / ECAL Lausanne · IA et pratiques artistiques HES-ART · rapport 2025"}],rat:"La créativité artistique, l'originalité et le sens de l'œuvre unique résistent fondamentalement à l'automatisation. Les outils génératifs (Midjourney, DALL-E, Stable Diffusion) créent une pression concurrentielle sur les commandes commerciales · illustration, concept art, design graphique · mais pas sur l'œuvre singulière. En Suisse, ~12 000 artistes visuels actifs (ESPA 2024 · ISCO 2651) · marché très fragmenté, 61% travail à temps partiel, 40% indépendants · ProLitteris gère les droits (LDA). Principaux centres : Zurich (Kunsthaus), Genève (HEAD, Mamco), Berne (Kunstmuseum), Bâle (Art Basel).",rn:[{t:"Artiste numérique IA-augmenté·e & installateur·trice (HEAD/ECAL)",x:"Supervision créative des outils IA génératifs · CAS Arts numériques HEAD Genève / ECAL Lausanne · Art Basel, LISTE, Art Zurich · marché émergent."},{t:"Directeur·trice artistique brand & communication visuelle (luxury)",x:"Direction créative agences suisses · brand design luxury (Rolex, Swatch, Richemont) · brevet fédéral Graphiste / CAS Direction artistique."},{t:"Formateur·trice arts plastiques & médiateur·trice culturel·le",x:"Enseignement HES-ART / écoles d'art cantonales · CAS Médiation culturelle Pro Helvetia · pénurie de praticiens-formateurs en CH."}]},
+  {l:"Auteur·trice / Écrivain·e",url_ch:"https://www.orientation.ch/dyn/show/2886?id=79024&lang=fr",d:"B",fap:"2641",sal:4500,eff:8000,reg:{score: 3, bodies: ["ProLitteris", "LDA", "SSA", "ALG"], effect: "N"},sources:[{tier:1,val:7,year:2024,src:"Eloundou et al. · writing & storytelling tasks GPT-4 exposure β≥0.5 · rédaction automatisable"},{tier:1,val:7,year:2025,src:"ILO WP140 · ISCO 2641 Gradient 3 (mean 0.52) · écriture créative fortement exposée aux LLMs"},{tier:2,val:7,year:2024,src:"Pro Helvetia / ALG · IA et auteurs suisses · rapport 2024 · pression LLMs sur commandes éditoriales"},{tier:2,val:6,year:2025,src:"SSA · statut social des auteurs·trices en Suisse romande 2025 · 71% gagnent <30 000 CHF/an de leurs écrits"},{tier:1,val:6,year:2026,src:"Massenkoff & McCrory · Writers 55.3% observed (Anthropic EconIndex 2026)"}],rat:"Les LLMs (GPT-4o, Claude, Gemini) automatisent la rédaction de textes standards, résumés et contenus marketing. L'écriture créative profonde, l'originalité narrative et la voix propre de l'auteur résistent. La concurrence s'accroît pour les commandes commerciales (content marketing, journalisme PR, traductions). En Suisse, ~8 000 auteurs actifs (ESPA 2024) · ProLitteris gère les droits · SSA représente ~3 500 auteurs romands. Très forte précarité : 71% gagnent moins de 30 000 CHF/an de leurs écrits (OFS 2024).",rn:[{t:"Éditeur·trice numérique & curateur·trice IA éditoriale",x:"Direction éditoriale de contenus IA · supervision qualité narrative · Payot, Slatkine, Helvetiq, éditeurs Zurich · niche en croissance."},{t:"Scénariste & content creator multiplateforme (SSA suisse)",x:"Formats courts (YouTube, Netflix CH, RTS, SRF) · documentaire, podcast · droits SSA multiplateforme · réseau suisse créatif."},{t:"Formateur·trice écriture créative & ateliers littéraires",x:"Universités du 3e âge, HEP, Alliance Française CH, Pro Helvetia · ateliers fiction & non-fiction · profil très demandé."}]},
+  {l:"Artisan·e d'art / Créateur·trice-bijoutier·ère",url_ch:"https://www.orientation.ch/dyn/show/2886?id=79002&lang=fr",d:"B",fap:"7313",sal:5500,eff:9000,reg:{score: 2, bodies: ["LDA", "SSA", "chambres des métiers cantonales"], effect: "N"},sources:[{tier:1,val:2,year:2024,src:"Frey & Osborne 2024 · craftworkers very low automation · manual dexterity & creative uniqueness bottleneck"},{tier:1,val:2,year:2025,src:"ILO WP140 · ISCO 7313/7319 Gradient 1 (mean 0.18) · artisans d'art = exposition la plus basse"},{tier:2,val:2,year:2024,src:"OFS · économie culturelle suisse 2024 · ~9 000 artisans d'art actifs · Genève bijouterie, Jura luthiers"},{tier:2,val:3,year:2025,src:"Fédération des artisans suisses / USAM · IA et métiers d'art · rapport 2025 · machines CNC n'éliminent pas l'art de main"},{tier:3,val:3,year:2025,src:"Ecole d'art du Jura (EAJ) / CETAL Lausanne · formation joaillerie-bijouterie · demande stable et pénurie formateurs"}],rat:"Les métiers d'art (joaillerie, luthierie, céramique, bijouterie créatrice, ébénisterie d'art) sont parmi les moins exposés à l'IA · la dextérité manuelle unique, l'unicité de chaque pièce et la valorisation du fait-main comme gage d'authenticité sont irremplaçables. Genève est un centre mondial de la bijouterie de luxe (Rolex, Patek Philippe, Piaget) employant des artisans d'exception. ~9 000 artisans d'art actifs en Suisse (ESPA 2024 · ISCO 7313/7319), forte demande pour les profils qualifiés.",rn:[{t:"Artisan·e luthier·ère & restaurateur·trice d'instruments (HEMU)",x:"Lutherie violon/guitare, facture d'orgue · formation HEMU Lausanne · marché international · très forte demande · pénurie criante."},{t:"Designer produit luxe & bijouterie de création (HEAD/ECAL)",x:"Joaillerie contemporaine, collaboration maisons de luxe suisses · CAS Design bijou HEAD Genève · Baselworld, SIHH adjacents."},{t:"Formateur·trice métiers d'art & transmission savoir-faire (CFC)",x:"Transmission maîtres-apprentis · brevet fédéral Formateur·trice (ORTRA) · École d'art du Jura, EPCRA · pénurie formateurs CH."}]},
   // ── BANQUE / ASSURANCE ── ESS 2022 · place financière GE/ZH ──
   // ── GESTION & FINANCE (suite) · Secrétariat & Administration ──────────────
   // Source principale ESPA 2024 OFS : groupe ISCO 4120 Secrétaires (~28 000 CH) + ISCO 3343 (~15 000)
@@ -1740,6 +1862,10 @@ const D=[
   {l:"Enseignant-chercheur (EPF/Uni/HES)",url_ch:"https://www.orientation.ch/dyn/show/2886?id=74016&lang=fr",d:"R",fap:"2310",sal:9000,eff:22000,reg:{score: 6, bodies: ["LERI", "nLPD", "SEFRI"], effect: "T"},sources:[{tier:1,val:6,year:2024,src:"Eloundou et al. · knowledge work tasks LLM exposure"},{tier:2,val:6,year:2024,src:"OCDE · IA et recherche académique 2024"},{tier:1,val:5,year:2025,src:"Nature · LLMs & scientific discovery 2025"},{tier:2,val:6,year:2023,src:"SEFRI · rapport IA dans l'enseignement supérieur CH 2023"}],rat:"Production de cours et rédaction très exposées. La recherche originale, la direction de thèse à l'ETH/EPFL, l'évaluation par les pairs restent profondes. ETH Zurich et EPFL = top 20 mondial.",rn:[{t:"Chercheur IA & éthique algorithmique (ETH AI Center)",x:"Recherche fondamentale IA, biais, explicabilité · très forte demande."},{t:"Directeur programme executive HES & formation continue",x:"MAS, CAS · marché formation professionnelle supérieure en croissance."},{t:"Expert éducation ouverte & MOOC avancés (Coursera / edX EPFL)",x:"Monétisation expertise pédagogique EPFL/UNIL sur plateformes mondiales."}]},
   {l:"Conseiller d'orientation professionnelle",url_ch:"https://www.orientation.ch/dyn/show/2886?id=74014&lang=fr",d:"R",fap:"2635",sal:7500,eff:3000,reg:{score: 6, bodies: ["nLPD", "CC", "LFPr"], effect: "P"},sources:[{tier:1,val:4,year:2023,src:"Autor · social service work & human interaction"},{tier:2,val:4,year:2024,src:"OCDE · IA et orientation scolaire/professionnelle"},{tier:3,val:5,year:2025,src:"orientation.ch · IA et conseil professionnel"},{tier:4,val:5,year:2025,src:"CSFO Berne · baromètre orientation & IA 2025"}],rat:"Les outils d'orientation algorithmiques (orientation.ch, Berufsberatung.ch) se développent mais l'accompagnement personnalisé · notamment pour la formation duale suisse (400+ CFC) · reste irremplaçable.",rn:[{t:"Conseiller ORP & réinsertion marché travail suisse",x:"Offices régionaux de placement · SECO réseau."},{t:"Expert·e bilan de compétences & VAE suisse (CSFO/BILAN)",x:"Validation des acquis de l'expérience · dispositif CSFO Berne · réseau orientation.ch/carriere · forte demande post-reconversion."},{t:"Formateur·trice orientation scolaire HEP & coach IA carrière",x:"Master Conseiller·ère d'orientation HEP Vaud / FHNW · formation initiale des CO · pénurie en Suisse romande et alémaniqe."}]},
   {l:"Musicien",url_ch:"https://www.orientation.ch/dyn/show/2886?id=79011&lang=fr",d:"L",fap:"2652",sal:4500,eff:8000,reg:{score: 2, bodies: ["SUISA", "LDA", "CO"], effect: "N"},sources:[{tier:1,val:3,year:2023,src:"Ferraro et al. · creative AI & musicians"},{tier:2,val:3,year:2024,src:"SUISA · IA et musiciens suisses"},{tier:3,val:4,year:2025,src:"Tele Basel · Suno, Udio et musiciens suisses"}],rat:"Performance live et interprétation émotionnelle · l'IA génère mais ne performe pas. La tradition musicale suisse (HEMU, Zurich Tonhalle) et les festivals (Montreux Jazz, Paléo) valorisent le live.",rn:[{t:"Compositeur·trice musique IA augmentée (Swiss Game Industry)",x:"Supervision créative pour jeux, publicités, films Swiss · Bachelor/Master Musique HEMU Lausanne / HKB Berne · demande croissante."},{t:"Pédagogue musical & création de contenu (HEMU/HKB)",x:"Masterclasses en ligne, méthodes numériques · formation musicale suisse."},{t:"Sound designer & gaming audio (Ubisoft Genève, Nestle Vevey)",x:"Univers sonores jeux vidéo, expériences immersives XR."}]},
+  {l:"Comédien·ne / Acteur·trice",url_ch:"https://www.orientation.ch/dyn/show/2886?id=79003&lang=fr",d:"L",fap:"2655",sal:4500,eff:5500,reg:{score: 3, bodies: ["SSA", "SSRS", "LDA", "CO"], effect: "N"},sources:[{tier:1,val:4,year:2024,src:"Frey & Osborne 2024 Reappraisal · actors low automation · social & physical intelligence bottleneck"},{tier:1,val:4,year:2025,src:"ILO Research Brief GenAI & media/culture · ISCO 2655 Gradient 2 (mean 0.28) · performance live résiste"},{tier:2,val:5,year:2025,src:"SSRS / ScèneSuisse · CCT spectacle CH · min CHF 4 500/mois · rapport IA et comédiens suisses 2025"},{tier:2,val:4,year:2024,src:"OFS · économie culturelle suisse 2024 · ~5 500 acteurs·trices actifs·ves (ESPA 2024 · ISCO 2655)"},{tier:3,val:5,year:2025,src:"TPR Neuchâtel / Comédie de Genève / Vidy-Lausanne · IA et arts de la scène suisses 2025"}],rat:"La performance live, l'incarnation physique et la présence scénique sont irremplaçables par l'IA. Les deepfakes et la synthèse vocale (ElevenLabs, AI dubbing) créent un risque croissant pour les doublages, publicités et contenus numériques · la SSA et la LDA protègent les droits des acteurs contre l'utilisation non consentie de leur image et voix. En Suisse : ~5 500 acteurs actifs (ESPA 2024), CCT min CHF 4 500/mois (SSRS), forte précarité (50% emploi partiel, ~30% intermittence). Principaux employeurs : Comédie de Genève, Vidy-Lausanne, Theater Basel, Schauspielhaus Zürich, TPR.",rn:[{t:"Coach voix & prise de parole en public (executive coaching ICF)",x:"Formation cadres suisses · storytelling, présence scénique · certification coaching ICF/EMCC · marché très porteur en CH (Zurich, Genève)."},{t:"Comédien·ne doublage & voice-over IA supervisé",x:"Doublage films/séries CH·FR·DE·IT · supervision voix synthétiques SSA · RTS/SRF/RSI · droits numériques protégés."},{t:"Formateur·trice arts dramatiques HEP / HETSR",x:"Ateliers théâtre-école, HEP Vaud/Fribourg · HETSR (Haute École de Théâtre de Suisse Romande) · formation initiale et continue."}]},
+  {l:"Danseur·euse professionnel·le",url_ch:"https://www.orientation.ch/dyn/show/2886?id=79005&lang=fr",d:"L",fap:"2653",sal:4200,eff:3500,reg:{score: 2, bodies: ["Danse Suisse", "SSA", "LTr"], effect: "N"},sources:[{tier:1,val:2,year:2024,src:"Frey & Osborne 2024 · dancers very low automation · physical embodiment is a fundamental bottleneck for AI"},{tier:1,val:2,year:2025,src:"ILO WP140 · ISCO 2653 Gradient 1 (mean 0.18) · exposition la plus basse de toutes les professions créatives"},{tier:2,val:2,year:2024,src:"Danse Suisse / RP danses Genève · recommandations salariales CHF 500/jour · rapport IA & danse 2024 · live résiste"},{tier:2,val:3,year:2025,src:"OFS · travailleurs culturels suisses 2024 · ~3 500 danseurs·euses actifs·ves (ESPA 2024 · ISCO 2653)"},{tier:3,val:3,year:2025,src:"Béjart Ballet Lausanne / Ballet Grand Théâtre Genève / Ballet Zurich · IA et création chorégraphique suisse 2025"}],rat:"La danse est l'une des professions les moins exposées à l'IA : la présence physique, l'incarnation corporelle et la relation au public live sont fondamentalement irremplaçables par des systèmes artificiels. L'IA peut assister la composition musicale ou la mise en scène, mais pas la performance dansée elle-même. Défi principal : précarité extrême (CHF 500/jour selon Danse Suisse), carrière courte (~35 ans), et faibles effectifs (~3 500 en CH). Principaux employeurs : Béjart Ballet Lausanne, Ballet GT Genève, Ballet Zurich, cie indépendantes subventionnées Pro Helvetia.",rn:[{t:"Chorégraphe & directeur·trice artistique compagnie suisse",x:"Création chorégraphique · financement Pro Helvetia / cantons · CAS Management culturel HEG Genève · transition mi-carrière naturelle."},{t:"Formateur·trice danse & wellness coach (Pilates / Somatics / Gyrokinesis)",x:"Reconversion post-carrière · studios wellness Zurich/Genève · certification Pilates, Gyrokinesis, Feldenkrais · forte demande."},{t:"Thérapeute par la danse-mouvement (DMP · HES-SO Santé sociale)",x:"Santé mentale, EMS, hôpitaux psychiatriques · Master Thérapie psychomotrice HES-SO / ZHAW · profession reconnue en Suisse."}]},
+  {l:"Technicien·ne du spectacle / Régisseur·euse",url_ch:"https://www.orientation.ch/dyn/show/2886?id=79010&lang=fr",d:"L",fap:"3521",sal:6200,eff:10000,reg:{score: 3, bodies: ["SUVA", "SSRS", "nLPD", "LTr"], effect: "N"},sources:[{tier:1,val:4,year:2024,src:"Frey & Osborne 2024 · stage technicians moderate-low automation · creative live decisions resist"},{tier:1,val:4,year:2025,src:"ILO WP140 · ISCO 3521 Gradient 2 (mean 0.32) · techniciens scène exposition modérée"},{tier:2,val:3,year:2024,src:"SSRS / Action Intermittence CH · salaires techniciens spectacle · CCT · conditions travail 2024 suisse"},{tier:2,val:4,year:2025,src:"OFS · ~10 000 techniciens du spectacle actifs en Suisse (ESPA 2024 · ISCO 3521 + groupes connexes)"},{tier:3,val:4,year:2025,src:"SSR / Opéra de Lausanne / Victoria Hall Genève / Paléo Festival · IA et régie technique spectacle suisse 2025"}],rat:"La régie son, lumière et plateau nécessite expertise technique pointue, réactivité en live et créativité dans les solutions. L'IA automatise certains éclairages (systèmes GDTF/MVR, MA Lighting IA) et le mixage son (Dolby Atmos AI), mais la direction créative, la sécurité scénique et les décisions en temps réel restent humaines (SUVA). ~10 000 techniciens du spectacle en Suisse (ESPA 2024), principaux employeurs : SSR (RTS/SRF/RSI), opéras cantonaux, festivals (Montreux Jazz, Paléo, Verbier Festival, Locarno).",rn:[{t:"Directeur·trice technique & expert·e systèmes scéniques IA (GrandMA / MA3)",x:"Systèmes d'éclairage automatisés MA Lighting · festivals CH (Paléo, Montreux Jazz) · brevet fédéral Technicien·ne événement · très demandé."},{t:"Responsable production live streaming & événements hybrides",x:"Studios streaming, conférences hybrides (Genève OI, WEF Davos) · compétences hybrides physique/numérique · forte croissance."},{t:"Consultant·e sécurité manifestations & homologation salles (SUVA/OFC)",x:"Plans évacuation, sécurité feu, homologation ERP · certification SUVA · niche très réglementée · pénurie de spécialistes en CH."}]},
+  {l:"Metteur·euse en scène / Directeur·trice artistique",url_ch:"https://www.orientation.ch/dyn/show/2886?id=79006&lang=fr",d:"L",fap:"2654",sal:7200,eff:4000,reg:{score: 3, bodies: ["SSA", "SSRS", "Pro Helvetia", "LDA"], effect: "N"},sources:[{tier:1,val:4,year:2024,src:"Frey & Osborne 2024 · directors low automation · creative vision & leadership beyond current GenAI"},{tier:1,val:4,year:2025,src:"ILO Research Brief GenAI & media/culture · ISCO 2654 Gradient 2 (mean 0.38) · direction artistique résiste"},{tier:2,val:4,year:2024,src:"Pro Helvetia · subventions metteurs·euses en scène CH 2024 · rapport IA et création scénique · LLMs assistent dramaturgies"},{tier:2,val:4,year:2024,src:"OFS · ~4 000 directeurs·trices artistiques et metteurs·euses en scène actifs·ves en Suisse (ESPA 2024)"},{tier:3,val:5,year:2025,src:"HETSR La Manufacture Lausanne / ESAD Genève · IA et mise en scène contemporaine suisse 2025"}],rat:"La vision artistique, la direction d'acteurs et les choix esthétiques d'une mise en scène requièrent jugement humain, sensibilité culturelle et capacité d'improvisation. L'IA assiste l'écriture de dramaturgie, la scénographie numérique (vidéo-mapping, projection 3D) et la gestion de production, mais ne dirige pas. Principaux employeurs : Théâtres cantonaux (TPR Neuchâtel, Comédie GE, Vidy-Lausanne, Theater Basel, Schauspielhaus ZH), Pro Helvetia soutient ~150 créations indépendantes/an. CHF 5 500-9 000/mois (votresalaire.ch 2024). Forte précarité : 70% de projets subventionnés.",rn:[{t:"Directeur·trice institution culturelle & management OFC/Pro Helvetia",x:"Gestion d'une maison culturelle subventionnée · CAS Management culturel HEG Genève / HEC Lausanne · appels à projets OFC/Pro Helvetia."},{t:"Réalisateur·trice contenus immersifs & XR (FOCAL Suisse)",x:"Théâtre immersif, VR/AR, installations multimédias · formation FOCAL Suisse · musées, festivals · marché émergent CH."},{t:"Consultant·e développement projets culturels & fundraising suisse",x:"Mécénat d'entreprise (UBS, Pictet, Nestlé), montage dossiers Pro Helvetia/OFC/cantons · profil hybride culture-gestion très recherché."}]},
   // ── SUPPORT ENTREPRISE ──
   {l:"Développeur logiciel / software engineer",url_ch:"https://www.orientation.ch/dyn/show/2886?id=74040&lang=fr",d:"S",fap:"2512",sal:10200,eff:90000,reg:{score: 5, bodies: ["nLPD", "IA-Act", "CO"], effect: "C"},sources:[{tier:1,val:8,year:2024,src:"Peng et al. · GitHub Copilot +55% productivité"},{tier:1,val:9,year:2024,src:"Eloundou et al. · GPTs & programming tasks (β=1.0)"},{tier:2,val:8,year:2024,src:"ICTjournal CH · Robert Half · salaires IT Suisse 2024 (dev CHF 82-130K)"},{tier:2,val:8,year:2025,src:"SwissICT · 117 900 informaticiens manquants en CH d'ici 2028"},{tier:3,val:9,year:2025,src:"Digitalswitzerland · Zurich 3e hub tech EU (Google, Microsoft, Amazon)"},{tier:1,val:9,year:2026,src:"Massenkoff & McCrory · Computer programmers 74.5% observed (Anthropic EconIndex 2026)"},{tier:1,val:8,year:2025,src:"Gmyrek et al. ILO WP140 · ISCO 2512 Gradient 3↑ (mean 0.53) OIT/NASK 2025"}],rat:"Génération de code par LLMs très avancée (+55% productivité Copilot). Architecture, compréhension produit et jugement système résistent. Zurich = 3ème hub tech européen, avec Google, Microsoft, Amazon, Meta.",rn:[{t:"Ingénieur IA agents & systèmes autonomes (Zurich Tech Hub)",x:"ILO WP140 confirme hausse d'exposition Software Developers · la valeur migre vers architecture multi-agents, RAG, agentic pipelines."},{t:"AI Product Manager & évaluation modèles (Google, Meta, Siemens CH)",x:"Définir ce que les LLMs ne peuvent pas faire reste une compétence humaine premium."},{t:"Expert sécurité IA & red-teaming (NCSC / Swiss Cybersecurity Alliance)",x:"Conformité AI Act CH-UE, audit adversarial · niche à forte croissance et très rare en Suisse."}]},
   {l:"Data scientist",url_ch:"https://www.orientation.ch/dyn/show/2886?id=74040&lang=fr",d:"S",fap:"2120",sal:11000,eff:15000,reg:{score: 6, bodies: ["nLPD", "IA-Act", "FINMA", "CO"], effect: "C"},sources:[{tier:1,val:9,year:2024,src:"Eloundou et al. · data analysis tasks GPT-4 exposure β≥0.5"},{tier:1,val:8,year:2024,src:"Noy & Zhang MIT · analytical writing tasks LLMs"},{tier:2,val:8,year:2024,src:"ICTjournal CH · Robert Half · data scientists jusqu'à 143K CHF/an Suisse 2024"},{tier:2,val:8,year:2025,src:"SwissICT · pénurie Data/AI : 12 000+ postes non pourvus en CH 2025"},{tier:3,val:8,year:2025,src:"KOF EPFZ · transformation digitale et data scientists CH 2024"},{tier:1,val:8,year:2026,src:"Massenkoff & McCrory · Market research analysts 64.8% observed (Anthropic EconIndex 2026)"},{tier:1,val:7,year:2025,src:"Gmyrek et al. ILO WP140 · ISCO 2120 Gradient 3↑ (mean 0.56) OIT/NASK 2025"}],rat:"AutoML et LLMs effectuent les analyses standard. Valeur migre vers la définition du problème et l'interprétation stratégique. Forte demande dans les services financiers et la pharma suisse.",rn:[{t:"Chief AI Officer (CAIO) · banque / pharma suisse",x:"Stratégie IA d'entreprise, gouvernance FINMA/Swissmedic · Executive MAS IA ETH Zurich / UNIL · profil le plus recherché en 2025-2026."},{t:"Spécialiste éthique algorithmique & IA Act",x:"Audit biais, explicabilité XAI, conformité · nouvelle profession en CH."},{t:"Expert données synthétiques & federated learning",x:"Privacy ML, anonymisation médicale · contraintes LPD suisse."}]},
@@ -1994,8 +2120,6 @@ function openP(job){
       <div class="reinv-hint">Cliquer pour en savoir plus</div>
     </div>`).join("");
 
-  const olnk=document.getElementById("porientation-lnk");
-  if(olnk){const u=job.url_ch||"https://www.orientation.ch/dyn/show/1940?lang=fr";olnk.href=u;olnk.style.display="flex";}
 
   document.getElementById("panel").classList.add("open");
   setTimeout(()=>{if(!lv)btreemap();},280);
@@ -2028,7 +2152,14 @@ function btreemap(){
   const totalJobs=fil.length;
   const CELL_MIN=70;
   const totalArea=totalJobs*CELL_MIN*CELL_MIN;
-  const H=Math.max(Math.ceil(totalArea/availW),500);
+  const vph=window.innerHeight||600;
+  const hHd=document.querySelector('.hd')?.offsetHeight||60;
+  const hTb=document.querySelector('.tabs')?.offsetHeight||40;
+  const hFl=document.querySelector('.tb')?.offsetHeight||48;
+  const hLg=document.querySelector('.lgd')?.offsetHeight||45;
+  const hFt=document.querySelector('footer')?.offsetHeight||50;
+  const minH=Math.max(vph-hHd-hTb-hFl-hLg-hFt,400);
+  const H=Math.max(Math.ceil(totalArea/availW),minH);
 
   // ─── D3 treemap ───────────────────────────────────────────────────
   const root=d3.hierarchy(data).sum(d=>d.value||0).sort((a,b)=>b.value-a.value);
@@ -2534,8 +2665,263 @@ document.querySelectorAll(".tab").forEach(btn=>{
     if(target==="prod"){renderProd();}
     if(target==="usage"){setTimeout(renderUsage,60);}
     if(target==="meth"){renderMethKPIs();}
+    if(target==="diag"){setTimeout(()=>{const inp=document.getElementById("diag-srch");if(inp)inp.focus();},80);}
   });
 });
+
+// ═══════════════════════════════════════════════════════════════════════
+// DIAGNOSTIC IA TAB
+// ═══════════════════════════════════════════════════════════════════════
+
+const SWISS_SCHOOLS={
+  // Clé = code domaine (A-S) → tableau d'institutions CH
+  _general:[
+    {name:"EPFL – Open Science",type:"Université",desc:"Cours en ligne IA & data science via Coursera (gratuit/payant)",loc:"Lausanne · En ligne",url:"https://www.epfl.ch/education/continuing-education/"},
+    {name:"ZHAW Digital",type:"HES",desc:"Formation continue en transformation numérique et IA appliquée",loc:"Zurich / Winterthur",url:"https://www.zhaw.ch/de/weiterbildung/"},
+    {name:"HES-SO Valais-Wallis",type:"HES",desc:"CAS et MAS en innovation numérique et intelligence artificielle",loc:"Sierre · Martigny",url:"https://www.hevs.ch"},
+    {name:"FHNW – Digital Business",type:"HES",desc:"Programmes en transformation digitale, IA et gestion des données",loc:"Brugg-Windisch · Basel",url:"https://www.fhnw.ch/de/weiterbildung"},
+    {name:"Swiss Digital Skills Academy",type:"Académie",desc:"Bootcamps courts IA, data literacy et compétences numériques",loc:"En ligne · Toute la Suisse",url:"https://www.swissdigitalskillsacademy.ch"},
+  ],
+  A:[
+    {name:"HAFL – Haute école des sciences agronomiques",type:"HES",desc:"Formation en agri-technologie, agriculture de précision et durabilité",loc:"Zollikofen (BE)",url:"https://www.bfh.ch/hafl"},
+    {name:"Agri-Info Suisse",type:"Centre de formation",desc:"Cours pratiques IA, drones et capteurs pour l'agriculture suisse",loc:"Berne · En ligne",url:"https://www.agriinfo.ch"},
+  ],
+  B:[
+    {name:"HEAD – Genève",type:"HES-Art",desc:"Master médias numériques, design interactif et arts & IA",loc:"Genève",url:"https://www.head.ch"},
+    {name:"ECAL",type:"HES-Art",desc:"Haute école d'art et de design, programmes en design et nouvelles technologies",loc:"Lausanne",url:"https://www.ecal.ch"},
+    {name:"ZHdK – Zurich University of the Arts",type:"HES-Art",desc:"Master in Design with digital & AI focus",loc:"Zurich",url:"https://www.zhdk.ch"},
+  ],
+  C:[
+    {name:"IBF – Institut Bancaire et Financier",type:"Formation spécialisée",desc:"Certificats en finance digitale, RegTech et IA dans les services financiers",loc:"Zurich · Genève",url:"https://www.ibf.ch"},
+    {name:"HEC Lausanne – Continuing Education",type:"Université",desc:"CAS Finance digitale et IA, Fintech et transformation bancaire",loc:"Lausanne",url:"https://www.hec.unil.ch/hec/formation-continue"},
+    {name:"SFI – Swiss Finance Institute",type:"Institut académique",desc:"Recherche et formation avancée en finance numérique et algorithmes",loc:"Zurich · Genève · Lugano",url:"https://www.sfi.ch"},
+  ],
+  D:[
+    {name:"HEG – Haute école de gestion de Genève",type:"HES",desc:"Bachelor et CAS en commerce digital, e-commerce et gestion IA",loc:"Genève",url:"https://www.hesge.ch/heg"},
+    {name:"HES-SO – Commerce et Services",type:"HES",desc:"Formation continue en transformation digitale du commerce de détail",loc:"Genève · Fribourg · Neuchâtel",url:"https://www.hes-so.ch"},
+  ],
+  E:[
+    {name:"CINFO – Coopération internationale",type:"Centre de compétences",desc:"Formation en communication digitale, IA et gestion de l'information",loc:"Bienne",url:"https://www.cinfo.ch"},
+    {name:"HEG Fribourg",type:"HES",desc:"CAS en communication digitale et marketing IA",loc:"Fribourg",url:"https://www.heg-fr.ch"},
+  ],
+  F:[
+    {name:"HEPIA – Genève",type:"HES",desc:"Bachelor et Master en ingénierie et architecture, BIM et technologies numériques",loc:"Genève",url:"https://www.hesge.ch/hepia"},
+    {name:"EPFL – Architecture",type:"Université",desc:"Recherche en architecture computationnelle et outils IA pour la construction",loc:"Lausanne",url:"https://www.epfl.ch/schools/enac/"},
+    {name:"IBAutomation Suisse",type:"Associations",desc:"Formation en automatisation du bâtiment, domotique et énergétique intelligente",loc:"Suisse romande · Zurich",url:"https://www.suissetec.ch"},
+  ],
+  G:[
+    {name:"EHL – Ecole hôtelière de Lausanne",type:"HES spécialisée",desc:"Bachelor & executive education : hôtellerie digitale, IA et expérience client",loc:"Lausanne · Singapour",url:"https://www.ehl.edu"},
+    {name:"Les Roches",type:"Haute école",desc:"Hospitality management avec spécialisation en technologies et digitalisation",loc:"Bluche (VS)",url:"https://www.lesroches.edu"},
+    {name:"HES-SO Valais – Tourisme",type:"HES",desc:"Bachelor en tourisme avec option transformation numérique et IA",loc:"Sierre (VS)",url:"https://www.hevs.ch/tourisme"},
+  ],
+  H:[
+    {name:"HEIG-VD – Ingénierie",type:"HES",desc:"Bachelor en automatisation et IA industrielle, robotique appliquée",loc:"Yverdon-les-Bains (VD)",url:"https://heig-vd.ch"},
+    {name:"BFH – Berner Fachhochschule",type:"HES",desc:"Ingénierie et technologies numériques, fabrication intelligente",loc:"Berne · Biel/Bienne",url:"https://www.bfh.ch"},
+    {name:"SUPSI – Ingénierie",type:"HES",desc:"Automation, robotique et systèmes intelligents pour l'industrie",loc:"Manno (TI)",url:"https://www.supsi.ch"},
+  ],
+  I:[
+    {name:"HEIG-VD – Systèmes industriels",type:"HES",desc:"Maintenance prédictive, IoT et IA pour les systèmes automatisés",loc:"Yverdon-les-Bains (VD)",url:"https://heig-vd.ch"},
+    {name:"Swiss Association for Automation",type:"Industrie",desc:"Certifications en automatisation et systèmes cyber-physiques",loc:"Suisse alémanique",url:"https://www.swissautomation.ch"},
+  ],
+  J:[
+    {name:"Careum Bildungszentrum",type:"Centre de formation",desc:"Formation de base et continue pour les professions de la santé, soins IA",loc:"Zurich",url:"https://www.careum.ch"},
+    {name:"HES-SO Santé",type:"HES",desc:"Bachelor et Master en soins infirmiers, physiothérapie et e-santé",loc:"Genève · Lausanne · Fribourg",url:"https://www.hes-so.ch/sante"},
+    {name:"HESAV – Santé",type:"HES",desc:"Formations paramédicales et santé numérique",loc:"Lausanne",url:"https://www.hesav.ch"},
+    {name:"HEdS – Haute école de santé",type:"HES",desc:"Programmes en santé numérique et télémédecine",loc:"Genève",url:"https://www.hesge.ch/heds"},
+  ],
+  K:[
+    {name:"EESP – Travail social",type:"HES",desc:"Bachelor et Master travail social, numérique et protection de l'enfance",loc:"Lausanne",url:"https://www.eesp.ch"},
+    {name:"HETS – Travail social Genève",type:"HES",desc:"Formation en travail social et services à la personne à l'ère du numérique",loc:"Genève",url:"https://www.hesge.ch/hets"},
+  ],
+  L:[
+    {name:"Haute école de musique (HEM)",type:"HES-Art",desc:"Bachelor et Master en musique, nouvelles technologies et création sonore",loc:"Genève · Lausanne",url:"https://www.hemge.ch"},
+    {name:"HEMU – Lausanne",type:"HES-Art",desc:"Musique et technologies numériques, production assistée par IA",loc:"Lausanne",url:"https://www.hemu.ch"},
+    {name:"ZHdK – Music & Sound",type:"HES-Art",desc:"Master en musique computationnelle et technologies créatives",loc:"Zurich",url:"https://www.zhdk.ch"},
+  ],
+  M:[
+    {name:"HEG Genève – Finance",type:"HES",desc:"Bachelor et CAS comptabilité, contrôle de gestion et IA financière",loc:"Genève",url:"https://www.hesge.ch/heg"},
+    {name:"UniDistance Suisse",type:"Université à distance",desc:"Bachelor et Master en économie et gestion avec modules IA",loc:"Brigue (VS) · En ligne",url:"https://www.unidistance.ch"},
+    {name:"IDHEAP – MPA",type:"Université",desc:"Management public et administration, transformation numérique de l'État",loc:"Lausanne",url:"https://www.unil.ch/idheap"},
+  ],
+  N:[
+    {name:"STC – Swiss Transport College",type:"Formation spécialisée",desc:"Formation en logistique, transport durable et mobilité intelligente",loc:"Sursee (LU)",url:"https://www.stc.ch"},
+    {name:"ASTAG – Logistique",type:"Association professionnelle",desc:"Certifications en logistique, transport et technologies de suivi",loc:"Berne",url:"https://www.astag.ch"},
+    {name:"EHB – Logistique",type:"Formation professionnelle",desc:"Apprentissage et formation continue en logistique et supply chain",loc:"Zollikofen (BE)",url:"https://www.ehb.swiss"},
+  ],
+  O:[
+    {name:"MAZ – Ecole suisse de journalisme",type:"Ecole spécialisée",desc:"Formation en journalisme digital, fact-checking IA et médias numériques",loc:"Lucerne",url:"https://www.maz.ch"},
+    {name:"IFFP – Institut de formation",type:"Formation professionnelle",desc:"CAS en médias audiovisuels, production numérique et IA créative",loc:"Lausanne · Lugano · Zurich",url:"https://www.iffp.swiss"},
+  ],
+  P:[
+    {name:"Universités suisses – Droit",type:"Université",desc:"UNIL, Unige, UNIBE, UNIFR : Droit et nouvelles technologies, LegalTech",loc:"Lausanne · Genève · Berne",url:"https://www.unil.ch/droit"},
+    {name:"Swiss LegalTech Association",type:"Association",desc:"Ateliers et certifications en LegalTech, automatisation juridique et IA",loc:"Zurich · Genève",url:"https://www.swisslegaltech.ch"},
+  ],
+  Q:[
+    {name:"IMD Business School",type:"Grande école",desc:"Executive MBA et Digital Business Transformation, IA & strategy",loc:"Lausanne",url:"https://www.imd.org"},
+    {name:"HEC Lausanne – Executive",type:"Université",desc:"CAS Management & Digital Innovation, IA dans les organisations",loc:"Lausanne",url:"https://www.hec.unil.ch"},
+    {name:"UNIL – Conseil et expertise",type:"Université",desc:"Formations continues en gestion de projet, conseil et transformation IA",loc:"Lausanne",url:"https://www.unil.ch/formcont"},
+  ],
+  R:[
+    {name:"HEP – Hautes écoles pédagogiques",type:"HES pédagogique",desc:"Formation des enseignant·e·s aux usages pédagogiques de l'IA et du numérique",loc:"Lausanne · Berne · Fribourg · Zurich",url:"https://www.hepl.ch"},
+    {name:"EHB – Formation professionnelle",type:"Institut fédéral",desc:"Didactique numérique, formation duale et pédagogie à l'ère de l'IA",loc:"Zollikofen (BE)",url:"https://www.ehb.swiss"},
+    {name:"EPFL – Learn",type:"Université",desc:"Ressources pédagogiques ouvertes, IA en éducation, MOOC",loc:"Lausanne",url:"https://www.epfl.ch/education"},
+  ],
+  S:[
+    {name:"EPFL – IA & Data Science",type:"Université",desc:"Bachelor, Master, Extension School en machine learning, deep learning et data",loc:"Lausanne",url:"https://www.epfl.ch/schools/ic/"},
+    {name:"ETH Zürich – Computer Science",type:"Université",desc:"Master en informatique, IA et systèmes distribués, recherche de pointe",loc:"Zurich",url:"https://inf.ethz.ch"},
+    {name:"HEIG-VD – Informatique",type:"HES",desc:"Bachelor en ingénierie logicielle et IA appliquée, CAS DevOps",loc:"Yverdon-les-Bains (VD)",url:"https://heig-vd.ch"},
+    {name:"ZHAW – School of Engineering",type:"HES",desc:"Bachelor et Master en informatique appliquée, NLP et vision par ordinateur",loc:"Winterthur",url:"https://www.zhaw.ch/engineering"},
+    {name:"HSLU – Informatik",type:"HES",desc:"CAS et MAS en cybersécurité, cloud et développement IA",loc:"Lucerne",url:"https://www.hslu.ch/informatik"},
+  ],
+};
+
+function diagGetSchools(domainCode){
+  const specific=SWISS_SCHOOLS[domainCode]||[];
+  const general=SWISS_SCHOOLS._general;
+  // Mix: domain-specific first, then 2 general
+  return [...specific,...general.slice(0,2)];
+}
+
+function diagRenderVolet1(job){
+  const ws=getWScore(job);
+  const ns=getNetScore(job);
+  const col=scCol(ws);
+  const salFmt=job.sal.toLocaleString("fr-CH")+" CHF/mois";
+  const effFmt=fmt(job.eff)+" emplois";
+  const regEff=job.reg?.effect||"N";
+  const regLabel=REG_EFFECTS[regEff]?.label||"—";
+  const bodies=(job.reg?.bodies||[]).map(b=>REG_BODIES[b]?.label||b).join(", ")||"—";
+  const el=document.getElementById("diag-v1");
+  el.innerHTML=`
+    <div class="diag-score-big">
+      <div class="diag-score-num" style="color:${col}">${ws.toFixed(1)}</div>
+      <div class="diag-score-meta">
+        <div class="diag-score-label">${scLab(ws)} · Score d'exposition /10</div>
+        <div class="diag-score-bar-wrap">
+          <div class="diag-score-bar-fill" style="width:${ws*10}%;background:${col}"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="diag-kv-row"><span class="diag-kv-k">Salaire médian</span><span class="diag-kv-v">${salFmt}</span></div>
+      <div class="diag-kv-row"><span class="diag-kv-k">Effectifs en Suisse</span><span class="diag-kv-v">${effFmt}</span></div>
+      <div class="diag-kv-row"><span class="diag-kv-k">Score net (régl.)</span><span class="diag-kv-v" style="color:${scCol(ns)}">${ns.toFixed(1)}/10</span></div>
+      <div class="diag-kv-row"><span class="diag-kv-k">Effet réglementaire</span><span class="diag-kv-v">${regLabel}</span></div>
+      <div class="diag-kv-row"><span class="diag-kv-k">Organismes CH</span><span class="diag-kv-v" style="font-family:'Inter',sans-serif;font-size:11px">${bodies}</span></div>
+      <div class="diag-kv-row"><span class="diag-kv-k">Formation initiale</span><span class="diag-kv-v" style="font-family:'Inter',sans-serif;font-size:11px">${ED[job.d]||"—"}</span></div>
+    </div>
+    <div class="diag-rat">${job.rat}</div>
+  `;
+}
+
+function diagRenderVolet2(job){
+  const domColor=DC[job.d];
+  const el=document.getElementById("diag-v2");
+  if(!job.rn||!job.rn.length){el.innerHTML='<div style="color:var(--tx3);font-size:12px">Aucune piste disponible.</div>';return;}
+  el.innerHTML=(job.rn||[]).map((r,i)=>`
+    <div class="diag-rcard" onclick="diagShowReinv(${JSON.stringify(r).replace(/"/g,'&quot;')},'${job.l}','${domColor}')">
+      <div class="diag-rcard-head">
+        <div class="diag-rcard-num" style="border-color:${domColor};color:${domColor}">${i+1}</div>
+        <div class="diag-rcard-title">${r.t}</div>
+        <span style="margin-left:auto;color:var(--tx3);font-size:14px">›</span>
+      </div>
+      <div class="diag-rcard-desc">${r.x}</div>
+    </div>
+  `).join("");
+}
+
+function diagRenderVolet3(job){
+  const schools=diagGetSchools(job.d);
+  const el=document.getElementById("diag-v3");
+  el.innerHTML=schools.map(s=>`
+    <div class="diag-school">
+      <div class="diag-school-logo">${s.name.split(/[\s–-]/)[0].substring(0,5)}</div>
+      <div class="diag-school-info">
+        <div class="diag-school-name">${s.name}</div>
+        <div class="diag-school-type">${s.type}</div>
+        <div class="diag-school-desc">${s.desc}</div>
+        <div class="diag-school-loc">📍 ${s.loc} · <a href="${s.url}" target="_blank" rel="noopener">Voir l'offre →</a></div>
+      </div>
+    </div>
+  `).join("");
+}
+
+window.diagShowReinv=function(r,fromJobName,domColor){
+  showReinvPopup(r,fromJobName,domColor,null);
+};
+
+function diagSelectJob(job){
+  const ws=getWScore(job);
+  const col=scCol(ws);
+  // Header
+  const hdr=document.getElementById("diag-job-header");
+  hdr.innerHTML=`
+    <div class="diag-job-color" style="background:${DC[job.d]}"></div>
+    <div class="diag-job-info">
+      <div class="diag-job-title">${job.l}</div>
+      <div class="diag-job-domain">${DN[job.d]} · ISCO ${job.fap}</div>
+    </div>
+    <div class="diag-job-score-badge" style="color:${col}">${ws.toFixed(1)}<span style="font-size:14px;color:var(--tx3)">/10</span></div>
+  `;
+  diagRenderVolet1(job);
+  diagRenderVolet2(job);
+  diagRenderVolet3(job);
+  document.getElementById("diag-results").style.display="block";
+  document.getElementById("diag-noresult").style.display="none";
+  // Close autocomplete
+  document.getElementById("diag-ac").classList.remove("open");
+}
+
+// Autocomplete
+(function(){
+  const inp=document.getElementById("diag-srch");
+  const ac=document.getElementById("diag-ac");
+  let acJobs=[],acIdx=-1;
+
+  function renderAC(jobs){
+    acJobs=jobs;acIdx=-1;
+    if(!jobs.length){ac.classList.remove("open");return;}
+    const q=(inp.value||"").toLowerCase();
+    ac.innerHTML=jobs.map((j,i)=>{
+      const hi=j.l.replace(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`,`gi`),"<b>$1</b>");
+      return `<div class="diag-ac-item" data-i="${i}">${hi}<span class="diag-ac-domain">${DN[j.d]}</span></div>`;
+    }).join("");
+    ac.classList.add("open");
+    ac.querySelectorAll(".diag-ac-item").forEach(it=>{
+      it.addEventListener("mousedown",e=>{
+        e.preventDefault();
+        diagSelectJob(acJobs[+it.dataset.i]);
+        inp.value=acJobs[+it.dataset.i].l;
+        ac.classList.remove("open");
+      });
+    });
+  }
+
+  inp.addEventListener("input",()=>{
+    const q=inp.value.trim().toLowerCase();
+    document.getElementById("diag-noresult").style.display="none";
+    if(q.length<2){ac.classList.remove("open");return;}
+    const matches=D.filter(j=>j.l.toLowerCase().includes(q)||DN[j.d].toLowerCase().includes(q)).slice(0,10);
+    if(!matches.length){
+      ac.classList.remove("open");
+      document.getElementById("diag-noresult").style.display="block";
+    } else {
+      document.getElementById("diag-noresult").style.display="none";
+      renderAC(matches);
+    }
+  });
+
+  inp.addEventListener("keydown",e=>{
+    const items=ac.querySelectorAll(".diag-ac-item");
+    if(e.key==="ArrowDown"){e.preventDefault();acIdx=Math.min(acIdx+1,items.length-1);items.forEach((it,i)=>it.classList.toggle("active",i===acIdx));}
+    else if(e.key==="ArrowUp"){e.preventDefault();acIdx=Math.max(acIdx-1,0);items.forEach((it,i)=>it.classList.toggle("active",i===acIdx));}
+    else if(e.key==="Enter"&&acIdx>=0&&acJobs[acIdx]){
+      diagSelectJob(acJobs[acIdx]);inp.value=acJobs[acIdx].l;ac.classList.remove("open");
+    } else if(e.key==="Escape"){ac.classList.remove("open");}
+  });
+
+  document.addEventListener("click",e=>{if(!e.target.closest(".diag-search-box"))ac.classList.remove("open");});
+})();
 
 // ═══════════════════════════════════════════════════════════════════════
 // THEME TOGGLE (DAY / NIGHT)
