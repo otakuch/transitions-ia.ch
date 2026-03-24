@@ -39,7 +39,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&family=Syne:wght@800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
 /* Typography system · Datawrapper + Nightingale principles
    Display  → Syne 800 (h1 uniquement · police d'affichage)
    Data     → IBM Plex Mono 400/500 (valeurs numériques, tabular figures)
@@ -70,7 +70,7 @@ html{background:var(--bg);}body{background:var(--bg);color:var(--tx);font-family
 /* ── HEADER ── */
 .hd{background:var(--sf);border-bottom:1px solid var(--br);padding:12px 20px;display:flex;align-items:center;gap:14px;}
 .hd-t{flex:1;}
-.hd-t h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(--tx);}
+.hd-t h1{font-family:'Roboto',sans-serif;font-size:15px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;color:var(--tx);}
 .hd-t .sub{font-size:11px;color:var(--tx3);font-family:'Inter',sans-serif;margin-top:2px;}
 .hd-r{display:flex;gap:6px;align-items:center;flex-shrink:0;}
 .badge{font-size:11px;font-family:'IBM Plex Mono',monospace;padding:3px 9px;border-radius:4px;border:1px solid var(--br);color:var(--tx2);background:var(--bg2);}
@@ -513,6 +513,69 @@ footer a{color:var(--tx2);text-decoration:none;}
 .cat-stat-bar{height:4px;border-radius:2px;background:var(--br2);overflow:hidden;margin-top:2px;}
 .cat-stat-fill{height:100%;border-radius:2px;background:var(--clr,#888);transition:width .5s;}
 .cat-stat-avg{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--tx3);}
+
+/* ── DIAGNOSTIC IA TAB ── */
+.diag-tab{background:linear-gradient(90deg,rgba(201,74,18,.12),rgba(30,92,184,.10))!important;font-weight:700!important;color:var(--acc)!important;}
+.diag-tab.on{color:var(--acc)!important;}
+.diag-wrap{max-width:960px;margin:0 auto;padding:28px 20px 48px;}
+.diag-hero{background:var(--sf);border:1px solid var(--br);border-radius:16px;padding:32px 36px 28px;margin-bottom:28px;text-align:center;}
+.diag-hero-eyebrow{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--acc);margin-bottom:8px;}
+.diag-hero-title{font-family:'Roboto',sans-serif;font-size:26px;font-weight:900;letter-spacing:.6px;color:var(--tx);margin-bottom:10px;}
+.diag-hero-sub{font-size:13px;color:var(--tx2);max-width:640px;margin:0 auto 22px;line-height:1.7;}
+.diag-search-row{display:flex;justify-content:center;gap:10px;}
+.diag-search-box{position:relative;width:100%;max-width:520px;}
+.diag-input{width:100%;padding:13px 18px;font-size:14px;font-family:'Inter',sans-serif;border:2px solid var(--br3);border-radius:10px;background:var(--bg);color:var(--tx);outline:none;transition:border-color .2s;}
+.diag-input:focus{border-color:var(--acc);}
+.diag-input::placeholder{color:var(--tx3);}
+.diag-autocomplete{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--sf);border:1px solid var(--br3);border-radius:10px;box-shadow:var(--shadow);max-height:280px;overflow-y:auto;z-index:200;display:none;}
+.diag-autocomplete.open{display:block;}
+.diag-ac-item{padding:10px 16px;cursor:pointer;font-size:13px;color:var(--tx);border-bottom:1px solid var(--br2);transition:background .1s;}
+.diag-ac-item:last-child{border-bottom:none;}
+.diag-ac-item:hover,.diag-ac-item.active{background:var(--bg2);}
+.diag-ac-item b{color:var(--acc);}
+.diag-ac-domain{font-size:11px;color:var(--tx3);margin-left:6px;}
+.diag-no-result{font-size:13px;color:var(--tx3);text-align:center;margin-top:10px;}
+.diag-job-header{background:var(--sf);border:1px solid var(--br);border-radius:12px;padding:18px 22px;margin-bottom:20px;display:flex;align-items:center;gap:16px;}
+.diag-job-color{width:10px;height:52px;border-radius:4px;flex-shrink:0;}
+.diag-job-info{flex:1;}
+.diag-job-title{font-size:18px;font-weight:700;color:var(--tx);margin-bottom:3px;}
+.diag-job-domain{font-size:12px;color:var(--tx2);}
+.diag-job-score-badge{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700;flex-shrink:0;}
+.diag-volets{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+.diag-volet{background:var(--sf);border:1px solid var(--br);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;}
+.diag-volet-hd{display:flex;align-items:center;gap:12px;padding:14px 18px;color:#fff;}
+.diag-volet-num{width:26px;height:26px;min-width:26px;border-radius:50%;background:rgba(255,255,255,0.25);font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.diag-volet-name{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+.diag-volet-body{padding:18px;flex:1;display:flex;flex-direction:column;gap:12px;}
+/* Volet 1 - score */
+.diag-score-big{display:flex;align-items:center;gap:14px;padding:14px;background:var(--bg2);border-radius:10px;}
+.diag-score-num{font-family:'IBM Plex Mono',monospace;font-size:36px;font-weight:700;line-height:1;}
+.diag-score-meta{flex:1;}
+.diag-score-label{font-size:12px;font-weight:600;color:var(--tx);}
+.diag-score-bar-wrap{height:6px;background:var(--br2);border-radius:3px;margin-top:6px;overflow:hidden;}
+.diag-score-bar-fill{height:100%;border-radius:3px;transition:width .6s;}
+.diag-kv-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:6px 0;border-bottom:1px solid var(--br2);}
+.diag-kv-row:last-child{border-bottom:none;}
+.diag-kv-k{color:var(--tx3);font-weight:500;}
+.diag-kv-v{color:var(--tx);font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;}
+.diag-rat{font-size:12px;color:var(--tx2);line-height:1.65;background:var(--bg2);border-radius:8px;padding:12px 14px;}
+/* Volet 2 - reinvention */
+.diag-rcard{background:var(--bg2);border-radius:10px;padding:13px 15px;cursor:pointer;transition:background .15s;}
+.diag-rcard:hover{background:var(--sf3);}
+.diag-rcard-head{display:flex;align-items:center;gap:10px;margin-bottom:5px;}
+.diag-rcard-num{width:22px;height:22px;min-width:22px;border-radius:50%;border:2px solid;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.diag-rcard-title{font-size:13px;font-weight:600;color:var(--tx);}
+.diag-rcard-desc{font-size:11px;color:var(--tx2);line-height:1.55;padding-left:32px;}
+/* Volet 3 - formations */
+.diag-school{background:var(--bg2);border-radius:10px;padding:12px 15px;display:flex;align-items:flex-start;gap:12px;}
+.diag-school-logo{width:36px;height:36px;min-width:36px;border-radius:8px;background:var(--sf);border:1px solid var(--br);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--tx2);text-align:center;line-height:1.2;font-family:'IBM Plex Mono',monospace;}
+.diag-school-info{flex:1;}
+.diag-school-name{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:2px;}
+.diag-school-type{font-size:11px;color:var(--acc);font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px;}
+.diag-school-desc{font-size:11px;color:var(--tx2);line-height:1.55;}
+.diag-school-loc{font-size:10px;color:var(--tx3);margin-top:3px;}
+.diag-school a{color:var(--acc2);text-decoration:none;font-size:11px;}
+.diag-school a:hover{text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -546,6 +609,7 @@ footer a{color:var(--tx2);text-decoration:none;}
   <button class="tab" data-tab="prod" data-i18n="tab_prod">Productivité & IA</button>
   <button class="tab" data-tab="usage" data-i18n="tab_usage">Usage IA France</button>
   <button class="tab" data-tab="meth" data-i18n="tab_meth">Méthodologie</button>
+  <button class="tab diag-tab" data-tab="diag">🔍 Mon Diagnostic IA</button>
 </nav>
 
 
@@ -1003,6 +1067,66 @@ footer a{color:var(--tx2);text-decoration:none;}
   </div>
 </div>
 
+
+
+<!-- ═══════════════════════════════════════════════════════ TAB 8: DIAGNOSTIC IA ═══ -->
+<div id="tab-diag" class="tab-content">
+  <div class="diag-wrap">
+
+    <!-- HERO SEARCH -->
+    <div class="diag-hero">
+      <div class="diag-hero-eyebrow">Transitions-ia.ch · Outil personnalisé</div>
+      <div class="diag-hero-title">🔍 Mon Diagnostic IA</div>
+      <div class="diag-hero-sub">Entrez votre métier pour obtenir une analyse personnalisée de l'exposition à l'IA, des pistes de reconversion et des formations disponibles en Suisse.</div>
+      <div class="diag-search-row">
+        <div class="diag-search-box">
+          <input type="search" id="diag-srch" class="diag-input" placeholder="Ex : Comptable, Infirmier·ère, Développeur·se…" autocomplete="off">
+          <div class="diag-autocomplete" id="diag-ac"></div>
+        </div>
+      </div>
+      <div class="diag-no-result" id="diag-noresult" style="display:none">Aucun métier trouvé. Essayez un autre terme.</div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="diag-results" id="diag-results" style="display:none">
+
+      <!-- JOB HEADER -->
+      <div class="diag-job-header" id="diag-job-header"></div>
+
+      <div class="diag-volets">
+
+        <!-- VOLET 1 : ANALYSE DU MÉTIER -->
+        <div class="diag-volet">
+          <div class="diag-volet-hd" style="background:var(--t1)">
+            <span class="diag-volet-num">1</span>
+            <span class="diag-volet-name">Analyse du métier</span>
+          </div>
+          <div class="diag-volet-body" id="diag-v1"></div>
+        </div>
+
+        <!-- VOLET 2 : PISTES DE TRANSITION -->
+        <div class="diag-volet">
+          <div class="diag-volet-hd" style="background:var(--t2)">
+            <span class="diag-volet-num">2</span>
+            <span class="diag-volet-name">Pistes de transition</span>
+          </div>
+          <div class="diag-volet-body" id="diag-v2"></div>
+        </div>
+
+        <!-- VOLET 3 : FORMATIONS EN SUISSE -->
+        <div class="diag-volet">
+          <div class="diag-volet-hd" style="background:var(--t3)">
+            <span class="diag-volet-num">3</span>
+            <span class="diag-volet-name">Se former en Suisse</span>
+          </div>
+          <div class="diag-volet-body" id="diag-v3"></div>
+        </div>
+
+      </div><!-- /diag-volets -->
+    </div><!-- /diag-results -->
+
+  </div><!-- /diag-wrap -->
+</div>
 
 
 <footer>
@@ -2541,8 +2665,263 @@ document.querySelectorAll(".tab").forEach(btn=>{
     if(target==="prod"){renderProd();}
     if(target==="usage"){setTimeout(renderUsage,60);}
     if(target==="meth"){renderMethKPIs();}
+    if(target==="diag"){setTimeout(()=>{const inp=document.getElementById("diag-srch");if(inp)inp.focus();},80);}
   });
 });
+
+// ═══════════════════════════════════════════════════════════════════════
+// DIAGNOSTIC IA TAB
+// ═══════════════════════════════════════════════════════════════════════
+
+const SWISS_SCHOOLS={
+  // Clé = code domaine (A-S) → tableau d'institutions CH
+  _general:[
+    {name:"EPFL – Open Science",type:"Université",desc:"Cours en ligne IA & data science via Coursera (gratuit/payant)",loc:"Lausanne · En ligne",url:"https://www.epfl.ch/education/continuing-education/"},
+    {name:"ZHAW Digital",type:"HES",desc:"Formation continue en transformation numérique et IA appliquée",loc:"Zurich / Winterthur",url:"https://www.zhaw.ch/de/weiterbildung/"},
+    {name:"HES-SO Valais-Wallis",type:"HES",desc:"CAS et MAS en innovation numérique et intelligence artificielle",loc:"Sierre · Martigny",url:"https://www.hevs.ch"},
+    {name:"FHNW – Digital Business",type:"HES",desc:"Programmes en transformation digitale, IA et gestion des données",loc:"Brugg-Windisch · Basel",url:"https://www.fhnw.ch/de/weiterbildung"},
+    {name:"Swiss Digital Skills Academy",type:"Académie",desc:"Bootcamps courts IA, data literacy et compétences numériques",loc:"En ligne · Toute la Suisse",url:"https://www.swissdigitalskillsacademy.ch"},
+  ],
+  A:[
+    {name:"HAFL – Haute école des sciences agronomiques",type:"HES",desc:"Formation en agri-technologie, agriculture de précision et durabilité",loc:"Zollikofen (BE)",url:"https://www.bfh.ch/hafl"},
+    {name:"Agri-Info Suisse",type:"Centre de formation",desc:"Cours pratiques IA, drones et capteurs pour l'agriculture suisse",loc:"Berne · En ligne",url:"https://www.agriinfo.ch"},
+  ],
+  B:[
+    {name:"HEAD – Genève",type:"HES-Art",desc:"Master médias numériques, design interactif et arts & IA",loc:"Genève",url:"https://www.head.ch"},
+    {name:"ECAL",type:"HES-Art",desc:"Haute école d'art et de design, programmes en design et nouvelles technologies",loc:"Lausanne",url:"https://www.ecal.ch"},
+    {name:"ZHdK – Zurich University of the Arts",type:"HES-Art",desc:"Master in Design with digital & AI focus",loc:"Zurich",url:"https://www.zhdk.ch"},
+  ],
+  C:[
+    {name:"IBF – Institut Bancaire et Financier",type:"Formation spécialisée",desc:"Certificats en finance digitale, RegTech et IA dans les services financiers",loc:"Zurich · Genève",url:"https://www.ibf.ch"},
+    {name:"HEC Lausanne – Continuing Education",type:"Université",desc:"CAS Finance digitale et IA, Fintech et transformation bancaire",loc:"Lausanne",url:"https://www.hec.unil.ch/hec/formation-continue"},
+    {name:"SFI – Swiss Finance Institute",type:"Institut académique",desc:"Recherche et formation avancée en finance numérique et algorithmes",loc:"Zurich · Genève · Lugano",url:"https://www.sfi.ch"},
+  ],
+  D:[
+    {name:"HEG – Haute école de gestion de Genève",type:"HES",desc:"Bachelor et CAS en commerce digital, e-commerce et gestion IA",loc:"Genève",url:"https://www.hesge.ch/heg"},
+    {name:"HES-SO – Commerce et Services",type:"HES",desc:"Formation continue en transformation digitale du commerce de détail",loc:"Genève · Fribourg · Neuchâtel",url:"https://www.hes-so.ch"},
+  ],
+  E:[
+    {name:"CINFO – Coopération internationale",type:"Centre de compétences",desc:"Formation en communication digitale, IA et gestion de l'information",loc:"Bienne",url:"https://www.cinfo.ch"},
+    {name:"HEG Fribourg",type:"HES",desc:"CAS en communication digitale et marketing IA",loc:"Fribourg",url:"https://www.heg-fr.ch"},
+  ],
+  F:[
+    {name:"HEPIA – Genève",type:"HES",desc:"Bachelor et Master en ingénierie et architecture, BIM et technologies numériques",loc:"Genève",url:"https://www.hesge.ch/hepia"},
+    {name:"EPFL – Architecture",type:"Université",desc:"Recherche en architecture computationnelle et outils IA pour la construction",loc:"Lausanne",url:"https://www.epfl.ch/schools/enac/"},
+    {name:"IBAutomation Suisse",type:"Associations",desc:"Formation en automatisation du bâtiment, domotique et énergétique intelligente",loc:"Suisse romande · Zurich",url:"https://www.suissetec.ch"},
+  ],
+  G:[
+    {name:"EHL – Ecole hôtelière de Lausanne",type:"HES spécialisée",desc:"Bachelor & executive education : hôtellerie digitale, IA et expérience client",loc:"Lausanne · Singapour",url:"https://www.ehl.edu"},
+    {name:"Les Roches",type:"Haute école",desc:"Hospitality management avec spécialisation en technologies et digitalisation",loc:"Bluche (VS)",url:"https://www.lesroches.edu"},
+    {name:"HES-SO Valais – Tourisme",type:"HES",desc:"Bachelor en tourisme avec option transformation numérique et IA",loc:"Sierre (VS)",url:"https://www.hevs.ch/tourisme"},
+  ],
+  H:[
+    {name:"HEIG-VD – Ingénierie",type:"HES",desc:"Bachelor en automatisation et IA industrielle, robotique appliquée",loc:"Yverdon-les-Bains (VD)",url:"https://heig-vd.ch"},
+    {name:"BFH – Berner Fachhochschule",type:"HES",desc:"Ingénierie et technologies numériques, fabrication intelligente",loc:"Berne · Biel/Bienne",url:"https://www.bfh.ch"},
+    {name:"SUPSI – Ingénierie",type:"HES",desc:"Automation, robotique et systèmes intelligents pour l'industrie",loc:"Manno (TI)",url:"https://www.supsi.ch"},
+  ],
+  I:[
+    {name:"HEIG-VD – Systèmes industriels",type:"HES",desc:"Maintenance prédictive, IoT et IA pour les systèmes automatisés",loc:"Yverdon-les-Bains (VD)",url:"https://heig-vd.ch"},
+    {name:"Swiss Association for Automation",type:"Industrie",desc:"Certifications en automatisation et systèmes cyber-physiques",loc:"Suisse alémanique",url:"https://www.swissautomation.ch"},
+  ],
+  J:[
+    {name:"Careum Bildungszentrum",type:"Centre de formation",desc:"Formation de base et continue pour les professions de la santé, soins IA",loc:"Zurich",url:"https://www.careum.ch"},
+    {name:"HES-SO Santé",type:"HES",desc:"Bachelor et Master en soins infirmiers, physiothérapie et e-santé",loc:"Genève · Lausanne · Fribourg",url:"https://www.hes-so.ch/sante"},
+    {name:"HESAV – Santé",type:"HES",desc:"Formations paramédicales et santé numérique",loc:"Lausanne",url:"https://www.hesav.ch"},
+    {name:"HEdS – Haute école de santé",type:"HES",desc:"Programmes en santé numérique et télémédecine",loc:"Genève",url:"https://www.hesge.ch/heds"},
+  ],
+  K:[
+    {name:"EESP – Travail social",type:"HES",desc:"Bachelor et Master travail social, numérique et protection de l'enfance",loc:"Lausanne",url:"https://www.eesp.ch"},
+    {name:"HETS – Travail social Genève",type:"HES",desc:"Formation en travail social et services à la personne à l'ère du numérique",loc:"Genève",url:"https://www.hesge.ch/hets"},
+  ],
+  L:[
+    {name:"Haute école de musique (HEM)",type:"HES-Art",desc:"Bachelor et Master en musique, nouvelles technologies et création sonore",loc:"Genève · Lausanne",url:"https://www.hemge.ch"},
+    {name:"HEMU – Lausanne",type:"HES-Art",desc:"Musique et technologies numériques, production assistée par IA",loc:"Lausanne",url:"https://www.hemu.ch"},
+    {name:"ZHdK – Music & Sound",type:"HES-Art",desc:"Master en musique computationnelle et technologies créatives",loc:"Zurich",url:"https://www.zhdk.ch"},
+  ],
+  M:[
+    {name:"HEG Genève – Finance",type:"HES",desc:"Bachelor et CAS comptabilité, contrôle de gestion et IA financière",loc:"Genève",url:"https://www.hesge.ch/heg"},
+    {name:"UniDistance Suisse",type:"Université à distance",desc:"Bachelor et Master en économie et gestion avec modules IA",loc:"Brigue (VS) · En ligne",url:"https://www.unidistance.ch"},
+    {name:"IDHEAP – MPA",type:"Université",desc:"Management public et administration, transformation numérique de l'État",loc:"Lausanne",url:"https://www.unil.ch/idheap"},
+  ],
+  N:[
+    {name:"STC – Swiss Transport College",type:"Formation spécialisée",desc:"Formation en logistique, transport durable et mobilité intelligente",loc:"Sursee (LU)",url:"https://www.stc.ch"},
+    {name:"ASTAG – Logistique",type:"Association professionnelle",desc:"Certifications en logistique, transport et technologies de suivi",loc:"Berne",url:"https://www.astag.ch"},
+    {name:"EHB – Logistique",type:"Formation professionnelle",desc:"Apprentissage et formation continue en logistique et supply chain",loc:"Zollikofen (BE)",url:"https://www.ehb.swiss"},
+  ],
+  O:[
+    {name:"MAZ – Ecole suisse de journalisme",type:"Ecole spécialisée",desc:"Formation en journalisme digital, fact-checking IA et médias numériques",loc:"Lucerne",url:"https://www.maz.ch"},
+    {name:"IFFP – Institut de formation",type:"Formation professionnelle",desc:"CAS en médias audiovisuels, production numérique et IA créative",loc:"Lausanne · Lugano · Zurich",url:"https://www.iffp.swiss"},
+  ],
+  P:[
+    {name:"Universités suisses – Droit",type:"Université",desc:"UNIL, Unige, UNIBE, UNIFR : Droit et nouvelles technologies, LegalTech",loc:"Lausanne · Genève · Berne",url:"https://www.unil.ch/droit"},
+    {name:"Swiss LegalTech Association",type:"Association",desc:"Ateliers et certifications en LegalTech, automatisation juridique et IA",loc:"Zurich · Genève",url:"https://www.swisslegaltech.ch"},
+  ],
+  Q:[
+    {name:"IMD Business School",type:"Grande école",desc:"Executive MBA et Digital Business Transformation, IA & strategy",loc:"Lausanne",url:"https://www.imd.org"},
+    {name:"HEC Lausanne – Executive",type:"Université",desc:"CAS Management & Digital Innovation, IA dans les organisations",loc:"Lausanne",url:"https://www.hec.unil.ch"},
+    {name:"UNIL – Conseil et expertise",type:"Université",desc:"Formations continues en gestion de projet, conseil et transformation IA",loc:"Lausanne",url:"https://www.unil.ch/formcont"},
+  ],
+  R:[
+    {name:"HEP – Hautes écoles pédagogiques",type:"HES pédagogique",desc:"Formation des enseignant·e·s aux usages pédagogiques de l'IA et du numérique",loc:"Lausanne · Berne · Fribourg · Zurich",url:"https://www.hepl.ch"},
+    {name:"EHB – Formation professionnelle",type:"Institut fédéral",desc:"Didactique numérique, formation duale et pédagogie à l'ère de l'IA",loc:"Zollikofen (BE)",url:"https://www.ehb.swiss"},
+    {name:"EPFL – Learn",type:"Université",desc:"Ressources pédagogiques ouvertes, IA en éducation, MOOC",loc:"Lausanne",url:"https://www.epfl.ch/education"},
+  ],
+  S:[
+    {name:"EPFL – IA & Data Science",type:"Université",desc:"Bachelor, Master, Extension School en machine learning, deep learning et data",loc:"Lausanne",url:"https://www.epfl.ch/schools/ic/"},
+    {name:"ETH Zürich – Computer Science",type:"Université",desc:"Master en informatique, IA et systèmes distribués, recherche de pointe",loc:"Zurich",url:"https://inf.ethz.ch"},
+    {name:"HEIG-VD – Informatique",type:"HES",desc:"Bachelor en ingénierie logicielle et IA appliquée, CAS DevOps",loc:"Yverdon-les-Bains (VD)",url:"https://heig-vd.ch"},
+    {name:"ZHAW – School of Engineering",type:"HES",desc:"Bachelor et Master en informatique appliquée, NLP et vision par ordinateur",loc:"Winterthur",url:"https://www.zhaw.ch/engineering"},
+    {name:"HSLU – Informatik",type:"HES",desc:"CAS et MAS en cybersécurité, cloud et développement IA",loc:"Lucerne",url:"https://www.hslu.ch/informatik"},
+  ],
+};
+
+function diagGetSchools(domainCode){
+  const specific=SWISS_SCHOOLS[domainCode]||[];
+  const general=SWISS_SCHOOLS._general;
+  // Mix: domain-specific first, then 2 general
+  return [...specific,...general.slice(0,2)];
+}
+
+function diagRenderVolet1(job){
+  const ws=getWScore(job);
+  const ns=getNetScore(job);
+  const col=scCol(ws);
+  const salFmt=job.sal.toLocaleString("fr-CH")+" CHF/mois";
+  const effFmt=fmt(job.eff)+" emplois";
+  const regEff=job.reg?.effect||"N";
+  const regLabel=REG_EFFECTS[regEff]?.label||"—";
+  const bodies=(job.reg?.bodies||[]).map(b=>REG_BODIES[b]?.label||b).join(", ")||"—";
+  const el=document.getElementById("diag-v1");
+  el.innerHTML=`
+    <div class="diag-score-big">
+      <div class="diag-score-num" style="color:${col}">${ws.toFixed(1)}</div>
+      <div class="diag-score-meta">
+        <div class="diag-score-label">${scLab(ws)} · Score d'exposition /10</div>
+        <div class="diag-score-bar-wrap">
+          <div class="diag-score-bar-fill" style="width:${ws*10}%;background:${col}"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="diag-kv-row"><span class="diag-kv-k">Salaire médian</span><span class="diag-kv-v">${salFmt}</span></div>
+      <div class="diag-kv-row"><span class="diag-kv-k">Effectifs en Suisse</span><span class="diag-kv-v">${effFmt}</span></div>
+      <div class="diag-kv-row"><span class="diag-kv-k">Score net (régl.)</span><span class="diag-kv-v" style="color:${scCol(ns)}">${ns.toFixed(1)}/10</span></div>
+      <div class="diag-kv-row"><span class="diag-kv-k">Effet réglementaire</span><span class="diag-kv-v">${regLabel}</span></div>
+      <div class="diag-kv-row"><span class="diag-kv-k">Organismes CH</span><span class="diag-kv-v" style="font-family:'Inter',sans-serif;font-size:11px">${bodies}</span></div>
+      <div class="diag-kv-row"><span class="diag-kv-k">Formation initiale</span><span class="diag-kv-v" style="font-family:'Inter',sans-serif;font-size:11px">${ED[job.d]||"—"}</span></div>
+    </div>
+    <div class="diag-rat">${job.rat}</div>
+  `;
+}
+
+function diagRenderVolet2(job){
+  const domColor=DC[job.d];
+  const el=document.getElementById("diag-v2");
+  if(!job.rn||!job.rn.length){el.innerHTML='<div style="color:var(--tx3);font-size:12px">Aucune piste disponible.</div>';return;}
+  el.innerHTML=(job.rn||[]).map((r,i)=>`
+    <div class="diag-rcard" onclick="diagShowReinv(${JSON.stringify(r).replace(/"/g,'&quot;')},'${job.l}','${domColor}')">
+      <div class="diag-rcard-head">
+        <div class="diag-rcard-num" style="border-color:${domColor};color:${domColor}">${i+1}</div>
+        <div class="diag-rcard-title">${r.t}</div>
+        <span style="margin-left:auto;color:var(--tx3);font-size:14px">›</span>
+      </div>
+      <div class="diag-rcard-desc">${r.x}</div>
+    </div>
+  `).join("");
+}
+
+function diagRenderVolet3(job){
+  const schools=diagGetSchools(job.d);
+  const el=document.getElementById("diag-v3");
+  el.innerHTML=schools.map(s=>`
+    <div class="diag-school">
+      <div class="diag-school-logo">${s.name.split(/[\s–-]/)[0].substring(0,5)}</div>
+      <div class="diag-school-info">
+        <div class="diag-school-name">${s.name}</div>
+        <div class="diag-school-type">${s.type}</div>
+        <div class="diag-school-desc">${s.desc}</div>
+        <div class="diag-school-loc">📍 ${s.loc} · <a href="${s.url}" target="_blank" rel="noopener">Voir l'offre →</a></div>
+      </div>
+    </div>
+  `).join("");
+}
+
+window.diagShowReinv=function(r,fromJobName,domColor){
+  showReinvPopup(r,fromJobName,domColor,null);
+};
+
+function diagSelectJob(job){
+  const ws=getWScore(job);
+  const col=scCol(ws);
+  // Header
+  const hdr=document.getElementById("diag-job-header");
+  hdr.innerHTML=`
+    <div class="diag-job-color" style="background:${DC[job.d]}"></div>
+    <div class="diag-job-info">
+      <div class="diag-job-title">${job.l}</div>
+      <div class="diag-job-domain">${DN[job.d]} · ISCO ${job.fap}</div>
+    </div>
+    <div class="diag-job-score-badge" style="color:${col}">${ws.toFixed(1)}<span style="font-size:14px;color:var(--tx3)">/10</span></div>
+  `;
+  diagRenderVolet1(job);
+  diagRenderVolet2(job);
+  diagRenderVolet3(job);
+  document.getElementById("diag-results").style.display="block";
+  document.getElementById("diag-noresult").style.display="none";
+  // Close autocomplete
+  document.getElementById("diag-ac").classList.remove("open");
+}
+
+// Autocomplete
+(function(){
+  const inp=document.getElementById("diag-srch");
+  const ac=document.getElementById("diag-ac");
+  let acJobs=[],acIdx=-1;
+
+  function renderAC(jobs){
+    acJobs=jobs;acIdx=-1;
+    if(!jobs.length){ac.classList.remove("open");return;}
+    const q=(inp.value||"").toLowerCase();
+    ac.innerHTML=jobs.map((j,i)=>{
+      const hi=j.l.replace(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`,`gi`),"<b>$1</b>");
+      return `<div class="diag-ac-item" data-i="${i}">${hi}<span class="diag-ac-domain">${DN[j.d]}</span></div>`;
+    }).join("");
+    ac.classList.add("open");
+    ac.querySelectorAll(".diag-ac-item").forEach(it=>{
+      it.addEventListener("mousedown",e=>{
+        e.preventDefault();
+        diagSelectJob(acJobs[+it.dataset.i]);
+        inp.value=acJobs[+it.dataset.i].l;
+        ac.classList.remove("open");
+      });
+    });
+  }
+
+  inp.addEventListener("input",()=>{
+    const q=inp.value.trim().toLowerCase();
+    document.getElementById("diag-noresult").style.display="none";
+    if(q.length<2){ac.classList.remove("open");return;}
+    const matches=D.filter(j=>j.l.toLowerCase().includes(q)||DN[j.d].toLowerCase().includes(q)).slice(0,10);
+    if(!matches.length){
+      ac.classList.remove("open");
+      document.getElementById("diag-noresult").style.display="block";
+    } else {
+      document.getElementById("diag-noresult").style.display="none";
+      renderAC(matches);
+    }
+  });
+
+  inp.addEventListener("keydown",e=>{
+    const items=ac.querySelectorAll(".diag-ac-item");
+    if(e.key==="ArrowDown"){e.preventDefault();acIdx=Math.min(acIdx+1,items.length-1);items.forEach((it,i)=>it.classList.toggle("active",i===acIdx));}
+    else if(e.key==="ArrowUp"){e.preventDefault();acIdx=Math.max(acIdx-1,0);items.forEach((it,i)=>it.classList.toggle("active",i===acIdx));}
+    else if(e.key==="Enter"&&acIdx>=0&&acJobs[acIdx]){
+      diagSelectJob(acJobs[acIdx]);inp.value=acJobs[acIdx].l;ac.classList.remove("open");
+    } else if(e.key==="Escape"){ac.classList.remove("open");}
+  });
+
+  document.addEventListener("click",e=>{if(!e.target.closest(".diag-search-box"))ac.classList.remove("open");});
+})();
 
 // ═══════════════════════════════════════════════════════════════════════
 // THEME TOGGLE (DAY / NIGHT)
