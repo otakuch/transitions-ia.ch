@@ -567,12 +567,110 @@ footer a{color:var(--tx2);text-decoration:none;}
 .diag-hint-bar{background:color-mix(in srgb,var(--acc) 8%,transparent);border:1px solid color-mix(in srgb,var(--acc) 20%,transparent);border-radius:10px;padding:10px 16px;font-size:12px;color:var(--tx2);text-align:center;cursor:pointer;margin-top:6px;transition:background .15s;}
 .diag-hint-bar:hover{background:color-mix(in srgb,var(--acc) 15%,transparent);}
 
+
+/* ── Diagnostic Bilan Métier — 3-column explanation cards ── */
+.diag-expl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0 32px;}
+@media(max-width:640px){.diag-expl-grid{grid-template-columns:1fr;gap:12px;}}
+.diag-expl-card{background:var(--sf);border:1px solid var(--br);border-radius:14px;padding:22px 20px 24px;text-align:left;transition:box-shadow .2s;}
+.diag-expl-card:hover{box-shadow:0 4px 18px rgba(0,0,0,.07);}
+.diag-expl-num{font-size:22px;margin-bottom:10px;line-height:1;}
+.diag-expl-title{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--acc);margin-bottom:10px;}
+.diag-expl-body{font-family:'Inter',sans-serif;font-size:13px;color:var(--tx2);line-height:1.72;}
+
+/* ════════════════════════════════════════════════════════════════════════
+   RESPONSIVE — full pass: desktop, tablet, mobile
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* Base layout */
+html,body{box-sizing:border-box;overflow-x:hidden;}
+*,*::before,*::after{box-sizing:inherit;}
+
+/* Header responsive */
+@media(max-width:768px){
+  .hd{padding:8px 12px;}
+  .hd-t h1{font-size:clamp(10px,2.5vw,14px);}
+  .hd-t .sub{font-size:10px;}
+  .badge{font-size:10px;padding:3px 7px;}
+  .lang-btn{padding:2px 6px;font-size:10px;}
+}
+
+/* Tabs — scroll on small screens */
+.tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{white-space:nowrap;flex-shrink:0;}
+
+/* Treemap: no empty space below */
+#ssvg{max-width:100%;display:block;}
+#cwrap{overflow:hidden;min-height:0;}
+.main-wrap{min-height:0;overflow:hidden;}
+
+/* Panel (fiche popup) — full width on mobile */
+@media(max-width:600px){
+  .panel{width:100% !important;max-width:100% !important;position:fixed;bottom:0;left:0;right:0;top:auto !important;border-radius:16px 16px 0 0;max-height:85vh;overflow-y:auto;}
+  .panel.open{transform:none !important;}
+}
+
+/* Matrix toolbar — wrap on small screens */
+@media(max-width:640px){
+  .tb{flex-wrap:wrap;gap:4px;}
+  .tb .chips{flex-wrap:wrap;}
+  .srch{width:100%;order:10;margin-top:4px;}
+  .vbtns{order:11;width:100%;}
+  .vbtn{flex:1;}
+}
+
+/* Diagnostic tab responsive */
+@media(max-width:640px){
+  .diag-wrap{padding:16px 14px 32px;}
+  .diag-hero-title{font-size:22px;}
+  .diag-panels{grid-template-columns:1fr !important;}
+  .diag-panel-full{grid-column:1 !important;}
+  .diag-institute-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:400px){
+  .diag-institute-grid{grid-template-columns:1fr;}
+}
+
+/* Intro tab responsive */
+@media(max-width:640px){
+  .intro-wrap{padding:16px 14px 32px;}
+  .intro-kpis{grid-template-columns:1fr 1fr !important;}
+  .intro-cols{grid-template-columns:1fr !important;}
+  .intro-context-grid{grid-template-columns:1fr !important;}
+  .intro-how{gap:12px;}
+}
+
+/* Meth tab */
+@media(max-width:640px){
+  .meth-wrap{padding:14px !important;}
+  .meth-table{font-size:11px;}
+  .meth-vs{grid-template-columns:1fr !important;}
+}
+
+/* Usage, prod, pred tabs */
+@media(max-width:640px){
+  .usage-grid{grid-template-columns:1fr !important;}
+  .pred-grid{grid-template-columns:1fr !important;}
+  .prod-grid{grid-template-columns:1fr !important;}
+}
+
+/* Treemap min-height on mobile */
+@media(max-width:640px){
+  #ssvg{min-height:300px;}
+}
+
+/* Legend wrapping */
+.lgq{display:flex;flex-wrap:wrap;gap:4px;}
+
+/* Cat stats panel responsive */
+#cat-stats-panel{overflow:hidden;}
+.cat-stat-card{min-width:0;overflow:hidden;}
 </style>
 <body>
 
 <header class="hd">
   <div class="hd-t">
-    <h1>IA &amp; Métiers Suisses : Observatoire des données</h1>
+    <h1>IA &amp; Métiers Suisses · Observatoire de l'exposition professionnelle</h1>
     <div class="sub">NP 2010 · ESPA 2024 (OFS) · ESS 2022 (OFS) · Scoring multi-sources pondéré</div>
   </div>
   <div class="hd-r">
@@ -599,7 +697,7 @@ footer a{color:var(--tx2);text-decoration:none;}
   <button class="tab" data-tab="prod" data-i18n="tab_prod">Productivité & IA</button>
   <button class="tab" data-tab="usage" data-i18n="tab_usage"><span data-i18n="tab_usage">Usage IA Suisse</span></button>
   <button class="tab" data-tab="meth" data-i18n="tab_meth">Méthodologie</button>
-  <button class="tab tab-diag" data-tab="diag" data-i18n="tab_diag">🔍 Mon Diagnostic IA</button>
+  <button class="tab tab-diag" data-tab="diag" data-i18n="tab_diag"><span data-i18n="tab_diag">🔍 Mon Bilan Métier</span></button>
 </nav>
 
 
@@ -733,7 +831,7 @@ footer a{color:var(--tx2);text-decoration:none;}
       <div class="chip" data-s="7-10">7-10</div>
     </div>
     <input class="srch" type="search" id="srch" placeholder="Rechercher…">
-    <div class="vbtns" style="margin-left:auto"><button class="vbtn on" id="bsc">Treemap</button><button class="vbtn" id="bls" data-i18n="liste">Liste</button></div><button class="vbtn" id="bnet" title="Basculer score brut / exposition nette réglementaire" data-i18n="net_mode_off" style="margin-left:6px;opacity:.7">⚖ Score brut</button>
+    <div class="vbtns" style="margin-left:auto"><button class="vbtn on" id="bsc">Treemap</button><button class="vbtn" id="bls" data-i18n="liste">Liste</button></div>
   </div>
 
   <div class="main-wrap" id="mwrap">
@@ -1070,10 +1168,7 @@ footer a{color:var(--tx2);text-decoration:none;}
 
 
 
-<footer>
-  <span>Sources : <a href="https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure" target="_blank">ILO WP140 · OIT/NASK 2025</a> · <a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/travail-remuneration/enquetes/espa.html" target="_blank">ESPA 2024 · OFS</a> · <a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/travail-remuneration/enquetes/lse.html" target="_blank">ESS 2022 · OFS</a> · NP 2010 (OFS) · SECO 2024 · KPMG Swiss AI Survey 2024 · OFS ICT 2024 · Avenir Suisse 2024 · BIS WP 1239 (2025) · NBER w31161 · NBER w34851</span>
-  <span style="margin-left:auto;opacity:.5">transitions-ia.ch · Snapshot mars 2026 · <a href="https://naullynicolas.ch" target="_blank" style="color:inherit">naullynicolas.ch</a></span>
-</footer>
+
 
 
 <!-- ── POPUP SUMMARY ── -->
@@ -1110,8 +1205,27 @@ footer a{color:var(--tx2);text-decoration:none;}
   <div class="diag-wrap">
     <!-- Hero -->
     <div class="diag-hero">
-      <div class="diag-hero-title" data-i18n="diag_title">MON DIAGNOSTIC IA</div>
-      <div class="diag-hero-sub" data-i18n="diag_sub">Saisissez votre métier pour mesurer votre exposition et découvrir vos leviers d'action.</div>
+      <div class="diag-hero-title" data-i18n="diag_title">MON BILAN MÉTIER</div>
+      <div class="diag-hero-sub" data-i18n="diag_sub">Comprenez concrètement comment la transformation numérique affecte votre métier et ce que vous pouvez faire dès maintenant.</div>
+
+      <!-- 3 explanation cards -->
+      <div class="diag-expl-grid">
+        <div class="diag-expl-card">
+          <div class="diag-expl-num">①</div>
+          <div class="diag-expl-title" data-i18n="diag_expl1_title">À QUOI ÇA SERT</div>
+          <div class="diag-expl-body" data-i18n="diag_expl1_body">Mesurer l'exposition de vos tâches quotidiennes à l'automatisation, à partir de données académiques officielles. Pas d'estimation généraliste, mais un score construit sur votre profil de métier réel.</div>
+        </div>
+        <div class="diag-expl-card">
+          <div class="diag-expl-num">②</div>
+          <div class="diag-expl-title" data-i18n="diag_expl2_title">COMMENT L'UTILISER</div>
+          <div class="diag-expl-body" data-i18n="diag_expl2_body">Tapez votre métier dans le champ ci-dessous. Vous obtenez un score d'exposition, un horizon de tranquillité sur une jauge de 2 à 12 ans, les signaux réglementaires actifs et trois leviers de pivot concrets.</div>
+        </div>
+        <div class="diag-expl-card">
+          <div class="diag-expl-num">③</div>
+          <div class="diag-expl-title" data-i18n="diag_expl3_title">SA FINALITÉ</div>
+          <div class="diag-expl-body" data-i18n="diag_expl3_body">Vous aider à décider, pas à vous alarmer. Chaque résultat pointe vers des compétences à développer, des certifications à anticiper et des pivots possibles avant que la décision soit prise à votre place.</div>
+        </div>
+      </div>
     </div>
 
     <!-- Search -->
@@ -1238,8 +1352,9 @@ const T18N={
   fr:{
     tab_intro:"À propos",tab_matrix:"Exposition des tâches",tab_disp:"Exposition → Emploi",
     tab_pred:"Prédictions (8)",tab_prod:"Productivité & IA",
-    tab_usage:"Usage IA Suisse",tab_meth:"Méthodologie",tab_diag:"🔍 Mon Diagnostic IA",
-    lbl_domain:"Domaine",lbl_expo:"Expo",all:"Tous",liste:"Liste",
+    tab_usage:"Usage IA Suisse",tab_meth:"Méthodologie",tab_diag:"🔍 Mon Bilan Métier",
+    lbl_domain:"Domaine",    scl_0:"0-2 Minimale",scl_1:"3-4 Faible",scl_2:"5-6 Modérée",scl_3:"7-8 Élevée",scl_4:"9-10 Très élevée",
+    lbl_expo:"Expo",all:"Tous",liste:"Liste",
     lgd_title:"Exposition des tâches à l'IA",
     lgd_note:"Score = exposition des tâches · non = probabilité de suppression d'emploi · surface = effectifs ESPA 2024",
     metiers:"métiers",emplois:"emplois",score_moyen:"score moyen",tres_exposes:"très exposés",
@@ -1278,7 +1393,7 @@ const T18N={
     intro_ctx5:"L'<b>Arc jurassien</b> concentre 65 000 horlogers et microtechniciens. Ces métiers sont peu menacés par la substitution directe.",
     intro_ctx6:"Le taux de chômage CH reste à <b>2.4% (SECO mars 2026)</b>. Aucun signal d'impact IA détectable à ce jour.",
     intro_how1:"<b>Onglet « Exposition des tâches »</b> · Explorez le Treemap : chaque rectangle = un métier, la surface = les effectifs, la couleur = l'exposition. Cliquez pour voir le score détaillé et les pistes de réinvention.",
-    intro_how2:"<b>Score brut vs Exposition nette</b> · Le bouton ⚖ bascule entre le score brut et l'exposition nette après buffer réglementaire.",
+    intro_how2:"<b>Filtres d'exposition</b> · Filtrez par domaine (Santé, Finance, IT…), par niveau d'exposition (0-3, 4-6, 7-10) ou par recherche textuelle. Cliquez sur un métier pour voir son score détaillé, les pistes de réinvention et le facteur réglementaire suisse.",
     intro_how3:"<b>Filtre réglementaire</b> · Isole les métiers soumis à un organisme spécifique (FINMA, nLPD, Swissmedic, LaMal…).",
     intro_how4:"<b>Onglets analytiques</b> · Timeline, Prédictions, Productivité, Usage IA Suisse, et <b>🔍 Diagnostic IA</b> pour votre score personnalisé.",
     badge_np2010:"91 métiers NP 2010",badge_scoring:"Scoring multi-sources T1–T4",badge_reg:"Facteur réglementaire CH",
@@ -1291,8 +1406,21 @@ const T18N={
     th_limite:"Limite",th_impact:"Impact",
     th_projet:"Projet",th_auteur:"Auteur",th_description:"Description",
     meth_compare_p:"Ce dashboard s'inspire de <a href='https://indice-ia.fr' target='_blank' style='color:var(--acc2)'>indice-ia.fr</a> et de <a href='https://joshkale.github.io/jobs' target='_blank' style='color:var(--acc2)'>joshkale.github.io/jobs</a>.",
-    diag_title:"MON DIAGNOSTIC IA",
-    diag_sub:"Saisissez votre métier pour obtenir votre score d'exposition, votre horizon de tranquillité et les instituts suisses de formation recommandés.",
+    diag_expl1_title:"À QUOI ÇA SERT",
+    diag_expl1_body:"Mesurer l'exposition de vos tâches quotidiennes à l'automatisation, à partir de données académiques officielles. Pas d'estimation généraliste, mais un score construit sur votre profil de métier réel.",
+    diag_expl2_title:"COMMENT L'UTILISER",
+    diag_expl2_body:"Tapez votre métier dans le champ ci-dessous. Vous obtenez un score d'exposition, un horizon de tranquillité sur une jauge de 2 à 12 ans, les signaux réglementaires actifs et trois leviers de pivot concrets.",
+    diag_expl3_title:"SA FINALITÉ",
+    diag_expl3_body:"Vous aider à décider, pas à vous alarmer. Chaque résultat pointe vers des compétences à développer, des certifications à anticiper et des pivots possibles avant que la décision soit prise à votre place.",
+    diag_title:"MON BILAN MÉTIER",
+    diag_expl1_title:"À QUOI ÇA SERT",
+    diag_expl1_body:"Mesurer l'exposition de vos tâches quotidiennes à l'automatisation, à partir de données académiques officielles. Pas d'estimation généraliste, mais un score construit sur votre profil de métier réel.",
+    diag_expl2_title:"COMMENT L'UTILISER",
+    diag_expl2_body:"Tapez votre métier dans le champ ci-dessous. Vous obtenez un score d'exposition, un horizon de tranquillité sur une jauge de 2 à 12 ans, les signaux réglementaires actifs et trois leviers de pivot concrets.",
+    diag_expl3_title:"SA FINALITÉ",
+    diag_expl3_body:"Vous aider à décider, pas à vous alarmer. Chaque résultat pointe vers des compétences à développer, des certifications à anticiper et des pivots possibles avant que la décision soit prise à votre place.",
+    diag_sub:"Comprenez concrètement comment la transformation numérique affecte votre métier et ce que vous pouvez faire dès maintenant.",
+    diag_sub:"Comprenez concrètement comment la transformation numérique affecte votre métier\net ce que vous pouvez faire dès maintenant.",
     diag_placeholder:"Rechercher un métier... ex: comptable, infirmier, développeur",
     diag_noresult:"Aucun métier trouvé pour cette recherche.",
     diag_panel1:"Exposition & Score",diag_panel2:"Horizon de tranquillité",
@@ -1303,6 +1431,12 @@ const T18N={
     diag_hint:"Cliquez ici pour voir le détail complet dans l'onglet Exposition des tâches →",
     diag_sources:"Sources : ILO WP140 · Anthropic Economic Index 2026",
     diag_jobs_count:"91 métiers référencés",
+    diag_expl1_title:"À QUOI ÇA SERT",
+    diag_expl1_body:"Mesurer l'exposition de vos tâches quotidiennes à l'automatisation, à partir de données académiques officielles suisses (ILO WP140, OFS, Anthropic 2026). Pas une estimation généraliste, mais un score construit sur votre profil de métier réel.",
+    diag_expl2_title:"COMMENT L'UTILISER",
+    diag_expl2_body:"Tapez votre métier dans le champ ci-dessous. Vous obtenez un score d'exposition, un horizon de tranquillité sur une jauge de 2 à 12 ans, les signaux réglementaires actifs et trois leviers de pivot concrets.",
+    diag_expl3_title:"SA FINALITÉ",
+    diag_expl3_body:"Vous aider à décider, pas à vous alarmer. Chaque résultat pointe vers des compétences à développer, des certifications à anticiper et des pivots possibles avant que la décision soit prise à votre place.",
     usage_intro:"<b>Usage des IA génératives en Suisse.</b> Sources : OFS Enquête ICT 2024, KPMG Swiss AI Survey 2024 (n=500 entreprises), Digitalswitzerland Digital Switzerland Index 2025.",
     usage_c1:"Adoption par tranche d'âge (OFS ICT 2024)",
     usage_c2:"Adoption en entreprise · KPMG Swiss AI Survey 2024",
@@ -1315,8 +1449,9 @@ const T18N={
   de:{
     tab_intro:"Über uns",tab_matrix:"Aufgabenexposition",tab_disp:"Exposition → Beschäftigung",
     tab_pred:"Prognosen (8)",tab_prod:"Produktivität & KI",
-    tab_usage:"KI-Nutzung Schweiz",tab_meth:"Methodik",tab_diag:"🔍 Mein KI-Diagnose",
-    lbl_domain:"Bereich",lbl_expo:"Expo",all:"Alle",liste:"Liste",
+    tab_usage:"KI-Nutzung Schweiz",tab_meth:"Methodik",tab_diag:"🔍 Mein Berufs-Bilanz",
+    lbl_domain:"Bereich",    scl_0:"0-2 Minimal",scl_1:"3-4 Gering",scl_2:"5-6 Moderat",scl_3:"7-8 Hoch",scl_4:"9-10 Sehr hoch",
+    lbl_expo:"Expo",all:"Alle",liste:"Liste",
     lgd_title:"Aufgabenexposition gegenüber KI",
     lgd_note:"Score = Aufgabenexposition · nicht = Stellenabbau-Wahrscheinlichkeit · Fläche = Beschäftigte SAKE 2024",
     metiers:"Berufe",emplois:"Beschäftigte",score_moyen:"Ø Score",tres_exposes:"stark exponiert",
@@ -1354,7 +1489,7 @@ const T18N={
     intro_ctx5:"Der <b>Jurabogen</b> konzentriert 65 000 Uhrmacher und Mikrotechniker mit geringer Substitutionsgefahr.",
     intro_ctx6:"Die CH-Arbeitslosenquote liegt bei <b>2,4% (SECO März 2026)</b>. Kein KI-Beschäftigungseffekt nachweisbar.",
     intro_how1:"<b>Register «Aufgabenexposition»</b> · Erkunden Sie die Treemap: Jedes Rechteck = ein Beruf, Fläche = Beschäftigte, Farbe = Exposition.",
-    intro_how2:"<b>Rohscore vs. Nettoscore</b> · Der ⚖-Knopf wechselt zwischen Rohscore und Nettoscore nach Regulierungspuffer.",
+    intro_how2:"<b>Expositionsfilter</b> · Filtern Sie nach Bereich, Expositionsniveau (0-3, 4-6, 7-10) oder Textsuche. Klicken Sie auf einen Beruf für Score-Details und Neuorientierungspfade.",
     intro_how3:"<b>Regulierungsfilter</b> · Isoliert Berufe unter einem bestimmten Organ (FINMA, nDSG, Swissmedic, KVG…).",
     intro_how4:"<b>Analyseregisterkarten</b> · Timeline, Prognosen, Produktivität, KI-Nutzung Schweiz und <b>🔍 KI-Diagnostik</b>.",
     badge_np2010:"91 Berufe NP 2010",badge_scoring:"Mehrquellen-Scoring T1–T4",badge_reg:"Regulierungsfaktor CH",
@@ -1366,8 +1501,21 @@ const T18N={
     th_score_col:"Score",th_couleur:"Farbe",th_interpretation:"Interpretation",th_exemples:"Beispiele",
     th_limite:"Grenze",th_impact:"Auswirkung",th_projet:"Projekt",th_auteur:"Autor",th_description:"Beschreibung",
     meth_compare_p:"Dieses Dashboard ist inspiriert vom Projekt <a href='https://indice-ia.fr' target='_blank' style='color:var(--acc2)'>indice-ia.fr</a>.",
-    diag_title:"MEIN KI-DIAGNOSE",
-    diag_sub:"Geben Sie Ihren Beruf ein, um Ihren Expositionsscore, Ihren Sicherheitshorizont und empfohlene Schweizer Bildungsinstitute zu erhalten.",
+    diag_expl1_title:"WOZU DIENT ES",
+    diag_expl1_body:"Die Exposition Ihrer täglichen Aufgaben gegenüber der Automatisierung messen, basierend auf offiziellen akademischen Daten. Kein allgemeiner Schätzwert, sondern ein Score auf Basis Ihres realen Berufsprofils.",
+    diag_expl2_title:"WIE ES FUNKTIONIERT",
+    diag_expl2_body:"Geben Sie Ihren Beruf in das untenstehende Feld ein. Sie erhalten einen Expositionsscore, einen Sicherheitshorizont auf einer Skala von 2 bis 12 Jahren und drei konkrete Umorientierungshebel.",
+    diag_expl3_title:"DAS ZIEL",
+    diag_expl3_body:"Ihnen helfen zu entscheiden, nicht zu alarmieren. Jedes Ergebnis verweist auf Kompetenzen, die entwickelt werden müssen, Zertifizierungen und mögliche Wechsel, bevor die Entscheidung für Sie getroffen wird.",
+    diag_title:"MEIN BERUFS-BILANZ",
+
+    diag_expl1_title:"WOFÜR ES DIENT",
+    diag_expl1_body:"Messen Sie die Exposition Ihrer täglichen Aufgaben gegenüber der Automatisierung, basierend auf offiziellen Daten. Kein allgemeiner Schätzwert, sondern ein Score auf Basis Ihres echten Berufsprofils.",
+    diag_expl2_title:"WIE MAN ES NUTZT",
+    diag_expl2_body:"Geben Sie Ihren Beruf unten ein. Sie erhalten einen Expositionsscore, einen Sicherheitshorizont (2–12 Jahre), aktive Regulierungssignale und drei konkrete Pivot-Hebel.",
+    diag_expl3_title:"SEIN ZWECK",
+    diag_expl3_body:"Ihnen helfen, Entscheidungen zu treffen — nicht zu alarmieren. Jedes Ergebnis zeigt Kompetenzen zum Entwickeln, Zertifizierungen zum Antizipieren und mögliche Pivots.",
+    diag_sub:"Verstehen Sie konkret, wie der digitale Wandel Ihren Beruf beeinflusst.",    diag_sub:"Verstehen Sie konkret, wie der digitale Wandel Ihren Beruf beeinflusst und was Sie jetzt tun können.",
     diag_placeholder:"Beruf suchen... z.B. Buchhalter, Pflegefachkraft, Entwickler",
     diag_noresult:"Kein Beruf für diese Suche gefunden.",
     diag_panel1:"Exposition & Score",diag_panel2:"Sicherheitshorizont",
@@ -1378,6 +1526,12 @@ const T18N={
     diag_hint:"Klicken Sie hier für vollständige Details im Register Aufgabenexposition →",
     diag_sources:"Quellen: ILO WP140 · Anthropic Economic Index 2026",
     diag_jobs_count:"91 Berufe referenziert",
+    diag_expl1_title:"WOZU DIENT ES",
+    diag_expl1_body:"Messen Sie die Exposition Ihrer täglichen Aufgaben gegenüber der Automatisierung, basierend auf offiziellen Schweizer akademischen Daten (ILO WP140, BFS, Anthropic 2026). Kein allgemeiner Schätzwert, sondern ein Score der auf Ihrem realen Berufsprofil aufbaut.",
+    diag_expl2_title:"WIE VERWENDEN",
+    diag_expl2_body:"Geben Sie Ihren Beruf in das untenstehende Feld ein. Sie erhalten einen Expositionsscore, einen Sicherheitshorizont auf einer Skala von 2 bis 12 Jahren, aktive Regulierungssignale und drei konkrete Neuorientierungspfade.",
+    diag_expl3_title:"DAS ZIEL",
+    diag_expl3_body:"Ihnen bei der Entscheidungsfindung helfen, nicht erschrecken. Jedes Ergebnis zeigt Kompetenzen, die entwickelt werden müssen, Zertifizierungen, die vorbereitet werden sollten und mögliche Pivots, bevor die Entscheidung für Sie getroffen wird.",
     usage_intro:"<b>Nutzung generativer KI in der Schweiz.</b> Quellen: BFS IKT-Erhebung 2024, KPMG Swiss AI Survey 2024, Digitalswitzerland Index 2025.",
     usage_c1:"Nutzung nach Altersgruppe (BFS IKT 2024)",
     usage_c2:"Unternehmensadoption · KPMG Swiss AI Survey 2024",
@@ -1389,8 +1543,9 @@ const T18N={
   it:{
     tab_intro:"Informazioni",tab_matrix:"Esposizione dei compiti",tab_disp:"Esposizione → Occupazione",
     tab_pred:"Previsioni (8)",tab_prod:"Produttività & IA",
-    tab_usage:"Uso IA Svizzera",tab_meth:"Metodologia",tab_diag:"🔍 La Mia Diagnosi IA",
-    lbl_domain:"Settore",lbl_expo:"Expo",all:"Tutti",liste:"Lista",
+    tab_usage:"Uso IA Svizzera",tab_meth:"Metodologia",tab_diag:"🔍 Il Mio Bilancio",
+    lbl_domain:"Settore",    scl_0:"0-2 Minima",scl_1:"3-4 Bassa",scl_2:"5-6 Moderata",scl_3:"7-8 Elevata",scl_4:"9-10 Molto elevata",
+    lbl_expo:"Expo",all:"Tutti",liste:"Lista",
     lgd_title:"Esposizione dei compiti all'IA",
     lgd_note:"Score = esposizione dei compiti · non = probabilità di perdita del lavoro · superficie = occupati RIFOS 2024",
     metiers:"professioni",emplois:"occupati",score_moyen:"score medio",tres_exposes:"molto esposti",
@@ -1428,7 +1583,7 @@ const T18N={
     intro_ctx5:"L'<b>arco del Giura</b> concentra 65 000 orologiai e microtecnici con bassa vulnerabilità alla sostituzione.",
     intro_ctx6:"Il tasso di disoccupazione CH resta al <b>2,4% (SECO marzo 2026)</b>. Nessun segnale di impatto IA rilevabile.",
     intro_how1:"<b>Scheda «Esposizione dei compiti»</b> · Esplora la Treemap: ogni rettangolo = una professione, superficie = occupati, colore = esposizione.",
-    intro_how2:"<b>Score grezzo vs score netto</b> · Il pulsante ⚖ alterna tra score grezzo e score netto dopo buffer regolatorio.",
+    intro_how2:"<b>Filtri di esposizione</b> · Filtra per settore, livello di esposizione (0-3, 4-6, 7-10) o ricerca testuale. Clicca su una professione per vedere il dettaglio del punteggio e i percorsi di reinvenzione.",
     intro_how3:"<b>Filtro regolatorio</b> · Isola le professioni soggette a un organismo specifico (FINMA, nLPD, Swissmedic, LaMal…).",
     intro_how4:"<b>Schede analitiche</b> · Timeline, Previsioni, Produttività, Uso IA Svizzera e <b>🔍 Diagnosi IA</b>.",
     badge_np2010:"91 professioni NP 2010",badge_scoring:"Scoring multi-fonti T1–T4",badge_reg:"Fattore regolatorio CH",
@@ -1440,8 +1595,21 @@ const T18N={
     th_score_col:"Score",th_couleur:"Colore",th_interpretation:"Interpretazione",th_exemples:"Esempi",
     th_limite:"Limite",th_impact:"Impatto",th_projet:"Progetto",th_auteur:"Autore",th_description:"Descrizione",
     meth_compare_p:"Questa dashboard si ispira al progetto <a href='https://indice-ia.fr' target='_blank' style='color:var(--acc2)'>indice-ia.fr</a>.",
-    diag_title:"LA MIA DIAGNOSI IA",
-    diag_sub:"Inserisci la tua professione per ottenere il tuo punteggio di esposizione, l'orizzonte di sicurezza e gli istituti svizzeri di formazione consigliati.",
+    diag_expl1_title:"A COSA SERVE",
+    diag_expl1_body:"Misurare l'esposizione dei tuoi compiti quotidiani all'automazione, sulla base di dati accademici ufficiali. Non una stima generica, ma un punteggio costruito sul tuo profilo professionale reale.",
+    diag_expl2_title:"COME USARLO",
+    diag_expl2_body:"Digita la tua professione nel campo sottostante. Ottieni un punteggio di esposizione, un orizzonte di tranquillità su una scala da 2 a 12 anni e tre leve di transizione concrete.",
+    diag_expl3_title:"LA SUA FINALITÀ",
+    diag_expl3_body:"Aiutarti a decidere, non ad allarmarti. Ogni risultato indica le competenze da sviluppare, le certificazioni da anticipare e i possibili cambiamenti prima che la decisione venga presa al tuo posto.",
+    diag_title:"IL MIO BILANCIO PROFESSIONALE",
+
+    diag_expl1_title:"A COSA SERVE",
+    diag_expl1_body:"Misurare l'esposizione dei tuoi compiti quotidiani all'automazione, sulla base di dati accademici ufficiali. Non una stima generalista, ma un punteggio costruito sul tuo profilo professionale reale.",
+    diag_expl2_title:"COME USARLO",
+    diag_expl2_body:"Digita la tua professione nel campo qui sotto. Ottieni un punteggio di esposizione, un orizzonte di tranquillità (2–12 anni), segnali regolatori attivi e tre leve di pivot concrete.",
+    diag_expl3_title:"IL SUO SCOPO",
+    diag_expl3_body:"Aiutarti a decidere, non ad allarmarti. Ogni risultato indica competenze da sviluppare, certificazioni da anticipare e pivot possibili.",
+    diag_sub:"Capire concretamente come la trasformazione digitale influisce sulla tua professione.",    diag_sub:"Capisci concretamente come la trasformazione digitale influenza la tua professione e cosa puoi fare adesso.",
     diag_placeholder:"Cerca una professione... es: contabile, infermiere, sviluppatore",
     diag_noresult:"Nessuna professione trovata per questa ricerca.",
     diag_panel1:"Esposizione & Score",diag_panel2:"Orizzonte di sicurezza",
@@ -1452,6 +1620,12 @@ const T18N={
     diag_hint:"Clicca qui per vedere i dettagli completi nella scheda Esposizione dei compiti →",
     diag_sources:"Fonti: ILO WP140 · Anthropic Economic Index 2026",
     diag_jobs_count:"91 professioni referenziate",
+    diag_expl1_title:"A COSA SERVE",
+    diag_expl1_body:"Misurare l'esposizione dei tuoi compiti quotidiani all'automazione, a partire da dati accademici ufficiali svizzeri (ILO WP140, UST, Anthropic 2026). Non una stima generalista, ma un punteggio costruito sul tuo profilo professionale reale.",
+    diag_expl2_title:"COME UTILIZZARLO",
+    diag_expl2_body:"Digita la tua professione nel campo sottostante. Ottieni un punteggio di esposizione, un orizzonte di sicurezza su una scala da 2 a 12 anni, i segnali regolatori attivi e tre leve di pivot concrete.",
+    diag_expl3_title:"LA SUA FINALITÀ",
+    diag_expl3_body:"Aiutarti a decidere, non allarmarti. Ogni risultato indica competenze da sviluppare, certificazioni da anticipare e pivot possibili prima che la decisione venga presa al tuo posto.",
     usage_intro:"<b>Uso dell'IA generativa in Svizzera.</b> Fonti: UST Rilevazione ICT 2024, KPMG Swiss AI Survey 2024, Digitalswitzerland Index 2025.",
     usage_c1:"Adozione per fascia d'età (UST ICT 2024)",
     usage_c2:"Adozione in azienda · KPMG Swiss AI Survey 2024",
@@ -1986,30 +2160,77 @@ function btreemap(){
   }))}).sum(d=>d.eff||1000).sort((a,b)=>b.value-a.value);
 
   const rows=Math.ceil(nested.length/3);
-  const H=Math.max(420,Math.min(580,rows*190));
+  const isMobile=window.innerWidth<=640;
+  const H=isMobile?Math.max(400,Math.min(500,rows*160)):Math.max(380,Math.min(520,rows*170));
   svg.setAttribute("viewBox",`0 0 ${W} ${H}`);svg.setAttribute("height",H);
 
   d3.treemap()
     .size([W,H])
     .paddingOuter(5)
-    .paddingTop(18)
+    .paddingTop(26)
     .paddingInner(2)
     .round(true)(root);
 
   const g=d3.select(svg);
 
-  // Domain group labels
+  // Domain group bandeaux — rounded header bands per category
+  const BAND_H = 22;
   root.children.forEach(domain=>{
-    g.append("text")
-      .attr("x",domain.x0+6).attr("y",domain.y0+13)
-      .style("font-size","11px").style("font-weight","500")
-      .style("font-family","'Inter',sans-serif")
-      .attr("fill",isDk?"rgba(255,255,255,0.25)":"rgba(0,0,0,0.28)")
-      .text(()=>{
-        const w=domain.x1-domain.x0;
-        const label=domain.data.name;
-        return w>60?label.substring(0,Math.floor(w/6.5)):"";
-      });
+    const dw = domain.x1 - domain.x0;
+    const dh = domain.y1 - domain.y0;
+    const color = DC[domain.data.code] || "#888";
+    const R = 7; // corner radius
+
+    // ── Outer rounded rect (border of the whole domain block) ──────────────
+    g.append("rect")
+      .attr("x", domain.x0).attr("y", domain.y0)
+      .attr("width", dw).attr("height", dh)
+      .attr("rx", R).attr("ry", R)
+      .attr("fill", "none")
+      .attr("stroke", color)
+      .attr("stroke-width", 1.5)
+      .attr("stroke-opacity", isDk ? 0.55 : 0.40);
+
+    // ── Colored header band ─────────────────────────────────────────────────
+    // Use a clipPath so the band has rounded top corners only
+    const clipId = "clip-" + domain.data.code;
+    const defs = g.append("defs");
+    defs.append("clipPath").attr("id", clipId)
+      .append("rect")
+        .attr("x", domain.x0).attr("y", domain.y0)
+        .attr("width", dw).attr("height", BAND_H + R)
+        .attr("rx", R).attr("ry", R);
+
+    g.append("rect")
+      .attr("x", domain.x0).attr("y", domain.y0)
+      .attr("width", dw).attr("height", BAND_H)
+      .attr("clip-path", `url(#${clipId})`)
+      .attr("fill", color)
+      .attr("fill-opacity", isDk ? 0.85 : 0.92);
+
+    // ── Domain name label inside the band ──────────────────────────────────
+    if(dw > 30){
+      // Adaptive font size: bigger cells = bigger text
+      const fSz = dw > 200 ? 11 : dw > 120 ? 10 : 9;
+      const charPx = fSz * 0.60; // slightly wider for uppercase
+      const maxChars = Math.max(3, Math.floor((dw - 14) / charPx));
+      const fullName = domain.data.name || "";
+      // Try full name first, abbreviate only if truly needed
+      const label = fullName.length <= maxChars
+        ? fullName
+        : fullName.substring(0, maxChars - 1) + "…";
+      g.append("text")
+        .attr("x", domain.x0 + 7)
+        .attr("y", domain.y0 + BAND_H / 2 + 1)
+        .attr("dominant-baseline", "middle")
+        .style("font-size", fSz + "px")
+        .style("font-weight", "700")
+        .style("font-family", "'Inter',sans-serif")
+        .style("letter-spacing", "0.2px")
+        .style("text-transform", "uppercase")
+        .attr("fill", "#fff")
+        .text(label);
+    }
   });
 
   // Job leaves
@@ -2029,7 +2250,7 @@ function btreemap(){
       }
       return scCol(ws);
     })
-    .attr("rx",0);
+    .attr("rx",4);
 
   // Text labels · Datawrapper principles: min 11px, consistent char width, proper padding
   leaves.each(function(d){
@@ -2397,12 +2618,18 @@ document.getElementById("ba").textContent=(allScores.reduce((a,b)=>a+b,0)/allSco
 // Methodology KPIs
 function renderMethKPIs(){
   const totalEff=D.reduce((a,j)=>a+j.eff,0);
+  // Also populate intro tab KPIs
+  const introEff=document.getElementById("intro-k-eff");
+  const introAvg=document.getElementById("intro-k-avg");
+  const fmtE=n=>n>=1e6?(n/1e6).toFixed(1)+"M":Math.round(n/1e3)+"K";
+  if(introEff)introEff.textContent=fmtE(totalEff);
   const avg=(allScores.reduce((a,b)=>a+b,0)/allScores.length);
   const pct=Math.round(D.filter(j=>getWScore(j)>=7).length/D.length*100);
   const fmtEff=n=>n>=1e6?(n/1e6).toFixed(1)+"M":Math.round(n/1e3)+"K";
   document.getElementById("mk-n").textContent=D.length;
   document.getElementById("mk-e").textContent=fmtEff(totalEff);
   document.getElementById("mk-s").textContent=avg.toFixed(1)+"/10";
+  const introAvgEl=document.getElementById("intro-k-avg");if(introAvgEl)introAvgEl.textContent=avg.toFixed(1)+"/10";
   document.getElementById("mk-h").textContent=pct+"%";
 }
 renderMethKPIs();
@@ -2607,7 +2834,7 @@ function diagRender(job) {
   document.getElementById("diag-noresult").style.display = "none";
 }
 
-function diagGoToMatrix() {
+window.diagGoToMatrix = function diagGoToMatrix() {
   if (!diagJob) return;
   document.querySelectorAll(".tab").forEach(t => t.classList.remove("on"));
   document.querySelectorAll(".tab-content").forEach(t => t.classList.remove("on"));
