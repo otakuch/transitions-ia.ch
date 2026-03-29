@@ -390,10 +390,14 @@ footer a{color:var(--tx2);text-decoration:none;}
   .chip{font-size:11px;padding:2px 9px;}
   .chip-d{font-size:11px;padding:2px 6px;}
   .srch{width:110px;font-size:12px;}
+  /* Domain chips scrollent horizontalement au lieu de wrapper */
+  #dchips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:calc(100vw - 28px);}
+  #dchips::-webkit-scrollbar{display:none;}
 
   /* Treemap + panel */
   .panel.open{width:100%;border-left:none;border-top:1px solid var(--br);}
   .main-wrap{flex-direction:column;}
+  .cwrap{overflow-x:hidden;}
   .pin{padding:12px 12px 12px;}
   .ptitle{font-size:14px;}
   .psn{font-size:20px;}
@@ -2163,7 +2167,7 @@ function btreemap(){
 
   const isDk=document.documentElement.getAttribute("data-theme")==="dark";
   const W=wrap.clientWidth||700;
-  const HPAD=8;  // horizontal padding
+  const HPAD=8;  // horizontal padding (both sides)
   const availW=W-HPAD*2;
 
   // ─── Build hierarchy: root → domains → jobs ───────────────────────
@@ -2187,7 +2191,8 @@ function btreemap(){
   const hFl=document.querySelector('.tb')?.offsetHeight||48;
   const hLg=document.querySelector('.lgd')?.offsetHeight||45;
   const hFt=document.querySelector('footer')?.offsetHeight||50;
-  const minH=Math.max(vph-hHd-hTb-hFl-hLg-hFt,400);
+  const hSb=document.getElementById('sbar')?.offsetHeight||0;
+  const minH=Math.max(vph-hHd-hTb-hFl-hLg-hFt-hSb,400);
   const H=Math.max(Math.ceil(totalArea/availW),minH);
 
   // ─── D3 treemap ───────────────────────────────────────────────────
@@ -2205,10 +2210,10 @@ function btreemap(){
   const NS="http://www.w3.org/2000/svg";
   const svg=svgEl;
   svg.setAttribute("viewBox",`0 0 ${availW} ${H}`);
-  svg.setAttribute("width","100%");
+  svg.setAttribute("width",availW);
   svg.setAttribute("height",H);
   svg.style.display="block";
-  svg.style.marginLeft=HPAD+"px";
+  svg.style.margin="0 "+HPAD+"px";
 
   const txMid=isDk?"rgba(255,255,255,0.88)":"rgba(255,255,255,0.96)";
   const txFaint=isDk?"rgba(255,255,255,0.55)":"rgba(255,255,255,0.7)";
