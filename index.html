@@ -267,7 +267,7 @@ html,body{background:var(--bg);color:var(--tx);font-family:'Inter',system-ui,san
 .prod-econ-bar-pct{font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--tx3);min-width:28px;}
 
 /* ── USAGE TAB ── */
-.usage-wrap{padding:16px 20px;}
+.usage-wrap{padding:20px 24px;}
 .usage-intro{font-size:14px;color:var(--tx2);line-height:1.7;max-width:760px;margin-bottom:16px;}
 .usage-intro b{color:var(--tx);font-weight:700;}
 .usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
@@ -345,7 +345,7 @@ footer a{color:var(--tx2);text-decoration:none;}
 /* ── MOBILE ≤640px ── */
 @media(max-width:640px){
   /* Padding reduction */
-  .tb,.lgd,.sbar,footer,.pred-wrap,.prod-wrap,.usage-wrap,.disp-wrap,.meth-wrap{padding-left:14px;padding-right:14px;}
+  .tb,.lgd,.sbar,footer,.pred-wrap,.prod-wrap,.usage-wrap,.disp-wrap,.meth-wrap,.intro-wrap,.diag-wrap{padding-left:14px;padding-right:14px;}
 
   /* Header: 2-row compact layout */
   .hd{flex-wrap:wrap;padding:8px 14px;gap:4px;align-items:flex-start;}
@@ -426,6 +426,41 @@ footer a{color:var(--tx2);text-decoration:none;}
   .rpopup-title{font-size:15px;}
   .rpopup-desc{font-size:12px;}
 
+  /* Intro tab */
+  .intro-wrap{padding-top:16px;padding-bottom:16px;}
+  .intro-hero{padding:18px 20px;margin-bottom:18px;border-radius:10px;}
+  .intro-hero-title{font-size:17px;}
+  .intro-hero-sub{font-size:12px;}
+  .intro-kpis{gap:8px;margin-bottom:18px;}
+  .intro-section-title{margin:16px 0 10px;}
+  .intro-cols{margin-bottom:18px;}
+  .intro-context-grid{margin-bottom:18px;}
+  .intro-how-step{padding:10px 12px;gap:10px;}
+  .intro-cta{padding:12px 14px;}
+  .intro-warning{font-size:11px;}
+
+  /* Diag tab */
+  .diag-wrap{padding-top:18px;padding-bottom:24px;}
+  .diag-volets{gap:12px;}
+
+  /* Prod tab */
+  .prod-bar-wrap{height:160px;}
+  .prod-bar-pct{font-size:12px;}
+  .prod-economists{padding:10px 12px;}
+
+  /* Usage tab */
+  .usage-wrap{padding-top:14px;padding-bottom:14px;}
+  .usage-intro{margin-bottom:10px;}
+
+  /* Disp tab */
+  .timeline-wrap{padding-left:22px;}
+  .tl-dot{left:-16px;}
+
+  /* Sbar */
+  .sbar{gap:10px;}
+  .sv{font-size:15px;}
+  .sk{font-size:10px;}
+
   /* Other tabs */
   .pred-grid{grid-template-columns:1fr;}
   .pred-num{font-size:22px;}
@@ -442,7 +477,19 @@ footer a{color:var(--tx2);text-decoration:none;}
   .meth-table td:first-child{white-space:normal;}
   .tl-title{font-size:13px;}
   .tl-body{font-size:12px;}
-  footer{font-size:11px;}
+
+  /* Footer */
+  footer{font-size:11px;flex-direction:column;gap:6px;}
+  footer .lang-sw{order:-1;}
+}
+
+/* ── TABLET 641–900px ── */
+@media(min-width:641px) and (max-width:900px){
+  .prod-grid{grid-template-columns:repeat(3,1fr);}
+  .prod-bar-wrap{height:160px;}
+  .intro-context-grid{grid-template-columns:1fr 1fr;}
+  .intro-kpis{grid-template-columns:1fr 1fr;}
+  .diag-volets{grid-template-columns:1fr;}
 }
 
 /* ── VERY SMALL ≤380px ── */
@@ -450,6 +497,9 @@ footer a{color:var(--tx2);text-decoration:none;}
   .hd-t h1{font-size:12px;}
   .tab{font-size:11px;padding:7px 9px;}
   .chip{font-size:11px;padding:2px 6px;}
+  .prod-grid{grid-template-columns:1fr;}
+  .prod-bar-wrap{height:140px;}
+  .intro-hero-title{font-size:15px;}
 }
 
 /* ── INTRO TAB ── */
@@ -2086,7 +2136,7 @@ function af(){
   if(adF!=="all")d=d.filter(x=>x.d===adF);
   if(asF!=="all"){const[mn,mx]=asF.split("-").map(Number);d=d.filter(x=>{const ws=getWScore(x);return ws>=mn&&ws<=mx;});}
   if(sqF){const q=sqF.toLowerCase();d=d.filter(x=>x.l.toLowerCase().includes(q)||DN[x.d].toLowerCase().includes(q));}
-  fil=d; lv?blist():btreemap(); uStats();
+  fil=d; uStats(); lv?blist():btreemap();
 }
 
 // Popup · quick summary on first click
