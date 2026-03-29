@@ -389,10 +389,14 @@ footer a{color:var(--tx2);text-decoration:none;}
   .chip{font-size:11px;padding:2px 9px;}
   .chip-d{font-size:11px;padding:2px 6px;}
   .srch{width:110px;font-size:12px;}
+  /* Domain chips scrollent horizontalement au lieu de wrapper */
+  #dchips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:calc(100vw - 28px);}
+  #dchips::-webkit-scrollbar{display:none;}
 
   /* Treemap + panel */
   .panel.open{width:100%;border-left:none;border-top:1px solid var(--br);}
   .main-wrap{flex-direction:column;}
+  .cwrap{overflow-x:hidden;}
   .pin{padding:12px 12px 12px;}
   .ptitle{font-size:14px;}
   .psn{font-size:20px;}
@@ -809,8 +813,8 @@ html,body{box-sizing:border-box;overflow-x:hidden;}
     <div class="intro-author">
       <div class="intro-author-av">NN</div>
       <div class="intro-author-info">
-        <b>Naully Nicolas</b> · Premier répondant · Expert IA &amp; Cybersécurité · Auteur <em>Guerill-iA</em><br>
-        <a href="https://naullynicolas.ch" target="_blank">naullynicolas.ch</a> · <a href="/cdn-cgi/l/email-protection#5221332b3a3b123c33273e3e2b3c3b313d3e33217c313a"><span class="__cf_email__" data-cfemail="691a081001002907081c05051007000a0605081a470a01">[email&#160;protected]</span></a> · <a href="https://www.fnac.ch" target="_blank">Guerill-iA sur Fnac</a>
+        <b>Naully Nicolas</b> · consultant &amp; conférencier IA · Auteur de &ldquo;<em>Guerill-iA</em>&rdquo;<br>
+        <a href="https://naullynicolas.ch" target="_blank">naullynicolas.ch</a> · <a href="mailto:sayhi@naullynicolas.ch">sayhi@naullynicolas.ch</a>
       </div>
     </div>
 
@@ -1168,7 +1172,92 @@ html,body{box-sizing:border-box;overflow-x:hidden;}
 
 
 
+<!-- ═══════════════════════════════════════════════════════ TAB 8: DIAGNOSTIC IA ═══ -->
+<div id="tab-diag" class="tab-content">
+  <div class="diag-wrap">
 
+    <!-- HERO BILAN -->
+    <div class="diag-hero">
+      <div class="diag-hero-title">MON BILAN MÉTIER</div>
+      <div class="diag-hero-sub">Comprenez concrètement comment la transformation numérique affecte votre métier · et ce que vous pouvez faire dès maintenant.</div>
+
+      <!-- TROIS CARTES D'EXPLICATION -->
+      <div class="diag-explain-grid">
+        <div class="diag-explain-card">
+          <div class="diag-explain-num">①</div>
+          <div class="diag-explain-label">À QUOI ÇA SERT</div>
+          <div class="diag-explain-text">Mesurer l'exposition de vos tâches quotidiennes à l'automatisation, à partir de données académiques officielles · pas d'estimation généraliste, mais un score construit sur votre profil de métier réel.</div>
+        </div>
+        <div class="diag-explain-card">
+          <div class="diag-explain-num">②</div>
+          <div class="diag-explain-label">COMMENT L'UTILISER</div>
+          <div class="diag-explain-text">Tapez votre métier dans le champ ci-dessous. Vous obtenez un score d'exposition, un horizon de tranquillité estimé sur une jauge de 2 à 12 ans, les signaux réglementaires actifs, et trois leviers de pivot concrets.</div>
+        </div>
+        <div class="diag-explain-card">
+          <div class="diag-explain-num">③</div>
+          <div class="diag-explain-label">SA FINALITÉ</div>
+          <div class="diag-explain-text">Vous aider à décider · pas à vous alarmer. Chaque résultat pointe vers des compétences à développer, des certifications à anticiper, et des pivots possibles avant que la décision soit prise à votre place.</div>
+        </div>
+      </div>
+
+      <!-- BARRE DE RECHERCHE -->
+      <div class="diag-search-row">
+        <div class="diag-search-box">
+          <span class="diag-search-icon">🔍</span>
+          <input type="search" id="diag-srch" class="diag-input" placeholder="Ex : Comptable, Infirmier, Développeur logiciel…" autocomplete="off">
+          <div class="diag-autocomplete" id="diag-ac"></div>
+        </div>
+      </div>
+      <div class="diag-search-meta">91 métiers référencés · Sources académiques T1 · ILO WP140 · Brynjolfsson/Stanford 2025</div>
+      <div class="diag-no-result" id="diag-noresult" style="display:none">Aucun métier trouvé. Essayez un autre terme.</div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="diag-results" id="diag-results" style="display:none">
+
+      <!-- JOB HEADER -->
+      <div class="diag-job-header" id="diag-job-header"></div>
+
+      <div class="diag-volets">
+
+        <!-- VOLET 1 : ANALYSE DU MÉTIER -->
+        <div class="diag-volet">
+          <div class="diag-volet-hd" style="background:var(--t1)">
+            <span class="diag-volet-num">1</span>
+            <span class="diag-volet-name">Analyse du métier</span>
+          </div>
+          <div class="diag-volet-body" id="diag-v1"></div>
+        </div>
+
+        <!-- VOLET 2 : PISTES DE TRANSITION -->
+        <div class="diag-volet">
+          <div class="diag-volet-hd" style="background:var(--t2)">
+            <span class="diag-volet-num">2</span>
+            <span class="diag-volet-name">Pistes de transition</span>
+          </div>
+          <div class="diag-volet-body" id="diag-v2"></div>
+        </div>
+
+        <!-- VOLET 3 : FORMATIONS EN SUISSE -->
+        <div class="diag-volet">
+          <div class="diag-volet-hd" style="background:var(--t3)">
+            <span class="diag-volet-num">3</span>
+            <span class="diag-volet-name">Se former en Suisse</span>
+          </div>
+          <div class="diag-volet-body" id="diag-v3"></div>
+        </div>
+
+      </div><!-- /diag-volets -->
+    </div><!-- /diag-results -->
+
+  </div><!-- /diag-wrap -->
+</div>
+
+
+<footer>
+  <span>Sources : <a href="https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure" target="_blank">ILO WP140 · OIT/NASK 2025</a> · <a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/travail-remuneration/enquetes/espa.html" target="_blank">ESPA 2024 · OFS</a> · <a href="https://www.bfs.admin.ch/bfs/fr/home/statistiques/travail-remuneration/enquetes/lse.html" target="_blank">ESS 2022 · OFS</a> · NP 2010 (OFS) · SECO 2024 · KPMG Swiss AI Survey 2024 · OFS ICT 2024 · Avenir Suisse 2024 · BIS WP 1239 (2025) · NBER w31161 · NBER w34851</span>
+  <span style="margin-left:auto;opacity:.5">transitions-ia.ch · Snapshot mars 2026 · <a href="https://naullynicolas.ch" target="_blank" style="color:inherit">Naully Nicolas</a> · consultant &amp; conférencier IA · Auteur de &ldquo;Guerill-iA&rdquo;</span>
+</footer>
 
 
 <!-- ── POPUP SUMMARY ── -->
